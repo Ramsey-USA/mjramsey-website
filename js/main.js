@@ -1,25 +1,30 @@
 // Main JavaScript for Matt Ramsey's Professional Website
 
-document.addEventListener('DOMContentLoaded', function() {
-    // Mobile menu toggle
+document.addEventListener('DOMContentLoaded', function () {
     const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-    const navMenu = document.querySelector('nav ul');
-    
+    const navMenu = document.querySelector('.nav-menu');
+
+    // Toggle mobile menu
     if (mobileMenuBtn) {
-        mobileMenuBtn.addEventListener('click', function() {
+        mobileMenuBtn.addEventListener('click', function () {
             navMenu.classList.toggle('active');
         });
     }
-    
+
+    // Close mobile menu when clicking a link
+    navMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', function () {
+            navMenu.classList.remove('active');
+        });
+    });
+
     // Close mobile menu when clicking outside
-    document.addEventListener('click', function(event) {
+    document.addEventListener('click', function (event) {
         if (!event.target.closest('nav') && !event.target.closest('.mobile-menu-btn')) {
-            if (navMenu.classList.contains('active')) {
-                navMenu.classList.remove('active');
-            }
+            navMenu.classList.remove('active');
         }
     });
-    
+
     // Smooth scrolling for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
@@ -194,3 +199,15 @@ document.addEventListener('DOMContentLoaded', function() {
         return emailRegex.test(email);
     }
 });
+
+/* Animations */
+.animate {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.animate.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
