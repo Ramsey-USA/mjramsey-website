@@ -16,19 +16,36 @@ body {
     padding: 0;
     box-sizing: border-box;
     color: #333; /* Dark Gray */
-    background-color: #ecf0f1; /* Light Gray */
+    background-image: url('images/website-background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
     line-height: 1.6;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3));
+    z-index: -1;
 }
 
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Lato', sans-serif;
     font-weight: 700;
-    color: var(--dark-blue);
+    color: #2c3e50;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 p, ul, li {
-    color: var(--dark-gray);
+    color: #555;
     line-height: 1.6;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 a {
@@ -52,7 +69,7 @@ a:hover {
 
 /* Header & Navigation */
 header {
-    background: var(--dark-blue);
+    background-color: rgba(44, 62, 80, 0.85);
     color: var(--light-gray);
     border-bottom: var(--primary-green) 4px solid;
     padding-top: 15px;
@@ -75,7 +92,8 @@ header nav {
 header .logo {
     font-size: 1.8em;
     font-weight: bold;
-    color: #1abc9c;
+    color: #1abc9c; /* Green */
+    text-transform: uppercase;
 }
 
 header ul {
@@ -112,19 +130,21 @@ header a:hover {
 
 /* Main Content Sections */
 main {
-    padding-top: 20px; /* Add padding to avoid content hiding behind sticky header */
+    padding-top: 0; /* Remove padding at the top of the main section */
 }
 
 section {
-    padding: 60px 0;
-    border-bottom: 1px solid #bdc3c7; /* Medium Gray border */
+    background-color: rgba(255, 255, 255, 0.85); /* White with 85% opacity */
+    padding: 40px 0; /* Reduce padding for sections */
+    border-bottom: 1px solid rgba(189, 195, 199, 0.5); /* Semi-transparent border */
 }
 
 section:nth-child(even) {
-    background-color: #fff; /* White background */
+    background-color: rgba(255, 255, 255, 0.85); /* White with 85% opacity */
 }
+
 section:nth-child(odd) {
-    background-color: #f8f9fa; /* Very Light Gray background */
+    background-color: rgba(248, 249, 250, 0.85); /* Very Light Gray with 85% opacity */
 }
 
 section h2 {
@@ -138,7 +158,7 @@ section h2 {
 
 /* Hero Section */
 #hero {
-    background: #34495e; /* Darker Blue-Gray */
+    background-color: rgba(52, 73, 94, 0.8); /* Darker Blue-Gray with 80% opacity */
     color: #fff;
     text-align: center;
     padding: 80px 0;
