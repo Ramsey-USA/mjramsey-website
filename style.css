@@ -133,9 +133,10 @@ main {
     padding-top: 0; /* Remove padding at the top of the main section */
 }
 
+/* General Section Styles */
 section {
-    background-color: rgba(255, 255, 255, 0.85); /* White with 85% opacity */
-    padding: 40px 0; /* Reduce padding for sections */
+    background-color: rgba(255, 255, 255, 0.7); /* White with 70% opacity */
+    padding: 40px 0;
     border-bottom: 1px solid rgba(189, 195, 199, 0.5); /* Semi-transparent border */
 }
 
@@ -144,7 +145,7 @@ section:nth-child(even) {
 }
 
 section:nth-child(odd) {
-    background-color: rgba(248, 249, 250, 0.85); /* Very Light Gray with 85% opacity */
+    background-color: rgba(248, 249, 250, 0.7); /* Very Light Gray with 70% opacity */
 }
 
 section h2 {
@@ -200,7 +201,8 @@ section h2 {
 
 /* About Section */
 #about {
-    background-color: #fff;
+    background-color: rgba(255, 255, 255, 0.6); /* White with 60% opacity */
+    border-bottom: 4px solid #1abc9c; /* Green line at the bottom */
 }
 #about .container {
     max-width: 1000px;
@@ -212,6 +214,10 @@ section h2 {
 }
 
 /* Skills Section */
+#skills {
+    background-color: rgba(248, 249, 250, 0.6); /* Very Light Gray with 60% opacity */
+}
+
 #skills h3 {
     text-align: center;
     color: var(--dark-blue);
@@ -291,6 +297,10 @@ section h2 {
     box-shadow: 0 2px 5px rgba(0,0,0,0.05);
 }
 
+#portfolio h2 {
+    color: #2980b9; /* Medium Blue */
+}
+
 /* Education Section */
 .education-item, .certification-list, .award-list {
     background: #fff;
@@ -302,8 +312,15 @@ section h2 {
 }
 
 #education h3 {
-    color: #2c3e50; /* Dark Blue */
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #2980b9; /* Medium Blue */
     margin-bottom: 10px;
+}
+
+#education h2 {
+    color: #2980b9; /* Medium Blue */
 }
 
 .education-item p, .certification-list li, .award-list li {
@@ -391,7 +408,7 @@ timeline-item::before {
 
 .timeline-content h3 {
     font-size: 1.5rem;
-    color: #2c3e50; /* Dark Blue */
+    color:     --medium-blue: #2980b9;
     margin-bottom: 10px;
 }
 
@@ -402,41 +419,43 @@ timeline-item::before {
 
 /* Contact Section */
 #contact {
-    background-color: #34495e; /* Darker Blue-Gray */
-    color: #ecf0f1; /* Light Gray */
+    background-color: #2c3e50; /* Solid Dark Blue */
+    color: #ecf0f1; /* Light Gray for text */
+    padding: 60px 0;
 }
 
 #contact h2 {
-    color: #fff;
+    color: #fff; /* White for headings */
 }
 
 #contact p {
     text-align: center;
     font-size: 1.2em;
-    color: #ecf0f1;
+    color: #ecf0f1; /* Light Gray for text */
 }
 
 #contact a {
-    color: #1abc9c; /* Green */
+    color: #1abc9c; /* Green for links */
 }
 
 #contact a:hover {
-    color: #fff;
+    color: #fff; /* White on hover */
 }
 
 /* Footer */
 footer {
-    background: #2c3e50; /* Dark Blue */
-    color: #bdc3c7; /* Medium Gray */
+    background-color: #1a252f; /* Solid Darker Blue */
+    color: #bdc3c7; /* Medium Gray for text */
     text-align: center;
     padding: 25px 0;
-    margin-top: 0; /* Removed margin */
-    border-top: 3px solid var(--dark-green);
+    margin-top: 0; /* Remove any margin */
+    border-top: 3px solid var(--dark-green); /* Green border for accent */
 }
 
 footer p {
     margin: 0;
     font-size: 0.9em;
+    color: #bdc3c7; /* Medium Gray for text */
 }
 
 /* Basic Responsive */
@@ -581,5 +600,9 @@ footer p {
 
 .contact-links a:hover {
     color: var(--dark-green);
+}
+
+#experience h2 {
+    color: #2980b9; /* Medium Blue */
 }
 
