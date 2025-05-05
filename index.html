@@ -12,7 +12,7 @@
 <body>
     <header>
         <nav>
-            <div class="logo">Matt Ramsey</div>
+            <div class="menu-toggle">☰</div>
             <ul>
                 <li><a href="#hero">Home</a></li>
                 <li><a href="#about">About</a></li>
@@ -81,25 +81,25 @@
             <div class="container">
                 <h2>Experience Timeline</h2>
                 <div class="timeline">
-                    <div class="timeline-item" data-year="2001-2007" data-description="Military | US Navy"></div>
-                    <div class="timeline-item" data-year="2007-2014" data-description="Fitness Entrepreneur"></div>
                     <div class="timeline-item">
-                        <div class="timeline-content">
-                            <h3>2014-2024</h3>
-                            <p>Construction Manager</p>
-                        </div>
+                        <h3>2001-2007</h3>
+                        <p>Military | US Navy</p>
                     </div>
                     <div class="timeline-item">
-                        <div class="timeline-content">
-                            <h3>2022-Present</h3>
-                            <p>ASU & CBC Scholar</p>
-                        </div>
+                        <h3>2007-2014</h3>
+                        <p>Fitness Entrepreneur</p>
                     </div>
                     <div class="timeline-item">
-                        <div class="timeline-content">
-                            <h3>Future Plans:</h3>
-                            <p>AI Marketing Solutions</p>
-                        </div>
+                        <h3>2014-2024</h3>
+                        <p>Construction Manager</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h3>2022-Present</h3>
+                        <p>ASU & CBC Scholar</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h3>Future Plans</h3>
+                        <p>AI Marketing Solutions</p>
                     </div>
                 </div>
             </div>
@@ -259,7 +259,16 @@
 
     <footer>
         <p>&copy; 2025 Matt Ramsey. All rights reserved.</p>
-        
+        <script src="js/script.js"></script>
+        <script>
+            // Mobile menu toggle
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navMenu = document.querySelector('nav ul');
+
+            menuToggle.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+            });
+        </script>
     </footer>
 
      <!-- No JS needed for now -->
