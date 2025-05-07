@@ -278,34 +278,65 @@ section h2 {
 
 /* Skills Section */
 #skills {
-    background-color: rgba(248, 249, 250, 0.6); /* Very Light Gray with 60% opacity */
+    background-color: #f8f9fa; /* Light Gray Background */
+    padding: 60px 20px;
+    text-align: center;
 }
 
-#skills h3 {
-    text-align: center;
-    color: var(--dark-blue);
-    font-size: 1.8rem;
-    font-weight: bold;
+#skills .section-heading {
+    font-size: 2.5em;
+    color: #2980b9; /* Medium Blue */
+    margin-bottom: 40px;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
+    gap: 20px;
+}
+
+.skills-card {
+    background-color: transparent; /* Allow the background to show behind the boxes */
+    border: 1px solid #ddd; /* Light border for structure */
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: none; /* Remove shadow */
+    transition: none; /* Remove hover transition */
+}
+
+.skills-card h3 {
+    font-size: 1.8em;
+    color: #1abc9c; /* Green */
     margin-bottom: 15px;
 }
 
-#skills ul {
+.skills-card ul {
     list-style: none;
     padding: 0;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-bottom: 20px;
+    margin: 0;
+    text-align: left;
 }
 
-#skills li {
-    background: #16a085; /* Darker Green */
-    color: #fff;
-    padding: 10px 20px;
-    margin: 8px;
-    border-radius: 20px;
-    font-size: 1.05em;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+.skills-card ul li {
+    font-size: 1.1em;
+    color: #555; /* Dark Gray */
+    margin-bottom: 10px;
+    padding-left: 0; /* Remove padding for alignment */
+    position: relative;
+}
+
+/* Skills Section Icons */
+.skills-card ul li i {
+    color: #1abc9c; /* Green for icons */
+    margin-right: 10px; /* Space between icon and text */
+    font-size: 1.2em; /* Adjust icon size */
+    vertical-align: middle; /* Align icon with text */
+    transition: color 0.3s ease, transform 0.3s ease; /* Smooth hover effect */
+}
+
+.skills-card ul li i:hover {
+    color: #16a085; /* Darker Green on hover */
+    transform: scale(1.2); /* Slight zoom effect on hover */
 }
 
 /* Skills Section Subheaders */
