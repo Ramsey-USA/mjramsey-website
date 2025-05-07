@@ -10,6 +10,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
     <script src="js/script.js"></script>
+    <style>
+        .institution-logo {
+            width: 100px;
+            height: auto;
+            margin-bottom: 10px;
+            display: block;
+            border-radius: 5px; /* Optional: Add rounded corners */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle shadow */
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -264,59 +274,96 @@
             <div class="container">
                 <h2 class="section-heading">Portfolio / Projects</h2>
                 <p class="text-center mb-30">Highlights of key projects demonstrating operational leadership, business development, and technical execution.</p>
-                <div class="project">
-                    <h3>Ramsey Renovations (Owner/GC)</h3>
-                    <p>Successfully managed over 25 residential renovation projects valued at $1M+ over 10 years. Responsible for all business operations, client acquisition, contract negotiation, project planning, execution, and quality control.</p>
-                    
+                <div class="project-grid">
+                    <!-- Project 1 -->
+                    <div class="project">
+                        <h3>Ramsey Renovations (Owner/GC)</h3>
+                        <img src="https://via.placeholder.com/300x200" alt="Renovation Project" class="project-image">
+                        <p>Successfully managed over 25 residential renovation projects valued at $1M+ over 10 years. Responsible for all business operations, client acquisition, contract negotiation, project planning, execution, and quality control.</p>
+                        <a href="#" class="cta-button">View Details</a>
+                    </div>
+
+                    <!-- Project 2 -->
+                    <div class="project">
+                        <h3>Airbnb Property Management (Super Host)</h3>
+                        <img src="https://via.placeholder.com/300x200" alt="Airbnb Project" class="project-image">
+                        <p>Achieved and maintained Super Host status with a 92%+ occupancy rate and 5-star guest ratings through strategic pricing, exceptional guest service, and efficient operational logistics (cleaning, maintenance, supply chain).</p>
+                        <a href="#" class="cta-button">View Details</a>
+                    </div>
+
+                    <!-- Project 3 -->
+                    <div class="project">
+                        <h3>ME Fitness (Owner/Lead Trainer)</h3>
+                        <img src="https://via.placeholder.com/300x200" alt="Fitness Project" class="project-image">
+                        <p>Launched and grew a fitness business, increasing clientele by over 30% through effective digital marketing (website development) and sales strategies. Developed a nationally recognized personal trainer certification program.</p>
+                        <a href="#" class="cta-button">View Details</a>
+                    </div>
+
+                    <!-- Project 4 -->
+                    <div class="project">
+                        <h3>Military Logistics (Navy Veteran)</h3>
+                        <img src="https://via.placeholder.com/300x200" alt="Military Logistics Project" class="project-image">
+                        <p>Led a 12-person team maintaining four 60-ton aircraft elevators on the USS Theodore Roosevelt (CVN-71), achieving 100% operational uptime across two 6-month deployments. Coordinated logistics for $5M+ in assets.</p>
+                        <a href="#" class="cta-button">View Details</a>
+                    </div>
                 </div>
-                <div class="project">
-                    <h3>Airbnb Property Management (Super Host)</h3>
-                    <p>Achieved and maintained Super Host status with a 92%+ occupancy rate and 5-star guest ratings through strategic pricing, exceptional guest service, and efficient operational logistics (cleaning, maintenance, supply chain).</p>
-                     
-               </div>
-                <div class="project">
-                    <h3>ME Fitness (Owner/Lead Trainer)</h3>
-                    <p>Launched and grew a fitness business, increasing clientele by over 30% through effective digital marketing (website development) and sales strategies. Developed a nationally recognized personal trainer certification program.</p>
-                     
-               </div>
             </div>
         </section>
 
         <section id="education">
-            <div class="container">
-                <h2 class="section-heading">Education & Certifications</h2>
-                <div class="education-item">
-                    <h3>Arizona State University, Phoenix, AZ</h3>
-                    <p><strong>Bachelor of Applied Science (BAS) in Operations Management</strong> (Minor in Project Management)</p>
-                    <p>Expected Graduation: May 2026 | GPA: 3.8/4.0 | Phi Theta Kappa</p>
+    <div class="container">
+        <h2 class="section-heading">Education & Certifications</h2>
+        <div class="education-grid">
+            <!-- Education Item 1 -->
+            <div class="education-card">
+                <img src="images/asu-logo.png" alt="ASU Logo" class="institution-logo">
+                <h3><i class="fas fa-university"></i> Arizona State University</h3>
+                <p><strong>Bachelor of Applied Science (BAS) in Operations Management</strong> (Minor in Project Management)</p>
+                <p>Expected Graduation: May 2026 | GPA: 3.8/4.0 | Phi Theta Kappa</p>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 80%; background-color: #8C1D40;"></div> <!-- ASU Maroon -->
                 </div>
-                 <div class="education-item">
-                    <h3>ASU Global Accelerator, Phoenix, AZ</h3>
-                    <p><strong>Certifications In Progress</strong> (Expected Completion: Dec 2025)</p>
-                    <p>Intercultural Competency, Web Development, AI-Powered Javascript, AI Professional Skills, Intercultural Skills, E-commerce Marketing, Social Media & Search</p>
-                </div>
-                <div class="education-item">
-                    <h3>Columbia Basin Community College, Pasco, WA</h3>
-                    <p><strong>Associate of Applied Science (AAS) in Business Administration</strong></p>
-                    <p>Graduated: Dec 2023 | Graduated with Honors | GPA: 3.88/4.0 | Phi Theta Kappa</p>
-                </div>
-                
-                <h3>Certifications & Safety</h3>
-                <ul class="certification-list">
-                    <li>OSHA 30 Certified</li>
-                    <li>Adult and Pediatric First Aid/CPR/AED Certified</li>
-                    <li>Proven Jobs (PSA) Certified</li>
-                    <li>Blackwater Tactical Driving Certified</li>
-                </ul>
-
-                <h3>Awards & Recognition</h3>
-                 <ul class="award-list">
-                    <li>Navy Achievement Medals (x2)</li>
-                    <li>Sailor of the Quarter</li>
-                    <li>Phi Theta Kappa Honor Society member (x2)</li>
-                </ul>
             </div>
-        </section>
+
+            <!-- Education Item 2 -->
+            <div class="education-card">
+                <img src="images/asu-global-logo.png" alt="ASU Global Accelerator Logo" class="institution-logo">
+                <h3><i class="fas fa-laptop-code"></i> ASU Global Accelerator</h3>
+                <p><strong>Certifications In Progress</strong> (Expected Completion: Dec 2025)</p>
+                <p>Intercultural Competency, Web Development, AI-Powered Javascript, AI Professional Skills, Intercultural Skills, E-commerce Marketing, Social Media & Search</p>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 10%; background-color: #FFC627;"></div> <!-- ASU Gold -->
+                </div>
+            </div>
+
+            <!-- Education Item 3 -->
+            <div class="education-card">
+                <img src="images/cbc-logo.png" alt="CBC Logo" class="institution-logo">
+                <h3><i class="fas fa-graduation-cap"></i> Columbia Basin Community College</h3>
+                <p><strong>Associate of Applied Science (AAS) in Business Administration</strong></p>
+                <p>Graduated: Dec 2023 | Graduated with Honors | GPA: 3.88/4.0 | Phi Theta Kappa</p>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 100%; background-color: #0078D7;"></div> <!-- Bright Blue -->
+                </div>
+            </div>
+        </div>
+
+        <h3>Certifications & Safety</h3>
+        <ul class="certification-list">
+            <li><i class="fas fa-shield-alt"></i> OSHA 30 Certified</li>
+            <li><i class="fas fa-heartbeat"></i> Adult and Pediatric First Aid/CPR/AED Certified</li>
+            <li><i class="fas fa-tools"></i> Proven Jobs (PSA) Certified</li>
+            <li><i class="fas fa-car"></i> Blackwater Tactical Driving Certified</li>
+        </ul>
+
+        <h3>Awards & Recognition</h3>
+        <ul class="award-list">
+            <li><i class="fas fa-medal"></i> Navy Achievement Medals (x2)</li>
+            <li><i class="fas fa-star"></i> Sailor of the Quarter</li>
+            <li><i class="fas fa-award"></i> Phi Theta Kappa Honor Society member (x2)</li>
+        </ul>
+    </div>
+</section>
 
         <section id="contact">
             <div class="container">

@@ -506,36 +506,80 @@ section h2::after {
 }
 
 /* Portfolio Section */
-#portfolio h2 {
-    font-size: 2.8rem;
-    color: var(--medium-blue);
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    margin-bottom: 40px;
-    position: relative;
+#portfolio {
+    padding: 60px 20px;
+    background: #f8f9fa; /* Light Gray Background */
 }
 
-#portfolio h2::after {
-    content: '';
-    display: block;
-    width: 100px;
-    height: 4px;
-    background-color: var(--primary-green);
-    margin: 10px auto 0;
-    border-radius: 2px;
+#portfolio .section-heading {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #2980b9; /* Medium Blue */
+    margin-bottom: 40px;
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
 }
 
 .project {
-    background: var(--light-gray);
-    padding: 25px;
-    margin-bottom: 25px;
-    border: 1px solid var(--medium-gray);
+    border: 1px solid #ddd;
     border-radius: 5px;
-    text-align: left;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    padding: 15px;
+    background: #fff;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.project h3 {
+    font-size: 1.5rem;
+    color: #2980b9;
+    margin-bottom: 10px;
+}
+
+.project img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.project p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #1abc9c;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #16a085;
+    transform: scale(1.05);
 }
 
 /* Education Section */
+#education {
+    padding: 60px 20px;
+    background: #f8f9fa; /* Light Gray Background */
+}
+
 #education h2 {
     font-size: 2.8rem;
     color: var(--medium-blue);
@@ -553,6 +597,13 @@ section h2::after {
     background-color: var(--primary-green);
     margin: 10px auto 0;
     border-radius: 2px;
+}
+
+#education .section-heading {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #2980b9; /* Medium Blue */
+    margin-bottom: 40px;
 }
 
 .education-item, .certification-list, .award-list {
@@ -577,6 +628,32 @@ section h2::after {
 }
 
 .certification-list, .award-list {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.certification-list li, .award-list li {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.certification-list li i, .award-list li i {
+    color: #1abc9c; /* Green for icons */
+    margin-right: 10px;
+    font-size: 1.2rem;
+}
+
+.certification-list li:hover, .award-list li:hover {
+    color: #1abc9c;
+    transform: scale(1.05);
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.certification-list, .award-list {
     list-style: none; /* Remove bullets */
     margin-left: 0; /* Remove left margin */
     padding-left: 0; /* Remove padding */
@@ -586,6 +663,38 @@ section h2::after {
     border-left: 6px solid #1abc9c; /* Green accent */
     border-radius: 5px;
     box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+}
+
+.education-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.education-card {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+    background: #fff;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.education-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.education-card h3 {
+    font-size: 1.5rem;
+    color: #2980b9;
+    margin-bottom: 10px;
+}
+
+.education-card p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 10px;
 }
 
 /* Experience Timeline */
@@ -1011,6 +1120,20 @@ footer .contact-links span {
     border-radius: 5px; /* Rounded corners */
 }
 
+/* Progress Bar Styles */
+.progress-bar {
+    background: #f0f0f0; /* Light Gray Background */
+    border-radius: 5px;
+    overflow: hidden;
+    height: 10px;
+    margin-top: 10px;
+}
+
+.progress {
+    height: 100%;
+    border-radius: 5px;
+}
+
 .accordion {
     border: 1px solid #ddd;
     border-radius: 5px;
@@ -1149,5 +1272,14 @@ footer .contact-links span {
         max-height: 500px; /* Adjust based on content */
         opacity: 1;
     }
+}
+
+.institution-logo {
+    width: 100px;
+    height: auto;
+    margin-bottom: 10px;
+    display: block;
+    border-radius: 5px; /* Optional: Add rounded corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle shadow */
 }
 
