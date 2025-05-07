@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
 </head>
 <body>
     <header>
@@ -30,11 +31,12 @@
             <h1>Matt Ramsey</h1>
             <p>Project & Operations Manager | Navy Veteran</p>
             <p class="tagline">Driving efficiency and growth through strategic leadership and technical expertise.</p>
-            <div class="contact-info">
-                <span><a href="mailto:mjramse1@asu.edu">mjramse1@asu.edu</a></span> | 
-                <span>(123) 456-7890</span> | 
-                <span>Richland, WA</span>
+            <div class="contact-links">
+                <a href="mailto:mjramse1@asu.edu"><i class="fas fa-envelope"></i> mjramse1@asu.edu</a>
+                <span>|</span>
+                <a href="tel:+11234567890"><i class="fas fa-phone"></i> (123) 456-7890</a>
             </div>
+            <a href="#about" class="cta-button">Learn More</a>
         </section>
 
         <section id="about">
@@ -252,28 +254,17 @@
             <div class="container">
                 <h2>Get In Touch</h2>
                 <p>Interested in collaborating or learning more about my experience? Feel free to reach out!</p>
-                <p class="contact-links">
-                    <a href="mailto:mjramse1@asu.edu">mjramse1@asu.edu</a> | 
-                    <a href="tel:+11234567890">(123) 456-7890</a>
-                </p>
+                <div class="contact-links">
+                    <a href="mailto:mjramse1@asu.edu"><i class="fas fa-envelope"></i> mjramse1@asu.edu</a>
+                    <span>|</span>
+                    <a href="tel:+11234567890"><i class="fas fa-phone"></i> (123) 456-7890</a>
+                </div>
             </div>
         </section>
     </main>
 
     <footer>
         <p>&copy; 2025 Matt Ramsey. All rights reserved.</p>
-        <script src="js/script.js"></script>
-        <script>
-            // Mobile menu toggle
-            const menuToggle = document.querySelector('.menu-toggle');
-            const navMenu = document.querySelector('nav ul');
-
-            menuToggle.addEventListener('click', () => {
-                navMenu.classList.toggle('active');
-            });
-        </script>
     </footer>
-
-     <!-- No JS needed for now -->
 </body>
 </html>

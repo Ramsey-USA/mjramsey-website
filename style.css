@@ -159,22 +159,29 @@ section h2 {
 
 /* Hero Section */
 #hero {
-    background-color: rgba(52, 73, 94, 0.8); /* Darker Blue-Gray with 80% opacity */
+    background-color: rgba(52, 73, 94, 0.8); /* Darker Blue-Gray */
     color: #fff;
     text-align: center;
-    padding: 80px 0;
-    border-bottom: none;
+    height: 100vh; /* Full viewport height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 #hero h1 {
     font-size: 3.5em;
-    margin-bottom: 10px;
-    color: #fff;
+    margin: 0;
+    color: #1abc9c; /* Green */
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 #hero p {
     font-size: 1.5em;
-    margin-bottom: 15px;
+    margin: 15px 0;
     color: #ecf0f1; /* Light Gray */
 }
 
@@ -197,6 +204,29 @@ section h2 {
 }
 #hero .contact-info a:hover {
     color: #1abc9c; /* Green */
+}
+
+/* Contact Links in Hero Section */
+#hero .contact-links {
+    margin-top: 20px;
+    font-size: 1.2em;
+    display: flex;
+    gap: 15px; /* Space between links */
+}
+
+#hero .contact-links a {
+    color: #1abc9c; /* Green */
+    text-decoration: none;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+#hero .contact-links a:hover {
+    color: #fff; /* White on hover */
+    transform: scale(1.1); /* Slight zoom effect */
+}
+
+#hero .contact-links span {
+    color: #ecf0f1; /* Light Gray for separator */
 }
 
 /* About Section */
@@ -442,6 +472,30 @@ timeline-item::before {
     color: #fff; /* White on hover */
 }
 
+/* Contact Section */
+#contact .contact-links {
+    margin-top: 20px;
+    font-size: 1.2em;
+    display: flex;
+    justify-content: center;
+    gap: 15px; /* Space between links */
+}
+
+#contact .contact-links a {
+    color: #1abc9c; /* Green */
+    text-decoration: none;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+#contact .contact-links a:hover {
+    color: #16a085; /* Darker Green */
+    transform: scale(1.1); /* Slight zoom effect */
+}
+
+#contact .contact-links span {
+    color: #ecf0f1; /* Light Gray for separator */
+}
+
 /* Footer */
 footer {
     background-color: #1a252f; /* Solid Darker Blue */
@@ -456,6 +510,30 @@ footer p {
     margin: 0;
     font-size: 0.9em;
     color: #bdc3c7; /* Medium Gray for text */
+}
+
+/* Contact Links in Footer */
+footer .contact-links {
+    margin-top: 10px;
+    font-size: 1.2em;
+    display: flex;
+    justify-content: center;
+    gap: 15px; /* Space between links */
+}
+
+footer .contact-links a {
+    color: #1abc9c; /* Green */
+    text-decoration: none;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+footer .contact-links a:hover {
+    color: #fff; /* White on hover */
+    transform: scale(1.1); /* Slight zoom effect */
+}
+
+footer .contact-links span {
+    color: #ecf0f1; /* Light Gray for separator */
 }
 
 /* Basic Responsive */
@@ -604,5 +682,23 @@ footer p {
 
 #experience h2 {
     color: #2980b9; /* Medium Blue */
+}
+
+.cta-button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    color: #fff;
+    background-color: #1abc9c; /* Green */
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #16a085; /* Darker Green */
+    transform: scale(1.05); /* Slight zoom effect */
 }
 
