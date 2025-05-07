@@ -271,44 +271,90 @@
         </section>
 
         <section id="portfolio">
-            <div class="container">
-                <h2 class="section-heading">Portfolio / Projects</h2>
-                <p class="text-center mb-30">Highlights of key projects demonstrating operational leadership, business development, and technical execution.</p>
-                <div class="project-grid">
-                    <!-- Project 1 -->
-                    <div class="project">
-                        <h3>Ramsey Renovations (Owner/GC)</h3>
-                        <img src="https://via.placeholder.com/300x200" alt="Renovation Project" class="project-image">
-                        <p>Successfully managed over 25 residential renovation projects valued at $1M+ over 10 years. Responsible for all business operations, client acquisition, contract negotiation, project planning, execution, and quality control.</p>
-                        <a href="#" class="cta-button">View Details</a>
-                    </div>
-
-                    <!-- Project 2 -->
-                    <div class="project">
-                        <h3>Airbnb Property Management (Super Host)</h3>
-                        <img src="https://via.placeholder.com/300x200" alt="Airbnb Project" class="project-image">
-                        <p>Achieved and maintained Super Host status with a 92%+ occupancy rate and 5-star guest ratings through strategic pricing, exceptional guest service, and efficient operational logistics (cleaning, maintenance, supply chain).</p>
-                        <a href="#" class="cta-button">View Details</a>
-                    </div>
-
-                    <!-- Project 3 -->
-                    <div class="project">
-                        <h3>ME Fitness (Owner/Lead Trainer)</h3>
-                        <img src="https://via.placeholder.com/300x200" alt="Fitness Project" class="project-image">
-                        <p>Launched and grew a fitness business, increasing clientele by over 30% through effective digital marketing (website development) and sales strategies. Developed a nationally recognized personal trainer certification program.</p>
-                        <a href="#" class="cta-button">View Details</a>
-                    </div>
-
-                    <!-- Project 4 -->
-                    <div class="project">
-                        <h3>Military Logistics (Navy Veteran)</h3>
-                        <img src="https://via.placeholder.com/300x200" alt="Military Logistics Project" class="project-image">
-                        <p>Led a 12-person team maintaining four 60-ton aircraft elevators on the USS Theodore Roosevelt (CVN-71), achieving 100% operational uptime across two 6-month deployments. Coordinated logistics for $5M+ in assets.</p>
-                        <a href="#" class="cta-button">View Details</a>
-                    </div>
+    <div class="container">
+        <h2 class="section-heading">Portfolio / Projects</h2>
+        <p class="text-center mb-30 portfolio-description">
+            Highlights of key projects demonstrating operational leadership, business development, and technical execution.
+        </p>
+        <div class="project-grid">
+            <!-- Project 1 -->
+            <div class="project">
+                <div class="project-icon">
+                    <i class="fas fa-tools"></i> <!-- Icon for Renovation -->
                 </div>
+                <h3>Ramsey Renovations</h3>
+                <p>(Owner/GC)</p>
+                <a href="#lightbox-1" class="cta-button open-lightbox">View Details</a>
             </div>
-        </section>
+
+            <!-- Project 2 -->
+            <div class="project">
+                <div class="project-icon">
+                    <i class="fas fa-home"></i> <!-- Icon for Airbnb -->
+                </div>
+                <h3>Airbnb Property Management</h3>
+                <p>(Super Host)</p>
+                <a href="#lightbox-2" class="cta-button open-lightbox">View Details</a>
+            </div>
+
+            <!-- Project 3 -->
+            <div class="project">
+                <div class="project-icon">
+                    <i class="fas fa-dumbbell"></i> <!-- Icon for Fitness -->
+                </div>
+                <h3>ME Fitness</h3>
+                <p>(Owner/Lead Trainer)</p>
+                <a href="#lightbox-3" class="cta-button open-lightbox">View Details</a>
+            </div>
+
+            <!-- Project 4 -->
+            <div class="project">
+                <div class="project-icon">
+                    <i class="fas fa-anchor"></i> <!-- Icon for Military -->
+                </div>
+                <h3>Military Logistics</h3>
+                <p>(Navy Veteran)</p>
+                <a href="#lightbox-4" class="cta-button open-lightbox">View Details</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lightbox 1 -->
+    <div id="lightbox-1" class="lightbox">
+        <div class="lightbox-content">
+            <h3>Ramsey Renovations</h3>
+            <p>Successfully managed over 25 residential renovation projects valued at $1M+ over 10 years. Responsible for all business operations, client acquisition, contract negotiation, project planning, execution, and quality control.</p>
+            <button class="close-lightbox">Close</button>
+        </div>
+    </div>
+
+    <!-- Lightbox 2 -->
+    <div id="lightbox-2" class="lightbox">
+        <div class="lightbox-content">
+            <h3>Airbnb Property Management</h3>
+            <p>Achieved and maintained Super Host status with a 92%+ occupancy rate and 5-star guest ratings through strategic pricing, exceptional guest service, and efficient operational logistics (cleaning, maintenance, supply chain).</p>
+            <button class="close-lightbox">Close</button>
+        </div>
+    </div>
+
+    <!-- Lightbox 3 -->
+    <div id="lightbox-3" class="lightbox">
+        <div class="lightbox-content">
+            <h3>ME Fitness</h3>
+            <p>Launched and grew a fitness business, increasing clientele by over 30% through effective digital marketing (website development) and sales strategies. Developed a nationally recognized personal trainer certification program.</p>
+            <button class="close-lightbox">Close</button>
+        </div>
+    </div>
+
+    <!-- Lightbox 4 -->
+    <div id="lightbox-4" class="lightbox">
+        <div class="lightbox-content">
+            <h3>Military Logistics</h3>
+            <p>Led a 12-person team maintaining four 60-ton aircraft elevators on the USS Theodore Roosevelt (CVN-71), achieving 100% operational uptime across two 6-month deployments. Coordinated logistics for $5M+ in assets.</p>
+            <button class="close-lightbox">Close</button>
+        </div>
+    </div>
+</section>
 
         <section id="education">
     <div class="container">
@@ -327,7 +373,7 @@
 
             <!-- Education Item 2 -->
             <div class="education-card">
-                <img src="images/asu-global-logo.png" alt="ASU Global Accelerator Logo" class="institution-logo">
+                <img src="images/asu-global-logo.jpg" alt="ASU Global Accelerator Logo" class="institution-logo">
                 <h3><i class="fas fa-laptop-code"></i> ASU Global Accelerator</h3>
                 <p><strong>Certifications In Progress</strong> (Expected Completion: Dec 2025)</p>
                 <p>Intercultural Competency, Web Development, AI-Powered Javascript, AI Professional Skills, Intercultural Skills, E-commerce Marketing, Social Media & Search</p>
@@ -371,6 +417,9 @@
         <div class="testimonial-grid">
             <!-- Testimonial 1 -->
             <div class="testimonial">
+                <div class="testimonial-icon">
+                    <i class="fas fa-user-tie"></i> <!-- Icon for a professional -->
+                </div>
                 <p>"Matt is an exceptional leader with a strong work ethic and a passion for excellence."</p>
                 <div class="stars">
                     <i class="fas fa-star"></i>
@@ -384,6 +433,9 @@
 
             <!-- Testimonial 2 -->
             <div class="testimonial">
+                <div class="testimonial-icon">
+                    <i class="fas fa-briefcase"></i> <!-- Icon for business -->
+                </div>
                 <p>"Matt's strategic planning helped us achieve our goals ahead of schedule."</p>
                 <div class="stars">
                     <i class="fas fa-star"></i>
@@ -397,6 +449,9 @@
 
             <!-- Testimonial 3 -->
             <div class="testimonial">
+                <div class="testimonial-icon">
+                    <i class="fas fa-users"></i> <!-- Icon for teamwork -->
+                </div>
                 <p>"Matt's leadership and attention to detail are unmatched."</p>
                 <div class="stars">
                     <i class="fas fa-star"></i>
@@ -410,6 +465,9 @@
 
             <!-- Testimonial 4 -->
             <div class="testimonial">
+                <div class="testimonial-icon">
+                    <i class="fas fa-handshake"></i> <!-- Icon for partnership -->
+                </div>
                 <p>"Working with Matt was a pleasure. His professionalism made all the difference."</p>
                 <div class="stars">
                     <i class="fas fa-star"></i>

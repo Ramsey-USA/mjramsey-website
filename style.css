@@ -127,9 +127,9 @@ main {
 
 /* General Section Styles */
 section {
-    background-color: rgba(255, 255, 255, 0.7);
+    background-color: transparent; /* Make sections transparent */
     padding: 40px 0;
-    border-bottom: 1px solid rgba(189, 195, 199, 0.5);
+    border-bottom: 1px solid rgba(189, 195, 199, 0.5); /* Subtle border */
 }
 
 section:nth-child(even) {
@@ -157,6 +157,12 @@ section h2::after {
     background-color: var(--primary-green);
     margin: 10px auto 0;
     border-radius: 2px;
+}
+
+/* Exclude Hero, Main, and Contact Sections */
+#hero, #main, #contact {
+    background-color: rgba(52, 73, 94, 0.8); /* Keep their original styles */
+    color: #fff; /* Ensure text color remains readable */
 }
 
 /* Hero Section */
@@ -280,7 +286,7 @@ section h2::after {
 
 /* Skills Section */
 #skills {
-    background-color: #f8f9fa; /* Light Gray Background */
+    background-color: transparent; /* Allow background to show through */
     padding: 60px 20px;
     text-align: center;
 }
@@ -318,7 +324,7 @@ section h2::after {
 }
 
 .skills-card {
-    background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent */
+    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white */
     border: 1px solid #ddd;
     border-radius: 8px;
     padding: 20px;
@@ -373,14 +379,18 @@ section h2::after {
 /* Experience Section */
 #experience {
     padding: 60px 20px;
-    background: #f8f9fa; /* Light Gray Background */
+    background: #1abc9c; /* Green Background */
+    color: #fff; /* White text for better contrast */
 }
 
 #experience .section-heading {
     text-align: center;
-    font-size: 2.5rem;
-    color: #2980b9; /* Medium Blue */
+    font-size: 2.8rem; /* Larger font size for better emphasis */
+    color: #fff; /* White text for contrast */
+    text-transform: uppercase;
+    letter-spacing: 2px; /* Add spacing for a modern look */
     margin-bottom: 40px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Subtle shadow for better readability */
 }
 
 #experience .section-heading::after {
@@ -388,7 +398,7 @@ section h2::after {
     display: block;
     width: 100px;
     height: 4px;
-    background: #1abc9c; /* Green underline */
+    background: #fff; /* White underline */
     margin: 10px auto 0;
     border-radius: 2px;
 }
@@ -423,45 +433,58 @@ section h2::after {
 
 /* Job Entries */
 .job {
-    background: #fff;
+    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white */
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    border: 1px solid rgba(189, 195, 199, 0.5); /* Subtle border */
+    border-radius: 8px; /* Rounded corners for a smoother look */
     padding: 20px;
-    margin-bottom: 30px;
-    border-radius: 8px;
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    margin-bottom: 20px; /* Add spacing between job entries */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .job:hover {
-    transform: translateY(-5px); /* Slight lift on hover */
+    background-color: rgba(255, 255, 255, 1); /* Fully opaque on hover */
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Enhanced shadow */
+    transform: translateY(-5px); /* Slight lift on hover */
 }
 
 .job h3 {
-    font-size: 1.8rem;
-    color: #2980b9; /* Medium Blue */
+    font-size: 1.8rem; /* Larger font size for job titles */
+    color: #2980b9; /* Medium Blue for contrast */
     margin-bottom: 10px;
     display: flex;
     align-items: center;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* Subtle shadow for better readability */
 }
 
 .job h3 i {
-    color: #1abc9c; /* Green */
+    color: #fff; /* White for icons */
+    background: #2980b9; /* Medium Blue background for icons */
+    border-radius: 50%; /* Circular icons */
+    padding: 10px;
     margin-right: 10px;
     font-size: 1.5rem;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.job h3 i:hover {
+    background: #16a085; /* Darker Green on hover */
+    transform: scale(1.2); /* Slight zoom effect */
 }
 
 .job p {
     font-size: 1rem;
-    color: #555; /* Medium Gray */
+    color: #555; /* Medium Gray for text */
     margin-bottom: 10px;
 }
 
 .job .date {
     font-size: 0.9rem;
-    color: #888; /* Light Gray */
+    color: #888; /* Light Gray for dates */
     margin-bottom: 15px;
 }
 
+/* Job List Items */
 .job ul {
     list-style: none;
     padding-left: 0;
@@ -479,7 +502,7 @@ section h2::after {
     content: '•';
     position: absolute;
     left: 0;
-    color: #1abc9c; /* Green bullet point */
+    color: #2980b9; /* Medium Blue bullet point */
     font-size: 1.2rem;
 }
 
@@ -507,71 +530,154 @@ section h2::after {
 
 /* Portfolio Section */
 #portfolio {
+    background-color: transparent;
     padding: 60px 20px;
-    background: #f8f9fa; /* Light Gray Background */
 }
 
 #portfolio .section-heading {
     text-align: center;
-    font-size: 2.5rem;
-    color: #2980b9; /* Medium Blue */
+    font-size: 3rem; /* Larger font size for better emphasis */
+    color: #1abc9c; /* Green for a fresh and modern look */
     margin-bottom: 40px;
+    text-transform: uppercase;
+    letter-spacing: 2px; /* Increased spacing for clarity */
+    font-weight: 700; /* Bold for emphasis */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Subtle shadow for better readability */
+}
+
+#portfolio p {
+    font-size: 1.4rem; /* Slightly larger font size for better readability */
+    color: #444; /* Darker Gray for improved contrast */
+    text-align: center;
+    margin-bottom: 30px;
+    line-height: 1.8; /* Improved line spacing for readability */
+    text-shadow: none; /* Remove text shadow for a cleaner look */
+    font-weight: 400; /* Normal weight for body text */
 }
 
 .project-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(2, 1fr); /* Two boxes per row */
+    gap: 30px; /* Increased gap for better spacing */
 }
 
 .project {
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    padding: 15px;
-    background: #fff;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    background-color: rgba(255, 255, 255, 0.95); /* Slightly more opaque white for better readability */
+    border: 1px solid rgba(189, 195, 199, 0.5); /* Subtle border */
+    border-radius: 10px; /* Slightly more rounded corners */
+    padding: 25px; /* Increased padding for better spacing */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Slightly stronger shadow */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
 }
 
 .project:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px); /* Slight lift on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Enhanced shadow */
+}
+
+.project-icon {
+    font-size: 3.5rem; /* Larger icon size for emphasis */
+    color: #1abc9c; /* Green for consistency */
+    margin-bottom: 20px; /* Increased spacing below the icon */
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.project-icon:hover {
+    color: #16a085; /* Darker green on hover */
+    transform: scale(1.2); /* Slight zoom effect */
 }
 
 .project h3 {
-    font-size: 1.5rem;
-    color: #2980b9;
-    margin-bottom: 10px;
+    font-size: 2rem; /* Larger font size for titles */
+    color: #2980b9; /* Medium Blue for contrast */
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px; /* Increased spacing for clarity */
+    font-weight: 600; /* Semi-bold for emphasis */
+    transition: color 0.3s ease, text-shadow 0.3s ease;
 }
 
-.project img {
-    width: 100%;
-    height: auto;
-    border-radius: 5px;
-    margin-bottom: 15px;
+.project h3:hover {
+    color: #1abc9c; /* Green on hover */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3); /* Subtle shadow */
 }
 
 .project p {
-    font-size: 1rem;
-    color: #555;
-    margin-bottom: 15px;
+    font-size: 1.2rem; /* Slightly larger font size for descriptions */
+    color: #333; /* Darker Gray for better readability */
+    margin-bottom: 20px;
+    line-height: 1.6; /* Improved line spacing */
+    font-weight: 400; /* Normal weight for body text */
 }
 
 .cta-button {
     display: inline-block;
-    padding: 10px 20px;
-    font-size: 1rem;
+    padding: 12px 25px; /* Increased padding for better proportions */
+    font-size: 1.1rem; /* Slightly larger font size for buttons */
     color: #fff;
-    background-color: #1abc9c;
+    background-color: #1abc9c; /* Green for consistency */
     border: none;
     border-radius: 5px;
     text-decoration: none;
     transition: background-color 0.3s ease, transform 0.3s ease;
+    font-weight: 600; /* Semi-bold for emphasis */
 }
 
 .cta-button:hover {
-    background-color: #16a085;
-    transform: scale(1.05);
+    background-color: #16a085; /* Darker Green */
+    transform: scale(1.05); /* Slight zoom effect */
+}
+
+/* Lightbox Styles */
+.lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.lightbox-content {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 600px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.lightbox-content h3 {
+    font-size: 1.8rem;
+    color: #2980b9;
+    margin-bottom: 15px;
+}
+
+.lightbox-content p {
+    font-size: 1rem;
+    color: #333; /* Darker Gray for better readability */
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.close-lightbox {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: #1abc9c;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.close-lightbox:hover {
+    background: #16a085;
 }
 
 /* Education Section */
@@ -672,17 +778,17 @@ section h2::after {
 }
 
 .education-card {
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    padding: 15px;
-    background: #fff;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white */
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    border: 1px solid rgba(189, 195, 199, 0.5); /* Subtle border */
+    border-radius: 8px; /* Rounded corners for a smoother look */
+    padding: 20px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .education-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    background-color: rgba(255, 255, 255, 1); /* Fully opaque on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Enhanced shadow */
 }
 
 .education-card h3 {
@@ -1301,10 +1407,10 @@ footer .contact-links span {
 }
 
 .testimonial {
+    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white */
     border: 1px solid #ddd;
     border-radius: 8px;
     padding: 15px;
-    background: #f8f9fa; /* Light Gray Background */
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -1344,5 +1450,22 @@ footer .contact-links span {
     font-size: 0.85rem; /* Smaller font size for author */
     color: #2980b9; /* Medium Blue */
     font-weight: bold;
+}
+
+/* Testimonial Icons */
+.testimonial-icon {
+    font-size: 2rem; /* Larger icon size */
+    color: #1abc9c; /* Green color for icons */
+    margin-bottom: 10px;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.testimonial-icon i {
+    display: inline-block;
+}
+
+.testimonial-icon:hover {
+    color: #16a085; /* Darker green on hover */
+    transform: scale(1.2); /* Slight zoom effect */
 }
 

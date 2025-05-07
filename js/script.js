@@ -69,4 +69,24 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    document.querySelectorAll('.open-lightbox').forEach(button => {
+        button.addEventListener('click', event => {
+            event.preventDefault();
+            const lightboxId = button.getAttribute('href');
+            document.querySelector(lightboxId).style.display = 'flex';
+        });
+    });
+
+    document.querySelectorAll('.close-lightbox').forEach(button => {
+        button.addEventListener('click', () => {
+            button.closest('.lightbox').style.display = 'none';
+        });
+    });
+
+    document.addEventListener('click', event => {
+        if (event.target.classList.contains('lightbox')) {
+            event.target.style.display = 'none';
+        }
+    });
 });
