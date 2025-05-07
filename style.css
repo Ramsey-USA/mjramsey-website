@@ -1469,3 +1469,95 @@ footer .contact-links span {
     transform: scale(1.2); /* Slight zoom effect */
 }
 
+/* Testimonial Section */
+#testimonials {
+    background-color: #f8f9fa; /* Light Gray Background */
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.testimonial-carousel {
+    display: flex;
+    overflow: hidden; /* Hide overflowing testimonials */
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    margin: auto;
+}
+
+.testimonial {
+    flex: 0 0 100%; /* Each testimonial takes full width */
+    opacity: 0; /* Hide testimonials by default */
+    transform: translateX(100%); /* Position testimonials off-screen */
+    transition: opacity 0.5s ease, transform 0.5s ease; /* Smooth transition */
+}
+
+.testimonial.active {
+    opacity: 1; /* Show active testimonial */
+    transform: translateX(0); /* Bring active testimonial into view */
+}
+
+.carousel-controls {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.carousel-controls button {
+    background: #1abc9c;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.carousel-controls button:hover {
+    background: #16a085;
+}
+
+/* Testimonial Carousel */
+.testimonial-carousel {
+    display: flex;
+    overflow: hidden; /* Hide overflowing testimonials */
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    margin: auto;
+}
+
+.testimonial {
+    flex: 0 0 100%; /* Each testimonial takes full width */
+    opacity: 0; /* Hide testimonials by default */
+    transform: translateX(100%); /* Position testimonials off-screen */
+    transition: opacity 0.5s ease, transform 0.5s ease; /* Smooth transition */
+}
+
+.testimonial.active {
+    opacity: 1; /* Show active testimonial */
+    transform: translateX(0); /* Bring active testimonial into view */
+}
+
+.carousel-controls {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.carousel-controls button {
+    background: #1abc9c;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.carousel-controls button:hover {
+    background: #16a085;
+}
+

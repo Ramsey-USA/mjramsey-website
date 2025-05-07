@@ -89,4 +89,33 @@ document.addEventListener('DOMContentLoaded', () => {
             event.target.style.display = 'none';
         }
     });
+
+    const testimonials = document.querySelectorAll('.testimonial');
+    const prevButton = document.querySelector('.prev');
+    const nextButton = document.querySelector('.next');
+    let currentIndex = 0;
+
+    const updateCarousel = () => {
+        testimonials.forEach((testimonial, index) => {
+            testimonial.classList.remove('active'); // Remove active class from all testimonials
+            if (index === currentIndex) {
+                testimonial.classList.add('active'); // Add active class to the current testimonial
+            }
+        });
+    };
+
+    // Event listener for the "Previous" button
+    prevButton.addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + testimonials.length) % testimonials.length; // Loop back to the last testimonial if at the beginning
+        updateCarousel();
+    });
+
+    // Event listener for the "Next" button
+    nextButton.addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % testimonials.length; // Loop back to the first testimonial if at the end
+        updateCarousel();
+    });
+
+    // Initialize the carousel
+    updateCarousel();
 });
