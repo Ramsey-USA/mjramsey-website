@@ -447,6 +447,34 @@ section h2::after {
     font-size: 1.2rem;
 }
 
+/* Filter Buttons */
+.job-filters {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.job-filters .filter-button {
+    background: #1abc9c; /* Green */
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.job-filters .filter-button:hover {
+    background: #16a085; /* Darker Green */
+    transform: scale(1.05); /* Slight zoom */
+}
+
+.job-filters .filter-button.active {
+    background: #16a085; /* Darker Green for active button */
+    font-weight: bold;
+}
+
 /* Portfolio Section */
 #portfolio h2 {
     font-size: 2.8rem;
