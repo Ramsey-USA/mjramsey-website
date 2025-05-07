@@ -9,12 +9,13 @@
 }
 
 /* General Styles */
+/* General Typography */
 body {
-    font-family: 'Lato', sans-serif;
-    line-height: 1.6;
+    font-family: 'Roboto', sans-serif; /* Use Roboto for a clean, modern look */
+    line-height: 1.8; /* Improve readability */
+    color: #333; /* Darker text for better contrast */
     margin: 0;
     padding: 0;
-    color: #333;
     background-image: url('images/website-background.jpg');
     background-size: cover;
     background-position: center;
@@ -34,25 +35,26 @@ body::before {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Lato', sans-serif;
-    font-weight: 700;
-    color: #2c3e50;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    font-family: 'Poppins', sans-serif; /* Use Poppins for headings */
+    font-weight: 700; /* Bold for emphasis */
+    color: #2c3e50; /* Dark Blue */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 }
 
 p, ul, li {
-    color: #555;
-    line-height: 1.6;
+    font-size: 1.1rem; /* Slightly larger font size for readability */
+    color: #555; /* Medium Gray */
 }
 
 a {
+    font-size: 1rem; /* Standardize link font size */
+    color: #1abc9c; /* Green for links */
     text-decoration: none;
-    color: inherit;
     transition: color 0.3s ease;
 }
 
 a:hover {
-    color: #1abc9c; /* Lighter Green */
+    color: #16a085; /* Darker Green on hover */
 }
 
 .container {
@@ -239,7 +241,7 @@ section h2::after {
 /* About Section */
 #about {
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
-                url('images/aircraft-carrier.jpg') no-repeat center center; /* Use the new image */
+                url('images/aircraft-carrier.jpg') no-repeat center center; /* Background image */
     background-size: cover; /* Ensure the image covers the entire section */
     color: #fff; /* White text for readability */
     padding: 60px 20px; /* Add padding for spacing */
@@ -248,7 +250,7 @@ section h2::after {
 }
 
 #about .container {
-    max-width: 1000px;
+    max-width: 800px; /* Reduce width for better focus */
     margin: auto;
     background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent overlay for readability */
     padding: 30px;
@@ -257,30 +259,61 @@ section h2::after {
 }
 
 #about h2 {
-    font-size: 2.8rem; /* Larger font size */
-    color: var(--primary-green); /* Green */
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Subtle shadow */
-    margin-bottom: 30px;
+    font-size: 3rem; /* Larger font size for the heading */
+    color: #FFC627; /* ASU Gold */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); /* Subtle shadow for better contrast */
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
 #about p {
-    font-size: 1.2em;
+    font-size: 1.3rem; /* Slightly larger font size for readability */
     line-height: 1.8; /* Improve readability */
     color: #ecf0f1; /* Light Gray text */
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Subtle shadow for better contrast */
+    margin-bottom: 20px;
 }
 
-/* Highlighted Links */
-#about .highlight {
-    color: #1abc9c; /* Green */
-    font-weight: bold;
+.about-list {
+    list-style: none; /* Remove default bullets */
+    padding: 0;
+    margin: 20px 0;
+    text-align: left; /* Align list items to the left */
+}
+
+.about-list li {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #ecf0f1; /* Light Gray */
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.about-list li i {
+    color: #FFC627; /* ASU Gold for icons */
+    margin-right: 10px;
+    font-size: 1.5rem; /* Larger icon size */
+}
+
+.cta-button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 15px 30px;
+    font-size: 1.2rem; /* Slightly larger font size for the button */
+    color: #fff;
+    background-color: #1abc9c; /* Green */
+    border: none;
+    border-radius: 5px;
     text-decoration: none;
-    transition: color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    font-weight: 600; /* Semi-bold for emphasis */
 }
 
-#about .highlight:hover {
-    color: #16a085; /* Darker Green */
-    text-decoration: underline;
+.cta-button:hover {
+    background-color: #16a085; /* Darker Green */
+    transform: scale(1.05); /* Slight zoom effect */
 }
 
 /* Skills Section */
@@ -377,29 +410,118 @@ section h2::after {
 
 /* Experience Section */
 #experience {
-    padding: 60px 20px;
-    background: #1abc9c; /* Green Background */
-    color: #fff; /* White text for better contrast */
-}
-
-#experience .section-heading {
+    background: url('images/dumbbells.jpg') no-repeat center center; /* Set the background image */
+    background-size: cover; /* Ensure the image covers the entire section */
+    background-attachment: fixed; /* Fix the background in place */
+    color: #fff; /* White text for readability */
+    padding: 80px 20px; /* Add padding for spacing */
     text-align: center;
-    font-size: 2.8rem; /* Larger font size for better emphasis */
-    color: #fff; /* White text for contrast */
-    text-transform: uppercase;
-    letter-spacing: 2px; /* Add spacing for a modern look */
-    margin-bottom: 40px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Subtle shadow for better readability */
+    position: relative;
 }
 
-#experience .section-heading::after {
+#experience::before {
     content: '';
-    display: block;
-    width: 100px;
-    height: 4px;
-    background: #fff; /* White underline */
-    margin: 10px auto 0;
-    border-radius: 2px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7); /* Darker overlay for better text readability */
+    z-index: 1;
+}
+
+#experience .container {
+    position: relative;
+    z-index: 2; /* Ensure content is above the overlay */
+}
+
+#experience h2 {
+    font-size: 3rem; /* Larger font size for the heading */
+    color: #FFC627; /* ASU Gold */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); /* Subtle shadow for better contrast */
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Accordion Styling */
+.accordion {
+    margin-top: 30px;
+    text-align: left; /* Align accordion content to the left */
+}
+
+.accordion-item {
+    background: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+    border-radius: 8px;
+    margin-bottom: 20px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.accordion-item:hover {
+    transform: translateY(-5px); /* Slight lift on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Enhanced shadow */
+}
+
+.accordion-header {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #1abc9c; /* Green for headers */
+    cursor: pointer;
+    transition: color 0.3s ease, background-color 0.3s ease;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background: rgba(248, 249, 250, 0.9); /* Light Gray background */
+    border-radius: 5px;
+}
+
+.accordion-header:hover {
+    color: #16a085; /* Darker green on hover */
+    background: rgba(233, 236, 239, 0.9); /* Slightly darker gray on hover */
+}
+
+.accordion-header i {
+    font-size: 1.2rem;
+    color: #1abc9c; /* Green for icons */
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.accordion-header i:hover {
+    transform: scale(1.2); /* Slight zoom effect */
+    color: #16a085; /* Darker green on hover */
+}
+
+.accordion-content {
+    font-size: 1.2rem;
+    color: #333; /* Dark gray for text */
+    margin-top: 10px;
+    line-height: 1.8;
+    display: none; /* Hidden by default */
+    overflow: hidden;
+    padding: 15px;
+    background: #fff; /* White background */
+    border-top: 1px solid #ddd;
+    animation: slideDown 0.3s ease; /* Smooth animation */
+}
+
+.accordion-content.open {
+    display: block; /* Show content when open */
+    overflow: visible;
+}
+
+/* Accordion Animation */
+@keyframes slideDown {
+    from {
+        max-height: 0;
+        opacity: 0;
+    }
+    to {
+        max-height: 500px; /* Adjust based on content */
+        opacity: 1;
+    }
 }
 
 /* Filter Buttons */
@@ -683,7 +805,7 @@ section h2::after {
 #education {
     background: url('images/asu-pat-tillman-2.jpg') no-repeat center center; /* Background image */
     background-size: cover; /* Ensure the image covers the entire section */
-    color: #fff; /* White text for contrast */
+    color: #fff; /* Default white text for contrast */
     padding: 80px 20px; /* Add padding for spacing */
     text-align: center;
     position: relative;
@@ -711,6 +833,7 @@ section h2::after {
     text-transform: uppercase;
     letter-spacing: 2px;
     font-weight: bold;
+    color: #FFC627; /* ASU Gold */
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); /* Add shadow for better contrast */
 }
 
@@ -718,7 +841,7 @@ section h2::after {
     font-size: 1.5rem; /* Larger font size for the description */
     margin-bottom: 40px;
     line-height: 1.8; /* Increase line height for readability */
-    color: #f0f0f0; /* Slightly lighter white for better contrast */
+    color: #FFC627; /* ASU Gold */
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7); /* Subtle shadow for readability */
 }
 
@@ -745,8 +868,8 @@ section h2::after {
 }
 
 .certification-list li, .award-list li {
-    font-size: 1.2rem; /* Slightly larger font size */
-    color: #555; /* Medium gray for text */
+    font-size: 1.2rem;
+    color: #FFC627; /* ASU Gold */
     margin-bottom: 10px;
     display: flex;
     align-items: center;
@@ -754,13 +877,13 @@ section h2::after {
 }
 
 .certification-list li i, .award-list li i {
-    color: #1abc9c; /* Green for icons */
+    color: #8C1D40; /* ASU Maroon for icons */
     margin-right: 10px;
     font-size: 1.5rem; /* Larger icon size */
 }
 
 .certification-list li:hover, .award-list li:hover {
-    color: #1abc9c; /* Green text on hover */
+    color: #8C1D40; /* ASU Maroon text on hover */
     transform: scale(1.05); /* Slight zoom effect */
     transition: transform 0.3s ease, color 0.3s ease;
 }
@@ -798,14 +921,15 @@ section h2::after {
 }
 
 .education-card h3 {
-    font-size: 1.5rem;
-    color: #2980b9;
+    font-size: 1.8rem;
+    color: #8C1D40; /* ASU Maroon */
     margin-bottom: 10px;
+    font-weight: bold;
 }
 
 .education-card p {
-    font-size: 1rem;
-    color: #555;
+    font-size: 1.2rem;
+    color: #FFC627; /* ASU Gold */
     margin-bottom: 10px;
 }
 
@@ -1160,11 +1284,23 @@ footer .contact-links span {
 }
 
 .section-heading {
-    text-align: center;
-    font-size: 2.5rem;
-    color: var(--dark-blue);
-    padding-left: 20px;
+    font-size: 2.8rem; /* Larger font size for headings */
+    font-family: 'Poppins', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #2c3e50; /* Dark Blue */
+    margin-bottom: 40px;
     position: relative;
+}
+
+.section-heading::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background-color: #1abc9c; /* Green underline */
+    margin: 10px auto 0;
+    border-radius: 2px;
 }
 
 .styled-list li::before {

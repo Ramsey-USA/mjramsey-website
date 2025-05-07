@@ -119,3 +119,12 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initialize the carousel
     updateCarousel();
 });
+
+document.querySelectorAll('.accordion-header').forEach(header => {
+    header.addEventListener('click', () => {
+        const content = header.nextElementSibling;
+        content.classList.toggle('open');
+        header.querySelector('i').classList.toggle('fa-chevron-down');
+        header.querySelector('i').classList.toggle('fa-chevron-up');
+    });
+});
