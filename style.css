@@ -3,7 +3,6 @@
     --dark-green: #16a085;
     --dark-blue: #2c3e50;
     --medium-blue: #2980b9;
-    --darker-blue-gray: #34495e;
     --light-gray: #ecf0f1;
     --medium-gray: #bdc3c7;
     --dark-gray: #555;
@@ -45,7 +44,6 @@ h1, h2, h3, h4, h5, h6 {
 p, ul, li {
     color: #555;
     line-height: 1.6;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 a {
@@ -56,7 +54,6 @@ a {
 
 a:hover {
     color: #1abc9c; /* Lighter Green */
-    text-decoration: underline;
 }
 
 .container {
@@ -72,13 +69,11 @@ header {
     background-color: rgba(44, 62, 80, 0.85);
     color: var(--light-gray);
     border-bottom: var(--primary-green) 4px solid;
-    padding-top: 15px;
-    padding-bottom: 15px;
+    padding: 15px 0;
     position: sticky;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-    padding: 15px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 header nav {
@@ -109,16 +104,13 @@ header li {
 
 header a {
     color: #ecf0f1; /* Light Gray */
-    text-decoration: none;
     text-transform: uppercase;
     font-size: 0.95em;
     font-weight: 700;
-    transition: color 0.3s ease;
 }
 
 header a:hover {
     color: #1abc9c; /* Green */
-    text-decoration: none;
 }
 
 .menu-toggle {
@@ -130,31 +122,41 @@ header a:hover {
 
 /* Main Content Sections */
 main {
-    padding-top: 0; /* Remove padding at the top of the main section */
+    padding-top: 0;
 }
 
 /* General Section Styles */
 section {
-    background-color: rgba(255, 255, 255, 0.7); /* White with 70% opacity */
+    background-color: rgba(255, 255, 255, 0.7);
     padding: 40px 0;
-    border-bottom: 1px solid rgba(189, 195, 199, 0.5); /* Semi-transparent border */
+    border-bottom: 1px solid rgba(189, 195, 199, 0.5);
 }
 
 section:nth-child(even) {
-    background-color: rgba(255, 255, 255, 0.85); /* White with 85% opacity */
+    background-color: rgba(255, 255, 255, 0.85);
 }
 
 section:nth-child(odd) {
-    background-color: rgba(248, 249, 250, 0.7); /* Very Light Gray with 70% opacity */
+    background-color: rgba(248, 249, 250, 0.7);
 }
 
 section h2 {
-    text-align: center;
-    margin-bottom: 50px;
-    font-size: 2.5em;
-    color: #2980b9; /* Medium Blue */
+    font-size: 2.8rem;
+    color: var(--dark-blue);
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 1.5px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+section h2::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background-color: var(--primary-green);
+    margin: 10px auto 0;
+    border-radius: 2px;
 }
 
 /* Hero Section */
@@ -170,13 +172,13 @@ section h2 {
 }
 
 #hero h1 {
-    font-size: 3.5em;
-    margin: 0;
-    color: #1abc9c; /* Green */
+    font-size: 3.8rem; /* Larger font size */
+    color: var(--primary-green); /* Green */
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 3px;
     font-weight: 700;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5); /* Stronger shadow */
+    margin-bottom: 20px;
 }
 
 #hero p {
@@ -250,10 +252,10 @@ section h2 {
 }
 
 #about h2 {
-    font-size: 2.5em;
-    color: #1abc9c; /* Green for the heading */
-    margin-bottom: 20px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Subtle shadow for better visibility */
+    font-size: 2.8rem; /* Larger font size */
+    color: var(--primary-green); /* Green */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Subtle shadow */
+    margin-bottom: 30px;
 }
 
 #about p {
@@ -287,6 +289,25 @@ section h2 {
     font-size: 2.5em;
     color: #2980b9; /* Medium Blue */
     margin-bottom: 40px;
+}
+
+#skills h2 {
+    font-size: 2.8rem; /* Larger font size */
+    color: var(--medium-blue); /* Medium Blue */
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+#skills h2::after {
+    content: '';
+    display: block;
+    width: 100px; /* Wider underline */
+    height: 4px;
+    background-color: var(--primary-green); /* Green underline */
+    margin: 10px auto 0;
+    border-radius: 2px;
 }
 
 .skills-grid {
@@ -324,10 +345,10 @@ section h2 {
 }
 
 .skills-card ul li {
-    font-size: 1.2em; /* Slightly larger font */
-    line-height: 1.8; /* Improve readability */
+    font-size: 1.3em; /* Slightly larger font size */
+    line-height: 2; /* Increase line spacing for readability */
     color: #555; /* Dark Gray */
-    margin-bottom: 10px;
+    margin-bottom: 15px; /* Add more spacing between list items */
     padding-left: 0; /* Remove padding for alignment */
     position: relative;
 }
@@ -335,67 +356,117 @@ section h2 {
 /* Skills Section Icons */
 .skills-card ul li i {
     color: #1abc9c; /* Green for icons */
-    margin-right: 10px; /* Space between icon and text */
-    font-size: 1.2em; /* Adjust icon size */
+    margin-right: 12px; /* Add more space between icon and text */
+    font-size: 1.4em; /* Slightly larger icon size */
     vertical-align: middle; /* Align icon with text */
-    transition: color 0.3s ease, transform 0.3s ease; /* Smooth hover effect */
-}
-
-.skills-card ul li i:hover {
-    color: #16a085; /* Darker Green */
-    transform: scale(1.2) rotate(10deg); /* Add slight rotation */
-    box-shadow: 0 0 10px rgba(26, 188, 156, 0.5); /* Add glow effect */
 }
 
 /* Skills Section Subheaders */
 #skills h3 {
-    font-size: 1.8rem; /* Increase the font size */
-    font-weight: bold; /* Ensure the text is bold */
-    margin-bottom: 15px; /* Add spacing below the subheaders */
-    color: #2c3e50; /* Optional: Add a dark blue color for emphasis */
-}
-
-#skills h3 i {
-    color: #1abc9c; /* Green */
-    margin-right: 10px;
-    font-size: 1.5em;
-    vertical-align: middle;
+    font-size: 2rem; /* Increase font size for subheaders */
+    font-weight: bold;
+    margin-bottom: 20px; /* Add spacing below subheaders */
+    color: #2c3e50; /* Dark Blue for emphasis */
+    line-height: 1.4; /* Adjust line height for better spacing */
 }
 
 /* Experience Section */
+#experience {
+    padding: 60px 20px;
+    background: #f8f9fa;
+}
+
+#experience .section-heading {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #2980b9;
+    margin-bottom: 40px;
+}
+
+#experience .section-heading::after {
+    content: '';
+    display: block;
+    width: 100px;
+    height: 4px;
+    background: #1abc9c;
+    margin: 10px auto 0;
+    border-radius: 2px;
+}
+
+/* Job Entries */
 .job {
     background: #fff;
-    padding: 25px;
-    margin-bottom: 25px;
-    border-left: 6px solid #2980b9; /* Medium Blue accent */
-    box-shadow: 0 3px 8px rgba(0,0,0,0.1);
-    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 30px;
+    border-radius: 8px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.job:hover {
+    transform: translateY(-5px); /* Slight lift on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Enhanced shadow */
 }
 
 .job h3 {
-    margin-top: 0;
-    color: #2c3e50; /* Dark Blue */
-    margin-bottom: 5px;
+    font-size: 1.8rem;
+    color: #2980b9; /* Medium Blue */
+    margin-bottom: 10px;
 }
 
-.job p strong {
- color: #34495e; /* Darker Blue-Gray */
+.job p {
+    font-size: 1rem;
+    color: #555; /* Medium Gray */
+    margin-bottom: 10px;
 }
 
 .job .date {
-    font-style: italic;
-    color: #7f8c8d; /* Medium Gray */
+    font-size: 0.9rem;
+    color: #888; /* Light Gray */
     margin-bottom: 15px;
-    display: block;
 }
 
 .job ul {
-    list-style: disc;
-    margin-left: 20px;
-    color: #555;
+    list-style: none;
+    padding-left: 0;
+}
+
+.job ul li {
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 10px;
+    font-size: 1rem;
+    color: #555; /* Medium Gray */
+}
+
+.job ul li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: #1abc9c; /* Green bullet point */
+    font-size: 1.2rem;
 }
 
 /* Portfolio Section */
+#portfolio h2 {
+    font-size: 2.8rem;
+    color: var(--medium-blue);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+#portfolio h2::after {
+    content: '';
+    display: block;
+    width: 100px;
+    height: 4px;
+    background-color: var(--primary-green);
+    margin: 10px auto 0;
+    border-radius: 2px;
+}
+
 .project {
     background: var(--light-gray);
     padding: 25px;
@@ -406,11 +477,26 @@ section h2 {
     box-shadow: 0 2px 5px rgba(0,0,0,0.05);
 }
 
-#portfolio h2 {
-    color: #2980b9; /* Medium Blue */
+/* Education Section */
+#education h2 {
+    font-size: 2.8rem;
+    color: var(--medium-blue);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 40px;
+    position: relative;
 }
 
-/* Education Section */
+#education h2::after {
+    content: '';
+    display: block;
+    width: 100px;
+    height: 4px;
+    background-color: var(--primary-green);
+    margin: 10px auto 0;
+    border-radius: 2px;
+}
+
 .education-item, .certification-list, .award-list {
     background: #fff;
     padding: 25px;
@@ -426,10 +512,6 @@ section h2 {
     margin-bottom: 15px;
     color: #2980b9; /* Medium Blue */
     margin-bottom: 10px;
-}
-
-#education h2 {
-    color: #2980b9; /* Medium Blue */
 }
 
 .education-item p, .certification-list li, .award-list li {
@@ -451,7 +533,8 @@ section h2 {
 /* Experience Timeline */
 #experience-timeline {
     padding: 60px 0;
-    background-color: #f8f9fa; /* Light Gray */
+    background: linear-gradient(to bottom, #f8f9fa, #e9ecef); /* Subtle gradient */
+    position: relative;
 }
 
 #experience-timeline h2 {
@@ -476,54 +559,114 @@ section h2 {
 .timeline::before {
     content: '';
     position: absolute;
-    bottom: 0; /* Move the line to the bottom */
-    left: 0;
-    right: 0;
-    height: 4px;
-    background: #1abc9c; /* Green */
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 100%;
+    background: #1abc9c; /* Green line */
     z-index: 1;
 }
 
 .timeline-item {
     position: relative;
-    width: 18%; /* Ensure all boxes are the same width */
+    width: 45%; /* Adjust width for better alignment */
+    margin-bottom: 40px;
     text-align: center;
     z-index: 2;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s ease forwards;
 }
 
-timeline-item::before {
+.timeline-item:nth-child(odd) {
+    left: 0;
+    text-align: left;
+}
+
+.timeline-item:nth-child(even) {
+    left: 55%; /* Push even items to the right */
+    text-align: right;
+}
+
+.timeline-item::before {
     content: '';
     position: absolute;
-    bottom: -12px; /* Position the dots below the boxes */
+    top: 0;
     left: 50%;
     transform: translateX(-50%);
     width: 20px;
     height: 20px;
-    background: #1abc9c; /* Green */
+    background: linear-gradient(to bottom, #1abc9c, #16a085); /* Gradient */
     border: 4px solid #fff;
     border-radius: 50%;
-    z-index: 3;
+    z-index: 2;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
+.timeline-item:nth-child(odd) .timeline-content {
+    text-align: left;
+}
+
+.timeline-item:nth-child(even) .timeline-content {
+    text-align: right;
+}
+
+/* Timeline Icons */
+.timeline-icon {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 50px;
+    background: #fff; /* White background for contrast */
+    border: 4px solid #1abc9c; /* Green border */
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    z-index: 2;
+}
+
+.timeline-icon i {
+    font-size: 1.8rem; /* Adjust icon size */
+    color: #1abc9c; /* Green color for icons */
+}
+
+/* Adjust Timeline Content */
 .timeline-content {
-    margin-top: 40px;
     background: #fff;
     padding: 15px 20px;
     border-radius: 5px;
     box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
-    min-height: 100px; /* Ensure all boxes have the same height */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    margin-top: 40px; /* Add spacing from the icon */
+}
+
+.timeline-content:hover {
+    transform: translateY(-5px); /* Slight lift */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Enhanced shadow */
 }
 
 .timeline-content h3 {
     font-size: 1.5rem;
-    color:     --medium-blue: #2980b9;
+    color: #2980b9; /* Medium Blue */
     margin-bottom: 10px;
 }
 
 .timeline-content p {
     font-size: 1rem;
     color: #555; /* Medium Gray */
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* Contact Section */
@@ -534,7 +677,22 @@ timeline-item::before {
 }
 
 #contact h2 {
-    color: #fff; /* White for headings */
+    font-size: 2.8rem;
+    color: #fff; /* White for contrast */
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+#contact h2::after {
+    content: '';
+    display: block;
+    width: 100px;
+    height: 4px;
+    background-color: var(--primary-green);
+    margin: 10px auto 0;
+    border-radius: 2px;
 }
 
 #contact p {
@@ -577,18 +735,17 @@ timeline-item::before {
 
 /* Footer */
 footer {
-    background-color: #1a252f; /* Solid Darker Blue */
-    color: #bdc3c7; /* Medium Gray for text */
+    background-color: #1a252f;
+    color: #bdc3c7;
     text-align: center;
     padding: 25px 0;
-    margin-top: 0; /* Remove any margin */
-    border-top: 3px solid var(--dark-green); /* Green border for accent */
+    border-top: 3px solid var(--dark-green);
 }
 
 footer p {
     margin: 0;
     font-size: 0.9em;
-    color: #bdc3c7; /* Medium Gray for text */
+    color: #bdc3c7;
 }
 
 /* Contact Links in Footer */
@@ -713,23 +870,22 @@ footer .contact-links span {
     nav ul.active {
         display: flex;
     }
+
+    .timeline-item:nth-child(odd),
+    .timeline-item:nth-child(even) {
+        left: 0;
+        text-align: center;
+    }
+
+    .timeline::before {
+        display: none; /* Hide the vertical line on small screens */
+    }
 }
 
 .section-heading {
     text-align: center;
     font-size: 2.5rem;
     color: var(--dark-blue);
-    margin-bottom: 30px;
-}
-
-.styled-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.styled-list li {
-    margin-bottom: 10px;
     padding-left: 20px;
     position: relative;
 }
