@@ -25,13 +25,43 @@ document.addEventListener('DOMContentLoaded', () => {
             const category = button.getAttribute('data-category');
 
             // Show/Hide jobs based on category
+            let firstVisibleJob = null;
             jobs.forEach(job => {
                 if (category === 'all' || job.getAttribute('data-category') === category) {
                     job.style.display = 'block';
+                    if (!firstVisibleJob) {
+                        firstVisibleJob = job; // Capture the first visible job
+                    }
                 } else {
                     job.style.display = 'none';
                 }
             });
+
+            // Scroll to the first visible job
+            if (firstVisibleJob) {
+                firstVisibleJob.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+
+    const accordionHeaders = document.querySelectorAll('.accordion-header');
+
+    accordionHeaders.forEach(header => {
+        header.addEventListener('click', () => {
+            console.log('Accordion header clicked:', header);
+            const content = document.querySelector(header.getAttribute('data-target'));
+            const isOpen = content.style.display === 'block';
+
+            // Close all accordion items
+            document.querySelectorAll('.accordion-content').forEach(item => {
+                item.style.display = 'none';
+            });
+
+            // Toggle the clicked item
+            content.style.display = isOpen ? 'none' : 'block';
         });
     });
 });
