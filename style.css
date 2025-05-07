@@ -1022,11 +1022,11 @@ footer .contact-links span {
 }
 
 .accordion-header {
-    background: #f8f9fa;
+    background: #f8f9fa; /* Light Gray */
     padding: 15px;
     font-size: 1.2rem;
     font-weight: bold;
-    color: #2980b9;
+    color: #2980b9; /* Medium Blue */
     text-align: left;
     cursor: pointer;
     border: none;
@@ -1034,14 +1034,22 @@ footer .contact-links span {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    transition: background-color 0.3s ease;
+}
+
+.accordion-header:hover {
+    background: #e9ecef; /* Slightly darker gray on hover */
 }
 
 .accordion-header i {
     margin-right: 10px;
+    color: #1abc9c; /* Green for icons */
 }
 
 .accordion-content {
-    display: none;
+    display: none; /* Hidden by default */
+    overflow: hidden;
+    transition: max-height 0.3s ease; /* Smooth animation */
     padding: 15px;
     background: #fff;
     font-size: 1rem;
@@ -1096,6 +1104,8 @@ footer .contact-links span {
 
 .accordion-content {
     display: none; /* Hidden by default */
+    overflow: hidden;
+    transition: max-height 0.3s ease; /* Smooth animation */
     padding: 15px;
     background: #fff; /* White background */
     font-size: 1rem;
@@ -1126,6 +1136,7 @@ footer .contact-links span {
 /* Open Accordion Content */
 .accordion-content.open {
     display: block; /* Show content when open */
+    overflow: visible;
 }
 
 /* Animation for Accordion */

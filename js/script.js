@@ -51,17 +51,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
     accordionHeaders.forEach(header => {
         header.addEventListener('click', () => {
-            console.log('Accordion header clicked:', header);
             const content = document.querySelector(header.getAttribute('data-target'));
-            const isOpen = content.style.display === 'block';
+
+            // Check if the clicked content is already open
+            const isOpen = content.classList.contains('open');
 
             // Close all accordion items
             document.querySelectorAll('.accordion-content').forEach(item => {
-                item.style.display = 'none';
+                item.classList.remove('open');
+                item.style.display = 'none'; // Hide all content
             });
 
             // Toggle the clicked item
-            content.style.display = isOpen ? 'none' : 'block';
+            if (!isOpen) {
+                content.classList.add('open');
+                content.style.display = 'block'; // Show the clicked content
+            }
         });
     });
 });
