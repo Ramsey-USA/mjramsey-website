@@ -10,17 +10,16 @@
 
 /* General Styles */
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Lato', sans-serif;
+    line-height: 1.6;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    color: #333; /* Dark Gray */
+    color: #333;
     background-image: url('images/website-background.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    line-height: 1.6;
 }
 
 body::before {
@@ -47,8 +46,8 @@ p, ul, li {
 }
 
 a {
-    color: #16a085; /* Darker Green */
     text-decoration: none;
+    color: inherit;
     transition: color 0.3s ease;
 }
 
@@ -57,8 +56,8 @@ a:hover {
 }
 
 .container {
-    width: 85%;
-    max-width: 1100px;
+    width: 90%;
+    max-width: 1200px;
     margin: auto;
     overflow: hidden;
     padding: 0 20px;
@@ -682,80 +681,87 @@ section h2::after {
 
 /* Education Section */
 #education {
-    padding: 60px 20px;
-    background: #f8f9fa; /* Light Gray Background */
-}
-
-#education h2 {
-    font-size: 2.8rem;
-    color: var(--medium-blue);
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    margin-bottom: 40px;
+    background: url('images/asu-pat-tillman-2.jpg') no-repeat center center; /* Background image */
+    background-size: cover; /* Ensure the image covers the entire section */
+    color: #fff; /* White text for contrast */
+    padding: 80px 20px; /* Add padding for spacing */
+    text-align: center;
     position: relative;
 }
 
-#education h2::after {
+#education::before {
     content: '';
-    display: block;
-    width: 100px;
-    height: 4px;
-    background-color: var(--primary-green);
-    margin: 10px auto 0;
-    border-radius: 2px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); /* Darker overlay for better text readability */
+    z-index: 1;
 }
 
-#education .section-heading {
-    text-align: center;
-    font-size: 2.5rem;
-    color: #2980b9; /* Medium Blue */
+#education .container {
+    position: relative;
+    z-index: 2; /* Ensure content is above the overlay */
+}
+
+#education h2 {
+    font-size: 3.5rem; /* Larger font size for the heading */
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); /* Add shadow for better contrast */
+}
+
+#education p {
+    font-size: 1.5rem; /* Larger font size for the description */
     margin-bottom: 40px;
+    line-height: 1.8; /* Increase line height for readability */
+    color: #f0f0f0; /* Slightly lighter white for better contrast */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7); /* Subtle shadow for readability */
 }
 
 .education-item, .certification-list, .award-list {
-    background: #fff;
+    background: rgba(255, 255, 255, 0.6); /* Semi-transparent white background */
     padding: 25px;
     margin-bottom: 25px;
     border-left: 6px solid #1abc9c; /* Green accent */
-    border-radius: 5px;
-    box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+    border-radius: 5px; /* Rounded corners */
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 }
 
-#education h3 {
-    font-size: 1.8rem;
+.education-item h3, .certification-list li, .award-list li {
+    font-size: 1.5rem; /* Larger font size for list items */
     font-weight: bold;
-    margin-bottom: 15px;
-    color: #2980b9; /* Medium Blue */
+    color: #2c3e50; /* Dark Blue for better contrast */
     margin-bottom: 10px;
 }
 
-.education-item p, .certification-list li, .award-list li {
-    color: #555;
-}
-
 .certification-list, .award-list {
-    list-style: none;
+    list-style: none; /* Remove bullets */
     padding: 0;
     margin: 20px 0;
 }
 
 .certification-list li, .award-list li {
-    font-size: 1rem;
-    color: #555;
+    font-size: 1.2rem; /* Slightly larger font size */
+    color: #555; /* Medium gray for text */
     margin-bottom: 10px;
     display: flex;
     align-items: center;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Subtle shadow for better readability */
 }
 
 .certification-list li i, .award-list li i {
     color: #1abc9c; /* Green for icons */
     margin-right: 10px;
-    font-size: 1.2rem;
+    font-size: 1.5rem; /* Larger icon size */
 }
 
 .certification-list li:hover, .award-list li:hover {
-    color: #1abc9c;
-    transform: scale(1.05);
+    color: #1abc9c; /* Green text on hover */
+    transform: scale(1.05); /* Slight zoom effect */
     transition: transform 0.3s ease, color 0.3s ease;
 }
 
@@ -944,66 +950,54 @@ section h2::after {
 
 /* Contact Section */
 #contact {
-    background-color: #2c3e50; /* Solid Dark Blue */
-    color: #ecf0f1; /* Light Gray for text */
-    padding: 60px 0;
+    background: linear-gradient(135deg, #1abc9c, #16a085); /* Green gradient */
+    color: #fff;
+    padding: 100px 20px; /* Increased padding for better spacing */
+    text-align: center;
 }
 
-#contact h2 {
-    font-size: 2.8rem;
-    color: #fff; /* White for contrast */
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
+#contact .section-heading {
+    font-size: 3rem; /* Larger font size for heading */
     margin-bottom: 40px;
-    position: relative;
-}
-
-#contact h2::after {
-    content: '';
-    display: block;
-    width: 100px;
-    height: 4px;
-    background-color: var(--primary-green);
-    margin: 10px auto 0;
-    border-radius: 2px;
+    text-transform: uppercase;
+    letter-spacing: 2px; /* Increased spacing for emphasis */
 }
 
 #contact p {
-    text-align: center;
-    font-size: 1.2em;
-    color: #ecf0f1; /* Light Gray for text */
+    font-size: 1.4rem; /* Larger font size for description */
+    margin-bottom: 50px; /* Increased spacing below description */
+    color: #ecf0f1; /* Light Gray */
 }
 
-#contact a {
-    color: #1abc9c; /* Green for links */
-}
-
-#contact a:hover {
-    color: #fff; /* White on hover */
-}
-
-/* Contact Section */
-#contact .contact-links {
-    margin-top: 20px;
-    font-size: 1.2em;
+.contact-links {
     display: flex;
     justify-content: center;
-    gap: 15px; /* Space between links */
+    gap: 30px; /* Increased spacing between links */
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
 }
 
-#contact .contact-links a {
-    color: #1abc9c; /* Green */
+.contact-link {
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem; /* Larger font size for visibility */
+    color: #fff;
     text-decoration: none;
-    transition: color 0.3s ease, transform 0.3s ease;
+    background: rgba(255, 255, 255, 0.2); /* Semi-transparent white */
+    padding: 15px 30px; /* Increased padding for better spacing */
+    border-radius: 8px; /* Rounded corners */
+    transition: background 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
 }
 
-#contact .contact-links a:hover {
-    color: #16a085; /* Darker Green */
+.contact-link i {
+    margin-right: 15px; /* Increased spacing between icon and text */
+    font-size: 2rem; /* Larger icon size */
+}
+
+.contact-link:hover {
+    background: rgba(255, 255, 255, 0.4); /* Brighter white on hover */
     transform: scale(1.1); /* Slight zoom effect */
-}
-
-#contact .contact-links span {
-    color: #ecf0f1; /* Light Gray for separator */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
 }
 
 /* Footer */
@@ -1471,93 +1465,82 @@ footer .contact-links span {
 
 /* Testimonial Section */
 #testimonials {
-    background-color: #f8f9fa; /* Light Gray Background */
-    padding: 60px 20px;
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef); /* Subtle gradient */
+    padding: 80px 20px;
     text-align: center;
+    border-top: 4px solid #1abc9c; /* Green border at the top */
 }
 
-.testimonial-carousel {
-    display: flex;
-    overflow: hidden; /* Hide overflowing testimonials */
-    position: relative;
-    width: 100%;
-    max-width: 800px;
+#testimonials .section-heading {
+    font-size: 2.8rem;
+    color: #2c3e50; /* Dark Blue */
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+.testimonial-tabs {
+    max-width: 900px;
     margin: auto;
-}
-
-.testimonial {
-    flex: 0 0 100%; /* Each testimonial takes full width */
-    opacity: 0; /* Hide testimonials by default */
-    transform: translateX(100%); /* Position testimonials off-screen */
-    transition: opacity 0.5s ease, transform 0.5s ease; /* Smooth transition */
-}
-
-.testimonial.active {
-    opacity: 1; /* Show active testimonial */
-    transform: translateX(0); /* Bring active testimonial into view */
-}
-
-.carousel-controls {
-    margin-top: 20px;
     display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.tab-label {
+    display: flex;
+    align-items: center;
     justify-content: center;
-    gap: 10px;
-}
-
-.carousel-controls button {
-    background: #1abc9c;
-    color: #fff;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 5px;
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #1abc9c;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    margin: 15px 0;
+    transition: color 0.3s ease, transform 0.3s ease;
 }
 
-.carousel-controls button:hover {
-    background: #16a085;
+.tab-label i {
+    margin-right: 10px;
+    font-size: 1.8rem;
 }
 
-/* Testimonial Carousel */
-.testimonial-carousel {
-    display: flex;
-    overflow: hidden; /* Hide overflowing testimonials */
-    position: relative;
-    width: 100%;
-    max-width: 800px;
-    margin: auto;
+.tab-label:hover {
+    color: #16a085; /* Darker Green */
+    transform: scale(1.05); /* Slight zoom effect */
 }
 
-.testimonial {
-    flex: 0 0 100%; /* Each testimonial takes full width */
-    opacity: 0; /* Hide testimonials by default */
-    transform: translateX(100%); /* Position testimonials off-screen */
-    transition: opacity 0.5s ease, transform 0.5s ease; /* Smooth transition */
+.testimonial-content {
+    display: none;
+    text-align: center;
+    margin-top: 30px;
+    animation: fadeIn 0.5s ease-in-out;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.testimonial.active {
-    opacity: 1; /* Show active testimonial */
-    transform: translateX(0); /* Bring active testimonial into view */
+.testimonial-tabs input[type="radio"]:checked + .tab-label + .testimonial-content {
+    display: block;
 }
 
-.carousel-controls {
-    margin-top: 20px;
-    display: flex;
-    justify-content: center;
-    gap: 10px;
+.stars {
+    margin: 15px 0;
+    color: #f1c40f; /* Gold for stars */
 }
 
-.carousel-controls button {
-    background: #1abc9c;
-    color: #fff;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+.author {
+    font-weight: bold;
+    color: #555;
+    margin-top: 15px;
 }
 
-.carousel-controls button:hover {
-    background: #16a085;
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
