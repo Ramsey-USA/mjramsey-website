@@ -446,15 +446,15 @@ section h2::after {
 
 /* Accordion Styling */
 .accordion {
-    margin-top: 30px;
+    margin-top: 20px;
     text-align: left; /* Align accordion content to the left */
 }
 
 .accordion-item {
     background: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
     border-radius: 8px;
-    margin-bottom: 20px;
-    padding: 20px;
+    margin-bottom: 10px;
+    padding: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -497,7 +497,8 @@ section h2::after {
 .accordion-content {
     font-size: 1.2rem;
     color: #333; /* Dark gray for text */
-    margin-top: 10px;
+    margin-top: 0px;
+    margin-bottom: 0px;
     line-height: 1.8;
     display: none; /* Hidden by default */
     overflow: hidden;
@@ -668,7 +669,7 @@ section h2::after {
 
 #portfolio p {
     font-size: 1.4rem; /* Slightly larger font size for better readability */
-    color: #444; /* Darker Gray for improved contrast */
+    color: #16a085; /* Darker Gray for improved contrast */
     text-align: center;
     margin-bottom: 30px;
     line-height: 1.8; /* Improved line spacing for readability */
@@ -861,7 +862,7 @@ section h2::after {
 }
 
 .education-card h3 {
-    font-size: 1.5rem; /* Slightly smaller font size for longer headers */
+    font-size: 1.0rem; /* Slightly smaller font size for longer headers */
     color: #8C1D40; /* ASU Maroon */
     margin-bottom: 15px;
     text-transform: uppercase;
@@ -1678,5 +1679,82 @@ footer .contact-links span {
     to {
         opacity: 1;
     }
+}
+
+/* Dropdown Menu */
+.dropdown-menu {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.dropdown-item {
+    margin-bottom: 15px;
+    border: 1px solid #FFC627; /* ASU Gold border */
+    border-radius: 5px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.2); /* Semi-transparent background */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.dropdown-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.dropdown-toggle {
+    display: flex; /* Align icon and text horizontally */
+    align-items: center;
+    gap: 10px; /* Space between icon and text */
+    padding: 15px 20px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #FFC627; /* ASU Gold */
+    background: none;
+    border: none;
+    text-align: left;
+    cursor: pointer;
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.dropdown-toggle i {
+    font-size: 1.8rem; /* Larger icon size */
+    color: #8C1D40; /* ASU Maroon for icons */
+}
+
+.dropdown-toggle:hover {
+    color: #8C1D40; /* ASU Maroon */
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.dropdown-content {
+    display: none; /* Hidden by default */
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.9); /* White background */
+    color: #333; /* Dark gray text */
+    border-top: 1px solid #FFC627; /* ASU Gold border */
+    font-size: 1.2rem;
+    line-height: 1.8;
+}
+
+.dropdown-content ul {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0 0;
+}
+
+.dropdown-content ul li {
+    margin-bottom: 10px;
+    position: relative;
+    padding-left: 20px;
+}
+
+.dropdown-content ul li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: #FFC627; /* ASU Gold bullet point */
+    font-size: 1.2rem;
 }
 

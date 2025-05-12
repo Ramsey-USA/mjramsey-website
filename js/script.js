@@ -120,6 +120,27 @@ document.addEventListener('DOMContentLoaded', () => {
     updateCarousel();
 });
 
+// Dropdown functionality
+document.querySelectorAll('.dropdown-toggle').forEach(button => {
+    button.addEventListener('click', () => {
+        console.log('Dropdown clicked!');
+        const content = button.nextElementSibling;
+
+        // Toggle the visibility of the dropdown content
+        if (content.style.display === 'block') {
+            content.style.display = 'none';
+        } else {
+            // Close all other dropdowns
+            document.querySelectorAll('.dropdown-content').forEach(item => {
+                item.style.display = 'none';
+            });
+
+            // Open the clicked dropdown
+            content.style.display = 'block';
+        }
+    });
+});
+
 document.querySelectorAll('.accordion-header').forEach(header => {
     header.addEventListener('click', () => {
         const content = header.nextElementSibling;
