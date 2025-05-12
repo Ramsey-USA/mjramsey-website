@@ -1,11 +1,287 @@
+/* Root Variables for ASU Colors */
 :root {
-    --primary-green: #1abc9c;
-    --dark-green: #16a085;
-    --dark-blue: #2c3e50;
-    --medium-blue: #2980b9;
-    --light-gray: #ecf0f1;
-    --medium-gray: #bdc3c7;
-    --dark-gray: #555;
+    --asu-maroon: #8C1D40;
+    --asu-gold: #FFC627;
+    --dark-gray: #333;
+    --light-gray: #F5F5F5;
+    --white: #FFFFFF;
+}
+
+/* General Typography */
+body {
+    font-family: 'Roboto', sans-serif; /* Clean and modern font for body text */
+    line-height: 1.8;
+    color: var(--dark-gray);
+    margin: 0;
+    padding: 0;
+    background-color: var(--light-gray); /* Light background for contrast */
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Orbitron', sans-serif; /* Futuristic font for headings */
+    font-weight: 700;
+    color: var(--asu-maroon); /* ASU Maroon for headings */
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+}
+
+p, ul, li {
+    font-size: 1.1rem;
+    color: var(--dark-gray);
+}
+
+/* Links */
+a {
+    font-size: 1rem;
+    color: var(--asu-gold); /* ASU Gold for links */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--asu-maroon); /* ASU Maroon on hover */
+}
+
+/* Containers */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px 0;
+}
+
+/* Header */
+header {
+    background-color: var(--asu-maroon);
+    color: var(--white);
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+header .logo {
+    font-size: 2rem;
+    font-family: 'Orbitron', sans-serif;
+    color: var(--asu-gold);
+    text-transform: uppercase;
+}
+
+header ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+header li {
+    margin-left: 25px;
+}
+
+header a {
+    color: var(--white);
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+header a:hover {
+    color: var(--asu-gold);
+}
+
+/* Hero Section */
+#hero {
+    background: linear-gradient(rgba(140, 29, 64, 0.8), rgba(140, 29, 64, 0.8)), url('images/asu-hero.jpg') no-repeat center center;
+    background-size: cover;
+    color: var(--white);
+    text-align: center;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#hero h1 {
+    font-size: 4rem;
+    color: var(--asu-gold);
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+    margin-bottom: 20px;
+}
+
+#hero p {
+    font-size: 1.5rem;
+    margin: 15px 0;
+}
+
+#hero .cta-button {
+    margin-top: 20px;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    color: var(--white);
+    background-color: var(--asu-gold);
+    border: none;
+    border-radius: 5px;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#hero .cta-button:hover {
+    background-color: var(--asu-maroon);
+    transform: scale(1.05);
+}
+
+/* Section Headings */
+.section-heading {
+    font-size: 3rem;
+    color: var(--asu-maroon);
+    text-align: center;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.section-heading::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background-color: var(--asu-gold);
+    margin: 10px auto 0;
+    border-radius: 2px;
+}
+
+/* About Section */
+#about {
+    background: var(--light-gray);
+    color: var(--dark-gray);
+    padding: 60px 20px;
+    text-align: center;
+}
+
+#about .container {
+    background: var(--white);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+#about h2 {
+    color: var(--asu-maroon);
+}
+
+#about p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+.about-list li {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.about-list li i {
+    color: var(--asu-gold);
+    margin-right: 10px;
+    font-size: 1.5rem;
+}
+
+/* Skills Section */
+#skills {
+    background: var(--asu-maroon);
+    color: var(--white);
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.skills-card {
+    background: var(--white);
+    border: 1px solid var(--asu-gold);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skills-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.skills-card h3 {
+    font-size: 2rem;
+    color: var(--asu-maroon);
+    margin-bottom: 20px;
+}
+
+/* Experience Section */
+#experience {
+    background: linear-gradient(rgba(140, 29, 64, 0.9), rgba(140, 29, 64, 0.9)), url('images/asu-experience.jpg') no-repeat center center;
+    background-size: cover;
+    color: var(--white);
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.dropdown-item {
+    margin-bottom: 20px;
+    border: 1px solid var(--asu-gold);
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.dropdown-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.dropdown-toggle {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 20px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--asu-gold);
+    background: none;
+    border: none;
+    text-align: left;
+    cursor: pointer;
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.dropdown-toggle i {
+    font-size: 1.8rem;
+    color: var(--asu-maroon);
+}
+
+.dropdown-content {
+    display: none;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.9);
+    color: var(--dark-gray);
+    border-top: 1px solid var(--asu-gold);
+    font-size: 1.2rem;
+    line-height: 1.8;
+}
+
+/* Footer */
+footer {
+    background-color: var(--asu-maroon);
+    color: var(--white);
+    text-align: center;
+    padding: 25px 0;
+}
+
+footer p {
+    margin: 0;
+    font-size: 0.9rem;
 }
 
 /* General Styles */
@@ -1683,7 +1959,7 @@ footer .contact-links span {
 
 /* Dropdown Menu */
 .dropdown-menu {
-    max-width: 800px;
+    max-width: 1200px;
     margin: 0 auto;
     text-align: left;
 }
