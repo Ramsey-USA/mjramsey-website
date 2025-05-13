@@ -149,3 +149,48 @@ document.querySelectorAll('.accordion-header').forEach(header => {
         header.querySelector('i').classList.toggle('fa-chevron-up');
     });
 });
+
+// Ensure the testimonial tabs work correctly
+document.querySelectorAll('.tab-label').forEach(label => {
+    label.addEventListener('click', () => {
+        const content = label.nextElementSibling;
+
+        // Toggle the visibility of the testimonial content
+        if (content.style.display === 'block') {
+            content.style.display = 'none';
+        } else {
+            // Close all other testimonial contents
+            document.querySelectorAll('.testimonial-content').forEach(item => {
+                item.style.display = 'none';
+            });
+
+            // Open the clicked testimonial
+            content.style.display = 'block';
+        }
+    });
+});
+
+// Add hover event listeners to progress bars
+document.querySelectorAll('.progress-bar').forEach((bar) => {
+    bar.addEventListener('mouseenter', () => {
+        const progress = bar.querySelector('.progress');
+        const percentage = progress.getAttribute('data-percentage');
+        progress.style.width = `${percentage}%`; // Set the width dynamically
+    });
+
+    bar.addEventListener('mouseleave', () => {
+        const progress = bar.querySelector('.progress');
+        progress.style.width = '0%'; // Reset the width when hover ends
+    });
+});
+
+// Add hover event listeners to skill icons
+document.querySelectorAll('.skill-icon').forEach((icon) => {
+    icon.addEventListener('mouseenter', () => {
+        icon.classList.add('hovered'); // Add the hovered class to show the percentage
+    });
+
+    icon.addEventListener('mouseleave', () => {
+        icon.classList.remove('hovered'); // Remove the hovered class to show the icon again
+    });
+});

@@ -97,7 +97,9 @@ header a:hover {
     background-size: cover;
     color: var(--white);
     text-align: center;
-    height: 100vh;
+    height: 90vh; /* Slightly shorter height */
+    padding-top: 30px; /* Reduce top padding */
+    padding-bottom: 30px; /* Optional: Adjust bottom padding */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -135,21 +137,25 @@ header a:hover {
 
 /* Section Headings */
 .section-heading {
-    font-size: 3rem;
-    color: var(--asu-maroon);
-    text-align: center;
-    margin-bottom: 40px;
+    font-family: 'Orbitron', sans-serif; /* Futuristic font for consistency */
+    font-size: 3rem; /* Standardized size for all section headings */
+    color: #FFC627; /* ASU Gold for emphasis */
+    text-transform: uppercase; /* Consistent uppercase style */
+    letter-spacing: 2px; /* Increased spacing for clarity */
+    text-align: center; /* Center-align all section headings */
+    margin-bottom: 40px; /* Consistent spacing below headings */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); /* Subtle shadow for better contrast */
     position: relative;
 }
 
 .section-heading::after {
     content: '';
     display: block;
-    width: 80px;
-    height: 4px;
-    background-color: var(--asu-gold);
-    margin: 10px auto 0;
-    border-radius: 2px;
+    width: 80px; /* Consistent underline width */
+    height: 4px; /* Consistent underline thickness */
+    background-color: #8C1D40; /* ASU Maroon underline */
+    margin: 10px auto 0; /* Centered underline */
+    border-radius: 2px; /* Rounded edges for a polished look */
 }
 
 /* About Section */
@@ -185,9 +191,15 @@ header a:hover {
 }
 
 .about-list li i {
-    color: var(--asu-gold);
+    color: #FFC627; /* ASU Gold for icons */
     margin-right: 10px;
-    font-size: 1.5rem;
+    font-size: 1.5rem; /* Larger icon size */
+    transition: transform 0.3s ease, color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.about-list li i:hover {
+    color: #8C1D40; /* ASU Maroon on hover */
+    transform: scale(1.2); /* Slight zoom effect */
 }
 
 /* Skills Section */
@@ -216,6 +228,86 @@ header a:hover {
     font-size: 2rem;
     color: var(--asu-maroon);
     margin-bottom: 20px;
+}
+
+/* Skills Section */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 columns */
+    gap: 20px; /* Space between cards */
+    margin-top: 20px;
+}
+
+.skills-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skills-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.skills-card h3 {
+    font-size: 1.5rem;
+    color: #8C1D40; /* ASU Maroon */
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.skills-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.skills-card ul li {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1rem;
+    color: #333;
+}
+
+/* Skill Icon */
+.skill-icon {
+    position: relative;
+    font-size: 1.5rem;
+    color: #8C1D40; /* ASU Maroon */
+    background-color: #FFC627; /* ASU Gold background */
+    padding: 10px;
+    border-radius: 50%; /* Circular background */
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    cursor: pointer;
+    display: inline-block; /* Ensure the icon is displayed */
+}
+
+/* Hover Effect: Hide Icon and Show Percentage */
+.skill-icon.hovered {
+    color: transparent; /* Hide the icon */
+    background-color: #FFC627; /* Gold background */
+}
+
+.skill-icon.hovered::after {
+    content: attr(data-percentage) '%'; /* Display the percentage */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #8C1D40; /* ASU Maroon */
+    background: #FFC627; /* ASU Gold background */
+    padding: 5px 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    z-index: 1; /* Ensure the percentage is above other elements */
 }
 
 /* Experience Section */
@@ -447,7 +539,9 @@ section h2::after {
     background-color: rgba(52, 73, 94, 0.8); /* Darker Blue-Gray */
     color: #fff;
     text-align: center;
-    height: 100vh; /* Full viewport height */
+    height: 90vh; /* Slightly shorter height */
+    padding-top: 30px; /* Reduce top padding */
+    padding-bottom: 30px; /* Optional: Adjust bottom padding */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -571,6 +665,12 @@ section h2::after {
     color: #FFC627; /* ASU Gold for icons */
     margin-right: 10px;
     font-size: 1.5rem; /* Larger icon size */
+    transition: transform 0.3s ease, color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.about-list li i:hover {
+    color: #8C1D40; /* ASU Maroon on hover */
+    transform: scale(1.2); /* Slight zoom effect */
 }
 
 .cta-button {
@@ -626,62 +726,81 @@ section h2::after {
 
 .skills-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
-    gap: 30px; /* Increase spacing between cards */
-    align-items: stretch; /* Ensure cards are the same height */
+    grid-template-columns: repeat(2, 1fr); /* 2 columns */
+    gap: 20px; /* Space between cards */
+    margin-top: 20px;
 }
 
 .skills-card {
-    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white */
+    background-color: #fff;
     border: 1px solid #ddd;
-    border-radius: 8px;
+    border-radius: 10px;
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .skills-card:hover {
-    transform: translateY(-10px); /* Lift the card */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Enhanced shadow */
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
 .skills-card h3 {
-    font-size: 2em; /* Larger font size */
-    color: #1abc9c; /* Green */
-    margin-bottom: 20px;
+    font-size: 1.5rem;
+    color: #8C1D40; /* ASU Maroon */
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    font-weight: bold;
 }
 
 .skills-card ul {
     list-style: none;
     padding: 0;
     margin: 0;
-    text-align: left;
 }
 
 .skills-card ul li {
-    font-size: 1.3em; /* Slightly larger font size */
-    line-height: 2; /* Increase line spacing for readability */
-    color: #555; /* Dark Gray */
-    margin-bottom: 15px; /* Add more spacing between list items */
-    padding-left: 0; /* Remove padding for alignment */
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1rem;
+    color: #333;
+}
+
+/* Skill Icon */
+.skill-icon {
     position: relative;
+    font-size: 1.5rem;
+    color: #8C1D40; /* ASU Maroon */
+    background-color: #FFC627; /* ASU Gold background */
+    padding: 10px;
+    border-radius: 50%; /* Circular background */
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    cursor: pointer;
+    display: inline-block; /* Ensure the icon is displayed */
 }
 
-/* Skills Section Icons */
-.skills-card ul li i {
-    color: #1abc9c; /* Green for icons */
-    margin-right: 12px; /* Add more space between icon and text */
-    font-size: 1.4em; /* Slightly larger icon size */
-    vertical-align: middle; /* Align icon with text */
+/* Hover Effect: Hide Icon and Show Percentage */
+.skill-icon.hovered {
+    color: transparent; /* Hide the icon */
+    background-color: #FFC627; /* Gold background */
 }
 
-/* Skills Section Subheaders */
-#skills h3 {
-    font-size: 2rem; /* Increase font size for subheaders */
+.skill-icon.hovered::after {
+    content: attr(data-percentage) '%'; /* Display the percentage */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.2rem;
     font-weight: bold;
-    margin-bottom: 20px; /* Add spacing below subheaders */
-    color: #2c3e50; /* Dark Blue for emphasis */
-    line-height: 1.4; /* Adjust line height for better spacing */
+    color: #8C1D40; /* ASU Maroon */
+    background: #FFC627; /* ASU Gold background */
+    padding: 5px 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    z-index: 1; /* Ensure the percentage is above other elements */
 }
 
 /* Experience Section */
@@ -1172,12 +1291,14 @@ section h2::after {
 
 /* Subheadings */
 .subheading {
-    font-size: 2rem;
-    color: #FFC627; /* ASU Gold */
-    margin-top: 40px;
-    margin-bottom: 20px;
-    text-transform: uppercase;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Subtle shadow */
+    font-family: 'Roboto', sans-serif; /* Clean and modern font for subheadings */
+    font-size: 2rem; /* Slightly smaller than main headings */
+    color: #8C1D40; /* ASU Maroon for subheadings */
+    text-transform: uppercase; /* Consistent uppercase style */
+    margin-top: 40px; /* Spacing above subheadings */
+    margin-bottom: 20px; /* Spacing below subheadings */
+    text-align: center; /* Center-align subheadings */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Subtle shadow for better readability */
 }
 
 /* Lists */
@@ -1629,18 +1750,26 @@ footer .contact-links span {
 
 /* Progress Bar Container */
 .progress-bar {
-    background-color: #ddd; /* Light Gray Background */
+    background-color: #ddd; /* Light gray background */
     border-radius: 5px;
     overflow: hidden;
     height: 10px;
-    margin-top: 5px;
+    margin-top: 10px;
+    position: relative;
+    cursor: pointer; /* Indicate interactivity */
 }
 
 /* Progress Bar Fill */
 .progress {
     height: 100%;
-    transition: width 0.3s ease; /* Smooth animation */
-    border-radius: 5px; /* Rounded corners */
+    background-color: #FFC627; /* ASU Gold */
+    width: 0; /* Start with 0 width */
+    transition: width 1.5s ease; /* Smooth animation */
+}
+
+/* Hover Effect */
+.progress-bar:hover .progress {
+    width: attr(data-percentage %) !important;
 }
 
 /* Progress Bar Styles */
@@ -1878,18 +2007,122 @@ footer .contact-links span {
 
 /* Testimonial Section */
 #testimonials {
-    background: linear-gradient(135deg, #f8f9fa, #e9ecef); /* Subtle gradient */
-    padding: 80px 20px;
+    background: url('images/business-suit.jpg') no-repeat center center; /* Background image */
+    background-size: cover; /* Ensure the image covers the entire section */
+    background-attachment: fixed; /* Parallax effect */
+    background-position: center; /* Center the image */
+    color: #fff; /* White text for readability */
+    padding: 80px 20px; /* Add padding for spacing */
     text-align: center;
-    border-top: 4px solid #1abc9c; /* Green border at the top */
+    border-top: 4px solid #FFC627; /* ASU Gold border at the top */
+    position: relative;
+}
+
+#testimonials::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); /* Dark overlay for better text readability */
+    z-index: 1;
+}
+
+#testimonials .container {
+    position: relative;
+    z-index: 2; /* Ensure content is above the overlay */
+}
+
+#testimonials .section-heading {
+    font-size: 3rem; /* Larger font size for emphasis */
+    font-family: 'Orbitron', sans-serif; /* Futuristic font for headings */
+    color: #FFC627; /* ASU Gold */
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    letter-spacing: 2px; /* Increased spacing for clarity */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); /* Subtle shadow for better contrast */
+}
+
+/* Testimonial Tabs */
+.testimonial-tabs {
+    max-width: 900px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.tab-label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #FFC627; /* ASU Gold */
+    cursor: pointer;
+    margin: 15px 0;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.tab-label i {
+    margin-right: 10px;
+    font-size: 1.8rem;
+}
+
+.tab-label:hover {
+    color: #8C1D40; /* ASU Maroon */
+    transform: scale(1.05); /* Slight zoom effect */
+}
+
+.testimonial-content {
+    display: none; /* Hidden by default */
+    text-align: center;
+    margin-top: 30px;
+    animation: fadeIn 0.5s ease-in-out;
+    background: rgba(255, 255, 255, 0.9); /* Semi-transparent white for contrast */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.testimonial-tabs input[type="radio"]:checked + .tab-label + .testimonial-content {
+    display: block; /* Show content when the corresponding radio button is checked */
+}
+
+.stars {
+    color: #FFC627; /* ASU Gold for stars */
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 5px; /* Space between stars */
+}
+
+.stars i {
+    font-size: 1.5rem; /* Slightly larger stars */
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.stars i:hover {
+    color: #FFD700; /* Brighter gold on hover */
+    transform: scale(1.2); /* Slight zoom effect */
+}
+
+.author {
+    font-size: 1rem; /* Standard font size for author names */
+    font-family: 'Roboto', sans-serif; /* Clean and modern font */
+    color: #8C1D40; /* ASU Maroon for author names */
+    font-weight: bold;
+    margin-top: 10px;
 }
 
 #testimonials .section-heading {
     font-size: 2.8rem;
-    color: #2c3e50; /* Dark Blue */
+    color: #FFC627; /* ASU Gold */
     margin-bottom: 40px;
     text-transform: uppercase;
     letter-spacing: 1.5px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); /* Subtle shadow for better contrast */
 }
 
 .testimonial-tabs {
@@ -2032,5 +2265,74 @@ footer .contact-links span {
     left: 0;
     color: #FFC627; /* ASU Gold bullet point */
     font-size: 1.2rem;
+}
+
+/* Add a gold background to maroon icons */
+.dropdown-toggle i,
+.about-list li i,
+.certification-list li i,
+.award-list li i {
+    background-color: #FFC627; /* ASU Gold background */
+    color: #8C1D40; /* ASU Maroon for icon color */
+    border-radius: 50%; /* Circular background */
+    padding: 10px; /* Add padding for better spacing */
+    font-size: 1.5rem; /* Ensure consistent icon size */
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+/* Add hover effect for icons */
+.dropdown-toggle i:hover,
+.about-list li i:hover,
+.certification-list li i:hover,
+.award-list li i:hover {
+    background-color: #8C1D40; /* ASU Maroon background on hover */
+    color: #FFC627; /* ASU Gold for icon color on hover */
+    transform: scale(1.2); /* Slight zoom effect */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add subtle shadow */
+}
+
+/* Testimonial Section Icons */
+.tab-label i {
+    font-size: 2rem; /* Larger icon size */
+    color: #8C1D40; /* ASU Maroon */
+    background-color: #FFC627; /* ASU Gold background */
+    border-radius: 50%; /* Circular background */
+    padding: 10px; /* Add padding for spacing */
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.tab-label i:hover {
+    background-color: #8C1D40; /* ASU Maroon on hover */
+    color: #FFC627; /* ASU Gold on hover */
+    transform: scale(1.2); /* Slight zoom effect */
+}
+
+/* Skill Icon */
+.skill-icon {
+    position: relative;
+    font-size: 1.5rem;
+    color: #8C1D40; /* ASU Maroon */
+    transition: color 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
+}
+
+/* Hover Effect: Hide Icon and Show Percentage */
+.skill-icon.hovered {
+    color: transparent; /* Hide the icon */
+}
+
+.skill-icon.hovered::after {
+    content: attr(data-percentage) '%'; /* Display the percentage */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #FFC627; /* ASU Gold */
+    background: #8C1D40; /* ASU Maroon background */
+    padding: 5px 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
