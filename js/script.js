@@ -1,17 +1,39 @@
-// Smooth scrolling for navigation links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        target.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
+document.addEventListener('DOMContentLoaded', () => {
+    // ============================
+    // Smooth Scrolling
+    // ============================
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
         });
     });
-});
 
-// JavaScript for Filtering Jobs
-document.addEventListener('DOMContentLoaded', () => {
+    // ============================
+    // Mobile Menu Toggle
+    // ============================
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navMenu = document.querySelector('header nav ul');
+
+    if (menuToggle && navMenu) {
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+    }
+
+    // Ensure the overlay doesn't block button clicks
+    const heroOverlay = document.querySelector('#hero .hero-overlay');
+    if (heroOverlay) {
+        heroOverlay.style.pointerEvents = 'none'; // Disable pointer events on the overlay
+    }
+
+    // JavaScript for Filtering Jobs
     const filterButtons = document.querySelectorAll('.filter-button');
     const jobs = document.querySelectorAll('.job');
 
@@ -47,29 +69,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    const accordionHeaders = document.querySelectorAll('.accordion-header');
-
-    accordionHeaders.forEach(header => {
-        header.addEventListener('click', () => {
-            const content = document.querySelector(header.getAttribute('data-target'));
-
-            // Check if the clicked content is already open
-            const isOpen = content.classList.contains('open');
-
-            // Close all accordion items
-            document.querySelectorAll('.accordion-content').forEach(item => {
-                item.classList.remove('open');
-                item.style.display = 'none'; // Hide all content
-            });
-
-            // Toggle the clicked item
-            if (!isOpen) {
-                content.classList.add('open');
-                content.style.display = 'block'; // Show the clicked content
-            }
-        });
-    });
-
     document.querySelectorAll('.open-lightbox').forEach(button => {
         button.addEventListener('click', event => {
             event.preventDefault();
@@ -90,170 +89,176 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    const testimonials = document.querySelectorAll('.testimonial');
-    const prevButton = document.querySelector('.prev');
-    const nextButton = document.querySelector('.next');
-    let currentIndex = 0;
+    // ============================
+    // Awards Carousel
+    // ============================
+    const awardsCarousel = () => {
+        const track = document.querySelector('#awards-track');
+        const items = Array.from(track?.children || []);
+        const prevButton = document.querySelector('.awards-btn.prev');
+        const nextButton = document.querySelector('.awards-btn.next');
+        let currentIndex = 0;
 
-    const updateCarousel = () => {
-        testimonials.forEach((testimonial, index) => {
-            testimonial.classList.remove('active'); // Remove active class from all testimonials
-            if (index === currentIndex) {
-                testimonial.classList.add('active'); // Add active class to the current testimonial
+        const updateCarousel = () => {
+            if (track && items.length > 0) {
+                const itemWidth = items[0].getBoundingClientRect().width;
+                track.style.transform = `translateX(-${currentIndex * (itemWidth + 30)}px)`; // Include margin
             }
-        });
-    };
+        };
 
-    // Event listener for the "Previous" button
-    prevButton.addEventListener('click', () => {
-        currentIndex = (currentIndex - 1 + testimonials.length) % testimonials.length; // Loop back to the last testimonial if at the beginning
-        updateCarousel();
-    });
-
-    // Event listener for the "Next" button
-    nextButton.addEventListener('click', () => {
-        currentIndex = (currentIndex + 1) % testimonials.length; // Loop back to the first testimonial if at the end
-        updateCarousel();
-    });
-
-    // Initialize the carousel
-    updateCarousel();
-});
-
-// Dropdown functionality
-document.querySelectorAll('.dropdown-toggle').forEach(button => {
-    button.addEventListener('click', () => {
-        console.log('Dropdown clicked!');
-        const content = button.nextElementSibling;
-
-        // Toggle the visibility of the dropdown content
-        if (content.style.display === 'block') {
-            content.style.display = 'none';
-        } else {
-            // Close all other dropdowns
-            document.querySelectorAll('.dropdown-content').forEach(item => {
-                item.style.display = 'none';
+        if (prevButton && nextButton) {
+            prevButton.addEventListener('click', () => {
+                currentIndex = (currentIndex - 1 + items.length) % items.length;
+                updateCarousel();
             });
 
-            // Open the clicked dropdown
-            content.style.display = 'block';
+            nextButton.addEventListener('click', () => {
+                currentIndex = (currentIndex + 1) % items.length;
+                updateCarousel();
+            });
         }
-    });
-});
 
-document.querySelectorAll('.accordion-header').forEach(header => {
-    header.addEventListener('click', () => {
-        const content = header.nextElementSibling;
-        content.classList.toggle('open');
-        header.querySelector('i').classList.toggle('fa-chevron-down');
-        header.querySelector('i').classList.toggle('fa-chevron-up');
-    });
-});
+        updateCarousel(); // Initialize the carousel position
+    };
+    awardsCarousel();
 
-// Ensure the testimonial tabs work correctly
-document.querySelectorAll('.tab-label').forEach(label => {
-    label.addEventListener('click', () => {
-        const content = label.nextElementSibling;
+    // ============================
+    // Testimonials Carousel
+    // ============================
+    const testimonialsCarousel = () => {
+        const testimonials = document.querySelectorAll('.testimonial-content');
+        const prevButton = document.querySelector('.testimonial-tabs .prev');
+        const nextButton = document.querySelector('.testimonial-tabs .next');
+        let currentIndex = 0;
 
-        // Toggle the visibility of the testimonial content
-        if (content.style.display === 'block') {
-            content.style.display = 'none';
-        } else {
-            // Close all other testimonial contents
-            document.querySelectorAll('.testimonial-content').forEach(item => {
-                item.style.display = 'none';
+        const updateCarousel = () => {
+            testimonials.forEach((testimonial, index) => {
+                testimonial.style.display = index === currentIndex ? 'block' : 'none';
+            });
+        };
+
+        if (prevButton && nextButton) {
+            prevButton.addEventListener('click', () => {
+                currentIndex = (currentIndex - 1 + testimonials.length) % testimonials.length;
+                updateCarousel();
             });
 
-            // Open the clicked testimonial
-            content.style.display = 'block';
+            nextButton.addEventListener('click', () => {
+                currentIndex = (currentIndex + 1) % testimonials.length;
+                updateCarousel();
+            });
         }
-    });
-});
 
-// Add hover event listeners to progress bars
-document.querySelectorAll('.progress-bar').forEach((bar) => {
-    bar.addEventListener('mouseenter', () => {
-        const progress = bar.querySelector('.progress');
-        const percentage = progress.getAttribute('data-percentage');
-        progress.style.width = `${percentage}%`; // Set the width dynamically
-    });
-
-    bar.addEventListener('mouseleave', () => {
-        const progress = bar.querySelector('.progress');
-        progress.style.width = '0%'; // Reset the width when hover ends
-    });
-});
-
-// Add hover event listeners to skill icons
-document.querySelectorAll('.skill-icon').forEach((icon) => {
-    icon.addEventListener('mouseenter', () => {
-        icon.classList.add('hovered'); // Add the hovered class to show the percentage
-    });
-
-    icon.addEventListener('mouseleave', () => {
-        icon.classList.remove('hovered'); // Remove the hovered class to show the icon again
-    });
-});
-
-// Carousel Navigation
-document.addEventListener('DOMContentLoaded', () => {
-    const track = document.querySelector('#certifications-awards .carousel-track');
-    const items = Array.from(track.children);
-    const prevButton = document.querySelector('#certifications-awards .carousel-btn.prev');
-    const nextButton = document.querySelector('#certifications-awards .carousel-btn.next');
-
-    let currentIndex = 0;
-
-    const updateCarousel = () => {
-        const itemWidth = items[0].getBoundingClientRect().width;
-        track.style.transform = `translateX(-${currentIndex * (itemWidth + 30)}px)`; // Include margin
+        updateCarousel(); // Initialize the carousel
     };
+    testimonialsCarousel();
 
-    prevButton.addEventListener('click', () => {
-        currentIndex = (currentIndex - 1 + items.length) % items.length;
-        updateCarousel();
-    });
+    // ============================
+    // Modal Functionality
+    // ============================
+    const modals = () => {
+        const educationCards = document.querySelectorAll('.education-card');
+        const modals = document.querySelectorAll('.modal');
+        const closeButtons = document.querySelectorAll('.close-modal');
 
-    nextButton.addEventListener('click', () => {
-        currentIndex = (currentIndex + 1) % items.length;
-        updateCarousel();
-    });
-
-    // Initialize the carousel position
-    updateCarousel();
-});
-
-// Modal Functionality
-document.addEventListener('DOMContentLoaded', () => {
-    const educationCards = document.querySelectorAll('.education-card');
-    const modals = document.querySelectorAll('.modal');
-    const closeButtons = document.querySelectorAll('.close-modal');
-
-    // Open the modal when an education card is clicked
-    educationCards.forEach(card => {
-        card.addEventListener('click', () => {
-            const modalId = card.getAttribute('data-modal');
-            const modal = document.getElementById(modalId);
-            if (modal) {
-                modal.style.display = 'flex';
-            }
+        // Open modal
+        educationCards.forEach(card => {
+            card.addEventListener('click', () => {
+                const modalId = card.getAttribute('data-modal');
+                const modal = document.getElementById(modalId);
+                if (modal) {
+                    modal.style.display = 'flex';
+                }
+            });
         });
-    });
 
-    // Close the modal when the close button is clicked
-    closeButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            const modal = button.closest('.modal');
-            modal.style.display = 'none';
+        // Close modal
+        closeButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const modal = button.closest('.modal');
+                if (modal) {
+                    modal.style.display = 'none';
+                }
+            });
         });
-    });
 
-    // Close the modal when clicking outside the modal content
-    window.addEventListener('click', (e) => {
-        modals.forEach(modal => {
-            if (e.target === modal) {
-                modal.style.display = 'none';
-            }
+        // Close modal when clicking outside
+        window.addEventListener('click', (e) => {
+            modals.forEach(modal => {
+                if (e.target === modal) {
+                    modal.style.display = 'none';
+                }
+            });
         });
-    });
+    };
+    modals();
+
+    // ============================
+    // Dropdown Functionality
+    // ============================
+    const dropdowns = () => {
+        document.querySelectorAll('.dropdown-toggle').forEach(button => {
+            button.addEventListener('click', () => {
+                const content = button.nextElementSibling;
+
+                // Toggle the visibility of the dropdown content
+                if (content.style.display === 'block') {
+                    content.style.display = 'none';
+                } else {
+                    // Close all dropdowns within the same parent container
+                    const parent = button.closest('.dropdown-menu');
+                    if (parent) {
+                        parent.querySelectorAll('.dropdown-content').forEach(item => {
+                            item.style.display = 'none';
+                        });
+                    }
+
+                    // Open the clicked dropdown
+                    content.style.display = 'block';
+                }
+            });
+        });
+    };
+    dropdowns();
+
+    // ============================
+    // Accordion Functionality
+    // ============================
+    const accordions = () => {
+        document.querySelectorAll('.accordion-header').forEach(header => {
+            header.addEventListener('click', () => {
+                const content = header.nextElementSibling;
+                const isOpen = content.classList.contains('open');
+
+                // Close all accordion items
+                document.querySelectorAll('.accordion-content').forEach(item => {
+                    item.classList.remove('open');
+                    item.style.display = 'none';
+                });
+
+                // Toggle the clicked item
+                if (!isOpen) {
+                    content.classList.add('open');
+                    content.style.display = 'block';
+                }
+            });
+        });
+    };
+    accordions();
+
+    // ============================
+    // Hover Effects for Skill Icons
+    // ============================
+    const skillIcons = () => {
+        document.querySelectorAll('.skill-icon').forEach(icon => {
+            icon.addEventListener('mouseenter', () => {
+                icon.classList.add('hovered');
+            });
+
+            icon.addEventListener('mouseleave', () => {
+                icon.classList.remove('hovered');
+            });
+        });
+    };
+    skillIcons();
 });
