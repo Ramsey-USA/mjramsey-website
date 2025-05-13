@@ -1199,12 +1199,61 @@ section h2::after {
 
 /* Education Section */
 #education {
-    background: url('images/asu-pat-tillman-2.jpg') no-repeat center center; /* Background image */
-    background-size: cover; /* Ensure the image covers the entire section */
-    color: #FFC627; /* ASU Gold for text */
-    padding: 80px 20px; /* Add padding for spacing */
+    padding: 80px 20px; /* Increased top and bottom padding for better spacing */
+    background: url('images/asu-pat-tillman-2.jpg') no-repeat center center;
+    background-size: cover;
+    color: #FFC627; /* ASU Gold */
     text-align: center;
-    position: relative;
+}
+
+.education-grid {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    gap: 30px; /* Increased spacing between items */
+    margin-bottom: 50px; /* Add spacing below the grid */
+}
+
+.education-card {
+    background: rgba(255, 255, 255, 0.2); /* Transparent white background */
+    border: 2px solid #FFC627; /* ASU Gold border */
+    border-radius: 10px; /* Rounded corners */
+    padding: 30px; /* Increased padding for better spacing */
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.education-card:hover {
+    transform: translateY(-5px); /* Slight lift on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Enhanced shadow */
+}
+
+.logo-container {
+    margin-bottom: 20px; /* Increased spacing below the logo */
+}
+
+.institution-logo {
+    max-width: 150px; /* Slightly larger logo size */
+    height: auto;
+    display: block;
+    margin: 0 auto; /* Center the logo */
+    border-radius: 5px; /* Optional: Add rounded corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle shadow */
+}
+
+.education-card h3 {
+    font-size: 1.8rem; /* Slightly larger font size */
+    color: #8C1D40; /* ASU Maroon */
+    margin-bottom: 20px; /* Increased spacing below the heading */
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.education-card p {
+    font-size: 1.2rem; /* Adjusted font size */
+    color: #FFC627; /* ASU Gold */
+    margin-bottom: 15px; /* Increased spacing between paragraphs */
+    line-height: 1.8; /* Improved readability */
 }
 
 #education::before {
@@ -1235,9 +1284,9 @@ section h2::after {
 }
 
 .education-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
-    gap: 20px; /* Space between cards */
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    gap: 20px; /* Add spacing between items */
     margin-bottom: 40px; /* Add spacing below the grid */
 }
 
@@ -1257,27 +1306,18 @@ section h2::after {
 }
 
 .education-card h3 {
-    font-size: 1.0rem; /* Slightly smaller font size for longer headers */
+    font-size: 1.5rem; /* Adjusted font size */
     color: #8C1D40; /* ASU Maroon */
     margin-bottom: 15px;
     text-transform: uppercase;
-    letter-spacing: 1.2px; /* Adjusted spacing for clarity */
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3); /* Subtle shadow for better readability */
     font-weight: bold;
-    text-align: center;
-    line-height: 1.4; /* Adjusted line height for multi-line headers */
-    word-wrap: break-word; /* Ensure long words break to the next line */
-    overflow-wrap: break-word; /* Additional support for word wrapping */
 }
 
 .education-card p {
-    font-size: 1.3rem; /* Slightly larger font size for details */
+    font-size: 1.2rem; /* Adjusted font size */
     color: #FFC627; /* ASU Gold */
     margin-bottom: 10px;
-    line-height: 1.8; /* Improved line spacing for readability */
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); /* Subtle shadow for better readability */
-    font-weight: 400; /* Normal weight for body text */
-    text-align: center;
+    line-height: 1.6; /* Improved readability */
 }
 
 .institution-logo {
@@ -1287,6 +1327,77 @@ section h2::after {
     display: block;
     border-radius: 5px; /* Optional: Add rounded corners */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle shadow */
+}
+
+/* Carousel */
+.carousel {
+    position: relative;
+    overflow: hidden;
+    margin-top: 50px; /* Increased spacing above the carousel */
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-item {
+    min-width: 300px;
+    margin: 0 15px; /* Increased spacing between carousel items */
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px solid #FFC627;
+    border-radius: 10px;
+    padding: 25px; /* Increased padding for better spacing */
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.carousel-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.carousel-item i {
+    font-size: 2rem; /* Larger icon size */
+    color: #8C1D40; /* ASU Maroon */
+    background-color: #FFC627; /* ASU Gold background */
+    border-radius: 50%; /* Circular background */
+    padding: 15px; /* Increased padding for spacing */
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.carousel-item i:hover {
+    background-color: #8C1D40; /* ASU Maroon on hover */
+    color: #FFC627; /* ASU Gold on hover */
+    transform: scale(1.2); /* Slight zoom effect */
+}
+
+.carousel-item p {
+    font-size: 1.2rem;
+    color: #FFC627;
+    margin-top: 10px; /* Add spacing above the text */
+}
+
+/* Carousel Navigation */
+.carousel-nav {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px; /* Add spacing above the navigation buttons */
+}
+
+.carousel-btn {
+    background: none;
+    border: none;
+    color: #FFC627; /* ASU Gold */
+    font-size: 2rem;
+    cursor: pointer;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.carousel-btn:hover {
+    color: #8C1D40; /* ASU Maroon */
+    transform: scale(1.2);
 }
 
 /* Subheadings */

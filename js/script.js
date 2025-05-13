@@ -194,3 +194,31 @@ document.querySelectorAll('.skill-icon').forEach((icon) => {
         icon.classList.remove('hovered'); // Remove the hovered class to show the icon again
     });
 });
+
+// Carousel Navigation
+document.addEventListener('DOMContentLoaded', () => {
+    const track = document.querySelector('.carousel-track');
+    const items = Array.from(track.children);
+    const prevButton = document.querySelector('.carousel-btn.prev');
+    const nextButton = document.querySelector('.carousel-btn.next');
+
+    let currentIndex = 0;
+
+    const updateCarousel = () => {
+        const itemWidth = items[0].getBoundingClientRect().width;
+        track.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
+    };
+
+    prevButton.addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + items.length) % items.length;
+        updateCarousel();
+    });
+
+    nextButton.addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % items.length;
+        updateCarousel();
+    });
+
+    // Initialize the carousel position
+    updateCarousel();
+});
