@@ -51,44 +51,37 @@ a:hover {
     padding: 20px 0;
 }
 
-/* Header */
+/* Header Styling */
 header {
-    background-color: var(--asu-maroon);
-    color: var(--white);
-    padding: 15px 0;
-    position: sticky;
+    display: flex; /* Use flexbox for alignment */
+    justify-content: space-between; /* Space between navigation and any other content */
+    align-items: center; /* Vertically align items */
+    padding: 10px 20px; /* Adjust padding for a compact layout */
+    background-color: #8C1D40; /* ASU Maroon */
+    color: #FFFFFF; /* White text for readability */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    position: sticky; /* Keep the header fixed at the top */
     top: 0;
-    z-index: 1000;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 1000; /* Ensure the header stays above other elements */
 }
 
-header .logo {
-    font-size: 2rem;
-    font-family: 'Orbitron', sans-serif;
-    color: var(--asu-gold);
-    text-transform: uppercase;
+header nav ul {
+    display: flex; /* Align navigation links horizontally */
+    gap: 20px; /* Add spacing between navigation links */
+    list-style: none; /* Remove default list styling */
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
 }
 
-header ul {
-    display: flex;
-    list-style: none;
-    padding: 0;
-    margin: 0;
+header nav ul li a {
+    font-size: 1rem; /* Adjust font size for links */
+    color: #FFFFFF; /* White text for links */
+    text-decoration: none; /* Remove underline */
+    transition: color 0.3s ease; /* Add hover effect */
 }
 
-header li {
-    margin-left: 25px;
-}
-
-header a {
-    color: var(--white);
-    font-size: 1rem;
-    font-weight: bold;
-    text-transform: uppercase;
-}
-
-header a:hover {
-    color: var(--asu-gold);
+header nav ul li a:hover {
+    color: #FFC627; /* Change to ASU Gold on hover */
 }
 
 /* Hero Section */
@@ -1516,7 +1509,7 @@ section h2::after {
     text-align: center;
     margin-bottom: 40px;
     font-size: 2.5rem;
-    color: #2980b9; /* Medium Blue */
+    color: #FFFFFF; /* White text for readability */
     text-transform: uppercase;
     letter-spacing: 1px;
 }
