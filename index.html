@@ -31,8 +31,8 @@
                 <li><a href="#about">About</a></li>
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#experience">Experience</a></li>
-                <li><a href="#portfolio">Portfolio</a></li>
                 <li><a href="#education">Education</a></li>
+                <li><a href="#certifications-awards">Awards</a></li>
                 <li><a href="#testimonials">Testimonials</a></li> <!-- New Testimonials Link -->
                 <li><a href="#contact">Contact</a></li>
             </ul>
@@ -250,45 +250,76 @@
         <section id="education">
     <div class="container">
         <h2 class="section-heading">Education</h2>
+        <p>My educational journey has been a blend of formal education and hands-on experience, equipping me with the skills to excel in project management and operations.</p>
+        <p>Please click below.</p>
         <div class="education-grid">
             <!-- Education Item 1 -->
-            <div class="education-card">
+            <div class="education-card" data-modal="asu-modal">
                 <div class="logo-container">
                     <img src="images/asu-flames-logo.jpg" alt="ASU Logo" class="institution-logo">
                 </div>
                 <h3>Arizona State University</h3>
-                <p><strong>Bachelor of Applied Science (BAS) in Operations Management</strong></p>
-                <p>Minor in Project Management | Expected Graduation: May 2026</p>
-                <p>GPA: 3.93/4.0 | Phi Theta Kappa Honor Society</p>
+                <p><strong>BAS in Progress</strong></p>
             </div>
 
             <!-- Education Item 2 -->
-            <div class="education-card">
+            <div class="education-card" data-modal="asu-global-modal">
                 <div class="logo-container">
                     <img src="images/asu-global-logo.jpg" alt="ASU Global Accelerator Logo" class="institution-logo">
                 </div>
                 <h3>ASU Global Accelerator</h3>
                 <p><strong>Certifications In Progress</strong></p>
-                <p>Intercultural Competency; WEB Development; AI-Powered Javascript; AI Professional Skills; Intercultural Skills; E-commerce Marketing; Social Media & Search</p>
-                <p>Expected Completion: Dec 2025</p>
             </div>
 
             <!-- Education Item 3 -->
-            <div class="education-card">
+            <div class="education-card" data-modal="cbc-modal">
                 <div class="logo-container">
                     <img src="images/cbc-logo.png" alt="CBC Logo" class="institution-logo">
                 </div>
+                <h3>Columbia Basin Community College</h3>
+                <p><strong>AAS Completed</strong></p>
+                </div>
+        </div>
+
+        <!-- Modals -->
+        <div id="asu-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <h3>Arizona State University</h3>
+                <p><strong>Bachelor of Applied Science (BAS) in Operations Management</strong></p>
+                <p>Minor in Project Management | Expected Graduation: May 2026</p>
+                <p>GPA: 3.93/4.0 | Phi Theta Kappa Honor Society</p>                
+            </div>
+        </div>
+
+        <div id="asu-global-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <h3>ASU Global Accelerator</h3>
+                <p><strong>Certifications In Progress</strong></p>
+                <p>Intercultural Competency, Web Development, AI-Powered JavaScript, AI Professional Skills</p>
+                <p>Expected Completion: Dec 2025</p>
+            </div>
+        </div>
+
+        <div id="cbc-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
                 <h3>Columbia Basin Community College</h3>
                 <p><strong>Associate of Applied Science (AAS) in Business Administration</strong></p>
                 <p>Graduated: Dec 2023 | Graduated with Honors</p>
                 <p>GPA: 3.88/4.0 | Phi Theta Kappa Honor Society</p>
             </div>
         </div>
+    </div>
+</section>
 
-        <!-- Carousel for Certifications and Awards -->
+        <section id="certifications-awards">
+    <div class="container">
+        <h2 class="section-heading">Certifications & Awards</h2>
         <div class="carousel">
             <div class="carousel-track">
-                <!-- Certification Item -->
+                <!-- Certification Items -->
                 <div class="carousel-item">
                     <i class="fas fa-shield-alt"></i>
                     <p>OSHA 30 Certified</p>
@@ -306,7 +337,7 @@
                     <p>Blackwater Tactical Driving Certified</p>
                 </div>
 
-                <!-- Award Item -->
+                <!-- Award Items -->
                 <div class="carousel-item">
                     <i class="fas fa-medal"></i>
                     <p>Navy Achievement Medals (x2)</p>

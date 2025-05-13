@@ -197,16 +197,16 @@ document.querySelectorAll('.skill-icon').forEach((icon) => {
 
 // Carousel Navigation
 document.addEventListener('DOMContentLoaded', () => {
-    const track = document.querySelector('.carousel-track');
+    const track = document.querySelector('#certifications-awards .carousel-track');
     const items = Array.from(track.children);
-    const prevButton = document.querySelector('.carousel-btn.prev');
-    const nextButton = document.querySelector('.carousel-btn.next');
+    const prevButton = document.querySelector('#certifications-awards .carousel-btn.prev');
+    const nextButton = document.querySelector('#certifications-awards .carousel-btn.next');
 
     let currentIndex = 0;
 
     const updateCarousel = () => {
         const itemWidth = items[0].getBoundingClientRect().width;
-        track.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
+        track.style.transform = `translateX(-${currentIndex * (itemWidth + 30)}px)`; // Include margin
     };
 
     prevButton.addEventListener('click', () => {
@@ -221,4 +221,39 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Initialize the carousel position
     updateCarousel();
+});
+
+// Modal Functionality
+document.addEventListener('DOMContentLoaded', () => {
+    const educationCards = document.querySelectorAll('.education-card');
+    const modals = document.querySelectorAll('.modal');
+    const closeButtons = document.querySelectorAll('.close-modal');
+
+    // Open the modal when an education card is clicked
+    educationCards.forEach(card => {
+        card.addEventListener('click', () => {
+            const modalId = card.getAttribute('data-modal');
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.style.display = 'flex';
+            }
+        });
+    });
+
+    // Close the modal when the close button is clicked
+    closeButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const modal = button.closest('.modal');
+            modal.style.display = 'none';
+        });
+    });
+
+    // Close the modal when clicking outside the modal content
+    window.addEventListener('click', (e) => {
+        modals.forEach(modal => {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+    });
 });
