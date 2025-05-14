@@ -196,56 +196,35 @@ document.addEventListener('DOMContentLoaded', () => {
     // ============================
     // Dropdown Functionality
     // ============================
-    console.log('Dropdown functionality initialized'); // Debugging log
-
-    // Select all dropdown toggle buttons
     const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
-    console.log('Dropdown toggles found:', dropdownToggles.length); // Debugging log
 
-    // Attach click event listeners to each toggle button
     dropdownToggles.forEach(button => {
-        console.log('Attaching event listener to:', button); // Debugging log
-
         button.addEventListener('click', (event) => {
             event.stopPropagation(); // Prevent click from propagating to the document
-            console.log('Dropdown clicked:', button); // Debugging log
 
             const content = button.nextElementSibling; // Get the dropdown content
-            console.log('Dropdown content:', content); // Debugging log
 
-            // Ensure the content exists
             if (!content || !content.classList.contains('dropdown-content')) {
                 console.error('Dropdown content not found for:', button);
                 return;
             }
 
-            // Check if the clicked dropdown is already open
-            const isVisible = content.classList.contains('open');
-            console.log('Is dropdown visible?', isVisible); // Debugging log
+            // Close other dropdowns
+            document.querySelectorAll('.dropdown-content.open').forEach(openContent => {
+                if (openContent !== content) {
+                    openContent.classList.remove('open');
+                }
+            });
 
-            // Close all dropdowns within the same parent container
-            const parent = button.closest('.dropdown-menu');
-            if (parent) {
-                parent.querySelectorAll('.dropdown-content').forEach(item => {
-                    item.classList.remove('open'); // Remove the 'open' class
-                });
-            }
-
-            // Open the clicked dropdown if it was not already visible
-            if (!isVisible) {
-                content.classList.add('open'); // Add the 'open' class
-            }
+            // Toggle the 'open' class
+            content.classList.toggle('open');
         });
     });
 
     // Close dropdowns when clicking outside
-    document.addEventListener('click', (event) => {
-        const isDropdown = event.target.closest('.dropdown-item');
-        if (!isDropdown) {
-            console.log('Clicked outside dropdown, closing all dropdowns'); // Debugging log
-            document.querySelectorAll('.dropdown-content.open').forEach(content => {
-                content.classList.remove('open'); // Close all open dropdowns
-            });
-        }
+    document.addEventListener('click', () => {
+        document.querySelectorAll('.dropdown-content.open').forEach(content => {
+            content.classList.remove('open'); // Close all open dropdowns
+        });
     });
 });
