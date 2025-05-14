@@ -384,12 +384,12 @@ header nav ul li a:hover {
 }
 
 .about-list li i {
-    background-color: var(--asu-gold); /* ASU Gold background */
-    color: var(--asu-maroon); /* ASU Maroon for icon color */
-    border-radius: 50%; /* Circular background */
-    padding: 10px; /* Add padding for better spacing */
-    font-size: 1.5rem; /* Ensure consistent icon size */
-    transition: transform 0.3s ease, background-color 0.3s ease; /* Smooth hover effect */
+    background-color: var(--asu-gold);
+    color: var(--asu-maroon);
+    border-radius: 50%;
+    padding: 10px;
+    font-size: 1.5rem;
+    transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
 .about-list li i:hover {
@@ -419,22 +419,6 @@ header nav ul li a:hover {
     color: var(--asu-maroon); /* Maroon text on hover */
     transform: scale(1.1); /* Slight zoom effect */
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
-}
-
-.about-list li i {
-    background-color: #FFC627; /* ASU Gold background */
-    color: #8C1D40; /* ASU Maroon for icon color */
-    border-radius: 50%; /* Circular background */
-    padding: 10px; /* Add padding for better spacing */
-    font-size: 1.5rem; /* Ensure consistent icon size */
-    transition: transform 0.3s ease, background-color 0.3s ease;
-}
-
-.about-list li i:hover {
-    background-color: #8C1D40; /* ASU Maroon background on hover */
-    color: #FFC627; /* ASU Gold for icon color on hover */
-    transform: scale(1.2); /* Slight zoom effect */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add subtle shadow */
 }
 
 /* Skills Section */
@@ -563,6 +547,8 @@ header nav ul li a:hover {
 .tabs {
     max-width: 1000px;
     margin: 0 auto;
+    position: relative;
+    z-index: 2; /* Ensure tabs are above other elements */
 }
 
 /* Tab Buttons */
@@ -570,6 +556,7 @@ header nav ul li a:hover {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    gap: 10px;
     margin-bottom: 20px;
 }
 
@@ -591,6 +578,11 @@ header nav ul li a:hover {
     color: var(--asu-maroon);
 }
 
+.tab-button:hover {
+    background-color: var(--asu-maroon);
+    color: var(--asu-gold);
+}
+
 /* Tab Content */
 .tab-content {
     display: none;
@@ -602,7 +594,7 @@ header nav ul li a:hover {
 }
 
 .tab-content.active {
-    display: block;
+    display: block !important; /* Force visibility */
 }
 
 /* Tab Content Items */
@@ -629,7 +621,7 @@ header nav ul li a:hover {
 
 .tab-content ul li {
     font-size: 1.1rem; /* Adjusted font size */
-    color: var(--dark-gray); /* Neutral text color */
+    color: var (--dark-gray); /* Neutral text color */
     margin-bottom: 10px; /* Add spacing between list items */
     display: flex; /* Align icon and text horizontally */
     align-items: center; /* Vertically align icon and text */
@@ -645,12 +637,13 @@ header nav ul li a:hover {
 /* Responsive Styles */
 @media (max-width: 768px) {
     .tab-buttons {
-        flex-direction: column; /* Stack buttons vertically */
+        flex-direction: column;
         align-items: center;
+        gap: 15px;
     }
 
     .tab-content {
-        padding: 15px; /* Reduce padding for smaller screens */
+        padding: 15px;
     }
 
     .tab-content h3 {
@@ -695,12 +688,23 @@ header nav ul li a:hover {
 
 /* Education Section */
 #education {
-    padding: 80px 20px; /* Top/Bottom, Left/Right */
+    padding: 80px 20px; /* Add spacing around the section */
     background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
                 url('images/asu-pat-tillman-2.jpg') no-repeat center/cover; /* Overlay and background */
-    color: #FFFFFF; /* White text */
+    color: #FFFFFF; /* White text for readability */
     text-align: center;
     position: relative;
+}
+
+#education p {
+    font-size: 1.4rem; /* Slightly larger font size for readability */
+    color: var(--white); /* White text for contrast against the background */
+    line-height: 1.8; /* Improve line spacing for readability */
+    margin-bottom: 20px; /* Add spacing below each paragraph */
+    text-align: center; /* Center-align text for better presentation */
+    max-width: 1000px; /* Limit the width for better readability */
+    margin-left: auto; /* Center the text horizontally */
+    margin-right: auto; /* Center the text horizontally */
 }
 
 #education::before {
@@ -720,34 +724,28 @@ header nav ul li a:hover {
 }
 
 #education .section-heading {
-    font-size: 3rem; /* Larger font size */
-    color: #FFC627; /* ASU Gold */
+    font-size: 3rem; /* Larger font size for emphasis */
+    color: var(--asu-gold); /* ASU Gold for the heading */
     text-transform: uppercase;
-    letter-spacing: 2px; /* Add spacing */
+    letter-spacing: 2px; /* Add spacing for clarity */
     font-weight: bold;
-    margin-bottom: 40px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); /* Subtle shadow */
-}
-
-#education p {
-    font-size: 1.5rem; /* Larger font size */
-    color: #FFFFFF; /* White text */
-    margin-bottom: 20px; /* Spacing below the paragraph */
-    line-height: 1.8; /* Improve readability */
+    margin-bottom: 40px; /* Add spacing below the heading */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); /* Subtle shadow for better contrast */
 }
 
 /* Education Grid */
 .education-grid {
     display: flex;
-    flex-direction: column; /* Stack items vertically */
-    gap: 30px; /* Spacing between items */
-    margin-bottom: 50px; /* Spacing below the grid */
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    gap: 30px; /* Add spacing between items */
+    justify-content: center; /* Center-align items */
+    margin-bottom: 50px; /* Add spacing below the grid */
 }
 
 /* Education Card */
 .education-card {
-    background: rgba(255, 255, 255, 0.2); /* Transparent white */
-    border: 2px solid #FFC627; /* ASU Gold border */
+    background: rgba(255, 255, 255, 0.2); /* Semi-transparent white */
+    border: 2px solid var(--asu-gold); /* ASU Gold border */
     border-radius: 10px; /* Rounded corners */
     padding: 30px; /* Add padding */
     text-align: center;
@@ -762,11 +760,27 @@ header nav ul li a:hover {
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Enhanced shadow */
 }
 
+.education-card h3 {
+    font-size: 2rem; /* Larger font size for headings */
+    color: var(--asu-gold); /* ASU Gold */
+    margin-bottom: 20px; /* Add spacing below the heading */
+    text-transform: uppercase;
+    font-weight: bold;
+    line-height: 1.4; /* Improve readability */
+}
+
+.education-card p {
+    font-size: 1.3rem; /* Slightly larger font size */
+    color: var(--asu-gold); /* ASU Gold */
+    margin-bottom: 15px; /* Add spacing between paragraphs */
+    line-height: 1.8; /* Improve readability */
+}
+
 /* Education Card Images */
 .education-card img {
     width: 25%; /* Set a fixed width for the image */
     height: auto; /* Maintain aspect ratio */
-    border-radius: 10px 10px 0 0; /* Rounded corners for the top */
+    border-radius: 10px; /* Rounded corners */
     margin-bottom: 15px; /* Add spacing below the image */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -776,40 +790,6 @@ header nav ul li a:hover {
     transform: scale(1.05); /* Slight zoom effect on hover */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
 }
-
-/* Education Card Logos */
-.education-card .education-logo {
-    width: 100px; /* Set a fixed width for the logo */
-    height: auto; /* Maintain aspect ratio */
-    margin: 0 auto 20px; /* Center the logo and add spacing below */
-    display: block; /* Ensure the logo is displayed as a block element */
-    border-radius: 5px; /* Optional: Add rounded corners */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.education-card .education-logo:hover {
-    transform: scale(1.1); /* Slight zoom effect on hover */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
-}
-
-/* Education Card Content */
-.education-card h3 {
-    font-size: 2rem; /* Larger font size */
-    color: #FFFFFF; /* White text */
-    margin-bottom: 20px; /* Spacing below the heading */
-    text-transform: uppercase;
-    font-weight: bold;
-    line-height: 1.4; /* Improve readability */
-}
-
-.education-card p {
-    font-size: 1.3rem; /* Slightly larger font size */
-    color: #FFFFFF; /* White text */
-    margin-bottom: 15px; /* Spacing between paragraphs */
-    line-height: 1.8; /* Improve readability */
-}
-
 /* Modal Styles */
 .modal {
     display: none; /* Hidden by default */
@@ -824,72 +804,77 @@ header nav ul li a:hover {
     z-index: 1000;
 }
 
-.modal-content {
-    background: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    text-align: center;
-    color: #333;
-    max-width: 500px;
-    width: 90%;
-    position: relative;
+.modal.active {
+    display: flex; /* Show modal when active */
 }
 
+.modal-content {
+    background: #FFC627; /* ASU Gold background */
+    color: var(--asu-maroon); /* ASU Maroon text */
+    padding: 30px; /* Add padding for spacing */
+    border-radius: 10px; /* Rounded corners */
+    text-align: left; /* Align text to the left for readability */
+    color: var(--dark-gray); /* Neutral text color */
+    max-width: 600px; /* Limit modal width */
+    width: 90%; /* Ensure responsiveness */
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    line-height: 1.8; /* Improve readability */
+}
+
+.modal-content h3 {
+    font-size: 2rem; /* Larger font size for headings */
+    color: var(--asu-maroon); /* ASU Maroon for emphasis */
+    margin-bottom: 20px; /* Add spacing below the heading */
+    text-transform: uppercase; /* Consistent uppercase style */
+    font-weight: bold; /* Make the heading bold */
+    text-align: center; /* Center-align the heading */
+}
+
+.modal-content p {
+    font-size: 1.2rem; /* Standard font size for readability */
+    color: var(--dark-gray); /* Neutral text color */
+    margin-bottom: 15px; /* Add spacing between paragraphs */
+    line-height: 1.8; /* Improve readability */
+}
+
+.modal-content ul {
+    list-style: disc; /* Use bullets for lists */
+    padding-left: 20px; /* Add left padding for bullets */
+    margin-bottom: 15px; /* Add spacing below the list */
+}
+
+.modal-content ul li {
+    font-size: 1.1rem; /* Slightly smaller font size for list items */
+    color: var(--dark-gray); /* Neutral text color */
+    margin-bottom: 10px; /* Add spacing between list items */
+    line-height: 1.6; /* Improve readability */
+}
+
+.modal-content a {
+    color: var(--asu-gold); /* ASU Gold for links */
+    text-decoration: underline; /* Underline links for clarity */
+    font-weight: bold; /* Make links stand out */
+    transition: color 0.3s ease; /* Smooth hover effect */
+}
+
+.modal-content a:hover {
+    color: var(--asu-maroon); /* Change to ASU Maroon on hover */
+}
+
+/* Close Button */
 .close-modal {
     position: absolute;
-    top: 10px;
+    top: 15px;
     right: 20px;
-    font-size: 1.5rem;
+    font-size: 1.5rem; /* Larger font size for visibility */
     cursor: pointer;
-    color: #333;
-    transition: color 0.3s ease;
+    color: var(--dark-gray); /* Neutral text color */
+    transition: color 0.3s ease; /* Smooth hover effect */
 }
 
 .close-modal:hover {
-    color: #8C1D40; /* ASU Maroon */
-}
-
-.modal h3 {
-    font-size: 1.8rem;
-    color: #8C1D40; /* ASU Maroon */
-    margin-bottom: 15px;
-}
-
-.modal p {
-    font-size: 1.2rem;
-    color: #333;
-    margin-bottom: 10px;
-    line-height: 1.6;
-}
-
-/* Responsive Styles */
-@media (max-width: 768px) {
-    .education-grid {
-        flex-direction: column; /* Stack items vertically on smaller screens */
-        gap: 20px; /* Reduce spacing between items */
-    }
-
-    .education-card img {
-        width: 50%; /* Increase image size for smaller screens */
-    }
-}
-
-@media (max-width: 480px) {
-    .education-card {
-        padding: 20px; /* Reduce padding for smaller screens */
-    }
-
-    .education-card img {
-        width: 60%; /* Further increase image size for very small screens */
-    }
-
-    .education-card h3 {
-        font-size: 1.8rem; /* Adjust heading size */
-    }
-
-    .education-card p {
-        font-size: 1.2rem; /* Adjust paragraph size */
-    }
+    color: var(--asu-maroon); /* ASU Maroon on hover */
 }
 /* Certifications & Awards Section */
 #certifications-awards {
@@ -972,12 +957,12 @@ header nav ul li a:hover {
 
 .certification-list li i,
 .award-list li i {
-    background-color: var(--asu-gold); /* ASU Gold background */
-    color: var(--asu-maroon); /* ASU Maroon for icon color */
-    border-radius: 50%; /* Circular background */
-    padding: 10px; /* Add padding for better spacing */
-    font-size: 1.5rem; /* Ensure consistent icon size */
-    margin-right: 10px; /* Space between icon and text */
+    background-color: var(--asu-gold);
+    color: var(--asu-maroon);
+    border-radius: 50%;
+    padding: 10px;
+    font-size: 1.5rem;
+    margin-right: 10px;
     transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
@@ -1487,3 +1472,5 @@ footer .contact-links a:hover {
         grid-template-columns: 1fr; /* One testimonial per row on very small screens */
     }
 }
+
+

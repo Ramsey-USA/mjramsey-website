@@ -199,13 +199,13 @@
     <div class="tabs">
         <!-- Tab Buttons -->
         <div class="tab-buttons">
-            <button class="tab-button active" data-tab="tab-1">Project Manager</button>
-            <button class="tab-button" data-tab="tab-2">Airbnb Super Host</button>
-            <button class="tab-button" data-tab="tab-3">General Contractor</button>
-            <button class="tab-button" data-tab="tab-4">Assistant Project Manager</button>
-            <button class="tab-button" data-tab="tab-5">Project Engineer</button>
-            <button class="tab-button" data-tab="tab-6">Lead Trainer</button>
-            <button class="tab-button" data-tab="tab-7">U.S. Navy</button>
+            <button class="tab-button active" data-tab="tab-1" aria-selected="true">Project Manager</button>
+            <button class="tab-button" data-tab="tab-2" aria-selected="false">Airbnb Super Host</button>
+            <button class="tab-button" data-tab="tab-3" aria-selected="false">General Contractor</button>
+            <button class="tab-button" data-tab="tab-4" aria-selected="false">Assistant Project Manager</button>
+            <button class="tab-button" data-tab="tab-5" aria-selected="false">Project Engineer</button>
+            <button class="tab-button" data-tab="tab-6" aria-selected="false">Lead Trainer</button>
+            <button class="tab-button" data-tab="tab-7" aria-selected="false">U.S. Navy</button>
         </div>
 
         <!-- Tab Content -->
@@ -281,15 +281,17 @@
     <div class="container">
         <h2 class="section-heading">Education</h2>
         <p>My educational journey has been a blend of formal education and hands-on experience, equipping me with the skills to excel in project management and operations.</p>
-        <p>Please click below.</p>
+        <p>Please click below to learn more about my educational background.</p>
+
+        <!-- Education Grid -->
         <div class="education-grid">
             <!-- Education Item 1 -->
             <div class="education-card" data-modal="asu-modal">
                 <div class="logo-container">
-                    <img src="images/asu-flames-logo.jpg" alt="ASU Logo" class="institution-logo">
+                    <img src="images/asu-flames-logo.jpg" alt="Arizona State University Logo" class="institution-logo">
                 </div>
                 <h3>Arizona State University</h3>
-                <p><strong>BAS in Progress</strong></p>
+                <p><strong>Bachelor of Applied Science (BAS) in Progress</strong></p>
             </div>
 
             <!-- Education Item 2 -->
@@ -304,27 +306,27 @@
             <!-- Education Item 3 -->
             <div class="education-card" data-modal="cbc-modal">
                 <div class="logo-container">
-                    <img src="images/cbc-logo.png" alt="CBC Logo" class="institution-logo">
+                    <img src="images/cbc-logo.png" alt="Columbia Basin College Logo" class="institution-logo">
                 </div>
-                <h3>Columbia Basin Community College</h3>
-                <p><strong>AAS Completed</strong></p>
-                </div>
+                <h3>Columbia Basin College</h3>
+                <p><strong>Associate of Applied Science (AAS) Completed</strong></p>
+            </div>
         </div>
 
         <!-- Modals -->
         <div id="asu-modal" class="modal">
             <div class="modal-content">
-                <span class="close-modal">&times;</span>
+                <button class="close-modal" aria-label="Close Modal">&times;</button>
                 <h3>Arizona State University</h3>
                 <p><strong>Bachelor of Applied Science (BAS) in Operations Management</strong></p>
                 <p>Minor in Project Management | Expected Graduation: May 2026</p>
-                <p>GPA: 3.93/4.0 | Phi Theta Kappa Honor Society</p>                
+                <p>GPA: 3.93/4.0 | Phi Theta Kappa Honor Society</p>
             </div>
         </div>
 
         <div id="asu-global-modal" class="modal">
             <div class="modal-content">
-                <span class="close-modal">&times;</span>
+                <button class="close-modal" aria-label="Close Modal">&times;</button>
                 <h3>ASU Global Accelerator</h3>
                 <p><strong>Certifications In Progress</strong></p>
                 <p>Intercultural Competency, Web Development, AI-Powered JavaScript, AI Professional Skills</p>
@@ -334,8 +336,8 @@
 
         <div id="cbc-modal" class="modal">
             <div class="modal-content">
-                <span class="close-modal">&times;</span>
-                <h3>Columbia Basin Community College</h3>
+                <button class="close-modal" aria-label="Close Modal">&times;</button>
+                <h3>Columbia Basin College</h3>
                 <p><strong>Associate of Applied Science (AAS) in Business Administration</strong></p>
                 <p>Graduated: Dec 2023 | Graduated with Honors</p>
                 <p>GPA: 3.88/4.0 | Phi Theta Kappa Honor Society</p>
