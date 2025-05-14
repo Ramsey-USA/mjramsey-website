@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <script src="js/script.js"></script>
+    <script src="js/script.js"></script>  
    </head>
 <body>
     <header>
@@ -196,115 +196,81 @@
 
 <section id="experience">
     <h2>Experience</h2>
-    <div class="dropdown-menu">
-        <!-- Dropdown Item 1 -->
-        <div class="dropdown-item">
-            <button class="dropdown-toggle">
-                <i class="fas fa-briefcase"></i> Project Manager at North West Restoration
-            </button>
-            <div class="dropdown-content">
-                <p><strong>Richland, WA</strong></p>
-                <p class="date">NOV 2023 - FEB 2025</p>
-                <ul>
-                    <li>Scheduled and assigned tasks to 15+ crew members, managing 30-40 projects simultaneously.</li>
-                    <li>Ensured operational readiness for jobs ranging from $5,000 to $500,000.</li>
-                    <li>Implemented Proven Jobs (PSA) software to streamline project tracking.</li>
-                </ul>
-            </div>
+    <div class="tabs">
+        <!-- Tab Buttons -->
+        <div class="tab-buttons">
+            <button class="tab-button active" data-tab="tab-1">Project Manager</button>
+            <button class="tab-button" data-tab="tab-2">Airbnb Super Host</button>
+            <button class="tab-button" data-tab="tab-3">General Contractor</button>
+            <button class="tab-button" data-tab="tab-4">Assistant Project Manager</button>
+            <button class="tab-button" data-tab="tab-5">Project Engineer</button>
+            <button class="tab-button" data-tab="tab-6">Lead Trainer</button>
+            <button class="tab-button" data-tab="tab-7">U.S. Navy</button>
         </div>
 
-        <!-- Dropdown Item 2 -->
-        <div class="dropdown-item">
-            <button class="dropdown-toggle">
-                <i class="fas fa-home"></i> Airbnb Super Host
-            </button>
-            <div class="dropdown-content">
-                <p><strong>Richland, WA</strong></p>
-                <p class="date">DEC 2022 - SEP 2024</p>
-                <ul>
-                    <li>Managed a short-term rental achieving a 92%+ occupancy rate and consistent 5-star ratings.</li>
-                    <li>Coordinated logistics, including cleaning, maintenance, and supply chains.</li>
-                    <li>Leveraged Airbnb’s platform to drive bookings and boost retention.</li>
-                </ul>
-            </div>
+        <!-- Tab Content -->
+        <div class="tab-content active" id="tab-1">
+            <p><strong>Richland, WA</strong></p>
+            <p class="date">NOV 2023 - FEB 2025</p>
+            <ul>
+                <li>Scheduled and assigned tasks to 15+ crew members, managing 30-40 projects simultaneously.</li>
+                <li>Ensured operational readiness for jobs ranging from $5,000 to $500,000.</li>
+                <li>Implemented Proven Jobs (PSA) software to streamline project tracking.</li>
+            </ul>
         </div>
-
-        <!-- Dropdown Item 3 -->
-        <div class="dropdown-item">
-            <button class="dropdown-toggle">
-                <i class="fas fa-tools"></i> Owner/General Contractor at Ramsey Renovations
-            </button>
-            <div class="dropdown-content">
-                <p><strong>Richland, WA</strong></p>
-                <p class="date">FEB 2014 - NOV 2024</p>
-                <ul>
-                    <li>Founded and operated a renovation company for over 10 years, overseeing all aspects of business operations, project execution, and client relations.</li>
-                    <li>Oversaw full-cycle operations, securing and managing client relationships to deliver 25+ residential projects valued at over $1M.</li>
-                    <li>Successfully negotiated contract terms to ensure project profitability and client satisfaction.</li>
-                </ul>
-            </div>
+        <div class="tab-content" id="tab-2">
+            <p><strong>Richland, WA</strong></p>
+            <p class="date">DEC 2022 - SEP 2024</p>
+            <ul>
+                <li>Managed a short-term rental achieving a 92%+ occupancy rate and consistent 5-star ratings.</li>
+                <li>Coordinated logistics, including cleaning, maintenance, and supply chains.</li>
+                <li>Leveraged Airbnb’s platform to drive bookings and boost retention.</li>
+            </ul>
         </div>
-
-        <!-- Dropdown Item 4 -->
-        <div class="dropdown-item">
-            <button class="dropdown-toggle">
-                <i class="fas fa-hard-hat"></i> Assistant Project Manager at Pahlisch Homes
-            </button>
-            <div class="dropdown-content">
-                <p><strong>Richland, WA</strong></p>
-                <p class="date">JULY 2022 - NOV 2022</p>
-                <ul>
-                    <li>Supervised a housing development project, managing trades to achieve a 99% on-time milestone completion rate.</li>
-                    <li>Coordinated material deliveries and trade schedules, resolving bottlenecks to accelerate progress by 3-5 days.</li>
-                </ul>
-            </div>
+        <div class="tab-content" id="tab-3">
+            <p><strong>Richland, WA</strong></p>
+            <p class="date">FEB 2014 - NOV 2024</p>
+            <ul>
+                <li>Founded and operated a renovation company for over 10 years, overseeing all aspects of business operations, project execution, and client relations.</li>
+                <li>Oversaw full-cycle operations, securing and managing client relationships to deliver 25+ residential projects valued at over $1M.</li>
+                <li>Successfully negotiated contract terms to ensure project profitability and client satisfaction.</li>
+            </ul>
         </div>
-
-        <!-- Dropdown Item 5 -->
-        <div class="dropdown-item">
-            <button class="dropdown-toggle">
-                <i class="fas fa-drafting-compass"></i> Project Engineer at Cliff Thorn Construction
-            </button>
-            <div class="dropdown-content">
-                <p><strong>Richland, WA</strong></p>
-                <p class="date">MAR 2022 - JUNE 2022</p>
-                <ul>
-                    <li>Supported residential project scheduling and quality control initiatives.</li>
-                    <li>Managed Request for Information (RFI) documentation and efficiently resolved on-site issues.</li>
-                </ul>
-            </div>
+        <div class="tab-content" id="tab-4">
+            <p><strong>Richland, WA</strong></p>
+            <p class="date">JAN 2023 - NOV 2023</p>
+            <ul>
+                <li>Assisted in managing projects from inception to completion, ensuring adherence to timelines and budgets.</li>
+                <li>Coordinated with subcontractors and suppliers to ensure timely delivery of materials and services.</li>
+                <li>Maintained project documentation and communicated progress to stakeholders.</li>
+            </ul>
         </div>
-
-        <!-- Dropdown Item 6 -->
-        <div class="dropdown-item">
-            <button class="dropdown-toggle">
-                <i class="fas fa-dumbbell"></i> Owner/Lead Trainer at ME Fitness
-            </button>
-            <div class="dropdown-content">
-                <p><strong>Portland, OR</strong></p>
-                <p class="date">JUNE 2008 - DEC 2010</p>
-                <ul>
-                    <li>Developed and launched a company website to promote fitness services, driving over 30% client growth through enhanced online visibility and targeted sales strategies.</li>
-                    <li>Authored a national certification program for personal trainers, establishing industry standards and boosting trainer credibility.</li>
-                    <li>Managed all operational aspects and training programs, adapting business strategies to meet market demands and sustain growth.</li>
-                </ul>
-            </div>
+        <div class="tab-content" id="tab-5">
+            <p><strong>Richland, WA</strong></p>
+            <p class="date">JAN 2023 - NOV 2023</p>
+            <ul>
+                <li>Supported project managers in planning and executing construction projects.</li>
+                <li>Assisted in preparing project schedules, budgets, and reports.</li>
+                <li>Conducted site inspections and ensured compliance with safety regulations.</li>
+            </ul>
         </div>
-
-        <!-- Dropdown Item 7 -->
-        <div class="dropdown-item">
-            <button class="dropdown-toggle">
-                <i class="fas fa-anchor"></i> Engineman - Petty Officer 2nd Class, U.S. Navy
-            </button>
-            <div class="dropdown-content">
-                <p><strong>United States Navy</strong></p>
-                <p class="date">JUNE 2001 - JUNE 2007</p>
-                <ul>
-                    <li>Led a 12-person team maintaining four 60-ton aircraft elevators on the USS Theodore Roosevelt (CVN-71), achieving 100% operational uptime across two 6-month deployments.</li>
-                    <li>Coordinated critical logistics for LOGSU-1, leveraging Blackwater tactical driving certification to support SEALs, SWCC, and EOD teams with $5M+ in assets under tight deadlines during Operation Enduring Freedom.</li>
-                    <li>Optimized warehouse operations by 25%, earning two Navy Achievement Medals and Sailor of the Quarter recognition.</li>
-                </ul>
-            </div>
+        <div class="tab-content" id="tab-6">
+            <p><strong>Richland, WA</strong></p>
+            <p class="date">JAN 2023 - NOV 2023</p>
+            <ul>
+                <li>Trained and mentored new employees on company policies and procedures.</li>
+                <li>Developed training materials and conducted workshops to enhance team skills.</li>
+                <li>Monitored employee performance and provided feedback for improvement.</li>
+            </ul>
+        </div>
+        <div class="tab-content" id="tab-7">
+            <p><strong>U.S. Navy</strong></p>
+            <p class="date">JAN 2010 - JAN 2014</p>
+            <ul>
+                <li>Served as a Navy Veteran, gaining valuable leadership and operational experience.</li>
+                <li>Managed logistics and operations for various military projects, ensuring mission success.</li>
+                <li>Developed strong teamwork and problem-solving skills in high-pressure environments.</li>
+            </ul>
         </div>
     </div>
 </section>

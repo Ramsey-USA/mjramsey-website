@@ -4,30 +4,35 @@ document.addEventListener('DOMContentLoaded', () => {
     // ============================
     // Smooth Scrolling
     // ============================
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            }
+    const initSmoothScrolling = () => {
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
         });
-    });
+    };
 
     // ============================
     // Mobile Menu Toggle
     // ============================
-    const menuToggle = document.querySelector('.menu-toggle');
-    const navMenu = document.querySelector('header nav ul');
+    const initMobileMenu = () => {
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navMenu = document.querySelector('header nav ul');
 
-    if (menuToggle && navMenu) {
-        menuToggle.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-        });
-    }
+        if (menuToggle && navMenu) {
+            menuToggle.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+                menuToggle.classList.toggle('active'); // Add active state to the toggle button
+            });
+        }
+    };
 
     // Ensure the overlay doesn't block button clicks
     const heroOverlay = document.querySelector('#hero .hero-overlay');
@@ -94,7 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // ============================
     // Awards Carousel
     // ============================
-    const awardsCarousel = () => {
+    const initAwardsCarousel = () => {
         const track = document.querySelector('#awards-track');
         const items = Array.from(track?.children || []);
         const prevButton = document.querySelector('.awards-btn.prev');
@@ -122,24 +127,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
         updateCarousel(); // Initialize the carousel position
     };
-    awardsCarousel();
 
     // ============================
-    // Testimonials Functionality
+    // Testimonials Carousel
     // ============================
-    const testimonialsCarousel = () => {
+    const initTestimonialsCarousel = () => {
         const testimonials = document.querySelectorAll('.testimonial-content');
         const labels = document.querySelectorAll('.tab-label');
         const inputs = document.querySelectorAll('input[name="testimonial"]');
 
-        // Function to update the active testimonial
         const updateActiveTestimonial = (index) => {
             testimonials.forEach((testimonial, i) => {
                 testimonial.style.display = i === index ? 'block' : 'none';
             });
         };
 
-        // Add event listeners to labels
         labels.forEach((label, index) => {
             label.addEventListener('click', () => {
                 inputs[index].checked = true; // Check the corresponding input
@@ -147,21 +149,17 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
 
-        // Initialize the first testimonial as active
-        updateActiveTestimonial(0);
+        updateActiveTestimonial(0); // Initialize the first testimonial as active
     };
-
-    testimonialsCarousel();
 
     // ============================
     // Modal Functionality
     // ============================
-    const modals = () => {
+    const initModals = () => {
         const educationCards = document.querySelectorAll('.education-card');
         const modals = document.querySelectorAll('.modal');
         const closeButtons = document.querySelectorAll('.close-modal');
 
-        // Open modal
         educationCards.forEach(card => {
             card.addEventListener('click', () => {
                 const modalId = card.getAttribute('data-modal');
@@ -172,7 +170,6 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
 
-        // Close modal
         closeButtons.forEach(button => {
             button.addEventListener('click', () => {
                 const modal = button.closest('.modal');
@@ -182,7 +179,6 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
 
-        // Close modal when clicking outside
         window.addEventListener('click', (e) => {
             modals.forEach(modal => {
                 if (e.target === modal) {
@@ -191,40 +187,60 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     };
-    modals();
 
     // ============================
-    // Dropdown Functionality
+    // Accordion Functionality
     // ============================
-    const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
+    const initAccordion = () => {
+        const accordionHeaders = document.querySelectorAll('.accordion-header');
 
-    dropdownToggles.forEach(button => {
-        button.addEventListener('click', (event) => {
-            event.stopPropagation(); // Prevent click from propagating to the document
+        accordionHeaders.forEach(header => {
+            header.addEventListener('click', () => {
+                console.log('Accordion header clicked:', header); // Debugging log
+                const content = header.nextElementSibling;
 
-            const content = button.nextElementSibling; // Get the dropdown content
+                // Close other open accordion items
+                document.querySelectorAll('.accordion-content.open').forEach(openContent => {
+                    if (openContent !== content) {
+                        openContent.classList.remove('open');
+                    }
+                });
 
-            if (!content || !content.classList.contains('dropdown-content')) {
-                console.error('Dropdown content not found for:', button);
-                return;
-            }
-
-            // Close other dropdowns
-            document.querySelectorAll('.dropdown-content.open').forEach(openContent => {
-                if (openContent !== content) {
-                    openContent.classList.remove('open');
-                }
+                // Toggle the current accordion content
+                content.classList.toggle('open');
             });
-
-            // Toggle the 'open' class
-            content.classList.toggle('open');
         });
-    });
+    };
 
-    // Close dropdowns when clicking outside
-    document.addEventListener('click', () => {
-        document.querySelectorAll('.dropdown-content.open').forEach(content => {
-            content.classList.remove('open'); // Close all open dropdowns
+    // ============================
+    // Tab Functionality
+    // ============================
+    const initTabs = () => {
+        const tabButtons = document.querySelectorAll('.tab-button');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons and contents
+                tabButtons.forEach(btn => btn.classList.remove('active'));
+                tabContents.forEach(content => content.classList.remove('active'));
+
+                // Add active class to the clicked button and corresponding content
+                button.classList.add('active');
+                const tabId = button.getAttribute('data-tab');
+                document.getElementById(tabId).classList.add('active');
+            });
         });
-    });
+    };
+
+    // ============================
+    // Initialize All Functions
+    // ============================
+    initSmoothScrolling();
+    initMobileMenu();
+    initAccordion();
+    initTabs();
+    initAwardsCarousel();
+    initTestimonialsCarousel();
+    initModals();
 });

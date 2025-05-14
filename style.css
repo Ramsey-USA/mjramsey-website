@@ -11,27 +11,42 @@
     --medium-overlay: rgba(0, 0, 0, 0.3);
     --light-gray-bg: rgba(248, 249, 250, 0.7);
     --gold-hover: #FFD700;
-    --light-gray-hover: #e9ecef;
-/* Removed the extra closing curly brace */
+        --light-gray-hover: #e9ecef;
+    }
 
+/* General Styles */
 /* General Typography */
 body {
-    font-family: 'Roboto', sans-serif;
-    line-height: 1.8;
-    color: var(--dark-gray);
+    font-family: 'Roboto', sans-serif; /* Use Roboto for a clean, modern look */
+    line-height: 1.8; /* Improve readability */
+    color: #333; /* Darker text for better contrast */
     margin: 0;
     padding: 0;
-    background: var(--light-gray) url('images/website-background.jpg') center/cover fixed;
-/* Removed the extra closing curly brace */
+    background-image: url('images/website-background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
 
 body::before {
     content: '';
     position: fixed;
-    inset: 0; /* Shorthand for top, right, bottom, left */
-    background: var(--medium-overlay);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3));
     z-index: -1;
 }
 
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    overflow: hidden;
+    padding: 20px 0; /* Unified padding */
+}   
 /* Typography */
 p, ul, li {
     font-size: 1.1rem;
@@ -45,10 +60,6 @@ a {
     color: var(--asu-gold);
     text-decoration: none;
     transition: color 0.3s ease;
-}
-
-a:hover {
-    color: var(--asu-maroon);
 }
 
 /* Section Styles */
@@ -89,40 +100,6 @@ section h2::after {
 #hero, #main, #contact {
     background-color: rgba(52, 73, 94, 0.8); /* Keep their original styles */
     color: #fff; /* Ensure text color remains readable */
-}
-
-/* General Styles */
-/* General Typography */
-body {
-    font-family: 'Roboto', sans-serif; /* Use Roboto for a clean, modern look */
-    line-height: 1.8; /* Improve readability */
-    color: #333; /* Darker text for better contrast */
-    margin: 0;
-    padding: 0;
-    background-image: url('images/website-background.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-}
-
-body::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3));
-    z-index: -1;
-}
-
-.container {
-    width: 90%;
-    max-width: 1200px;
-    margin: auto;
-    overflow: hidden;
-    padding: 20px 0; /* Unified padding */
 }
 
 /* Main Content Sections */
@@ -191,7 +168,6 @@ header nav ul {
     margin: 0; /* Remove default margin */
     padding: 0; /* Remove default padding */
 }
-
 header nav ul li a {
     font-size: 1.1rem; /* Slightly larger font size for better readability */
     line-height: 1.5; /* Improve line spacing */
@@ -445,7 +421,6 @@ header nav ul li a:hover {
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
 }
 
-/* About Section Icons */
 .about-list li i {
     background-color: #FFC627; /* ASU Gold background */
     color: #8C1D40; /* ASU Maroon for icon color */
@@ -493,33 +468,11 @@ header nav ul li a:hover {
 }
 
 .skills-card h3 {
-    font-size: 2rem;
-    color: var(--asu-maroon);
-    margin-bottom: 20px;
+    font-size: 1.5rem; /* Adjusted font size */
+    color: #8C1D40; /* ASU Maroon */
+    margin-bottom: 15px; /* Unified margin */
     text-transform: uppercase; /* Consistent uppercase style */
     font-weight: bold; /* Make the heading bold */
-}
-
-.skills-card {
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.skills-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-}
-
-.skills-card h3 {
-    font-size: 1.5rem;
-    color: #8C1D40; /* ASU Maroon */
-    margin-bottom: 15px;
-    text-transform: uppercase;
-    font-weight: bold;
 }
 
 .skills-card ul {
@@ -537,7 +490,6 @@ header nav ul li a:hover {
     color: #333;
 }
 
-/* Skill Icon */
 .skill-icon {
     position: relative; /* Ensure the icon is the reference point for positioning */
     font-size: 1.5rem;
@@ -554,7 +506,6 @@ header nav ul li a:hover {
 .skill-icon:hover {
     color: transparent; /* Hide the icon text */
 }
-
 /* Percentage Display on Hover */
 .skill-icon::after {
     content: attr(data-percentage) '%'; /* Display the percentage */
@@ -577,29 +528,10 @@ header nav ul li a:hover {
 .skill-icon:hover::after {
     opacity: 1; /* Make the percentage visible */
 }
-/* Hover Effect: Hide Icon and Show Percentage */
-.skill-icon.hovered {
-    color: transparent; /* Hide the icon */
-}
-
-.skill-icon.hovered::after {
-    content: attr(data-percentage) '%'; /* Display the percentage */
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: #FFC627; /* ASU Gold */
-    background: #8C1D40; /* ASU Maroon background */
-    padding: 5px 10px;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-}
 /* Experience Section */
 #experience {
     background: url('images/dumbbells.jpg') no-repeat center/cover; /* Background image */
-    color: var(--asu-gold); /* ASU Gold */
+    color: var(--asu-gold); /* ASU Gold for text */
     padding: 80px 20px; /* Add spacing around the section */
     text-align: center; /* Center-align text */
     position: relative; /* For overlay or additional elements */
@@ -608,7 +540,7 @@ header nav ul li a:hover {
 #experience::before {
     content: '';
     position: absolute;
-    inset: 0; /* Shorthand for top, right, bottom, left */
+    inset: 0; /* Full overlay */
     background: rgba(0, 0, 0, 0.6); /* Dark overlay for better text readability */
     z-index: 1; /* Ensure it stays behind the content */
 }
@@ -627,77 +559,131 @@ header nav ul li a:hover {
     margin-bottom: 40px; /* Add spacing below the heading */
 }
 
-/* Dropdown Menu */
-.dropdown-menu {
-    margin: 20px auto;
-    max-width: 1000px; /* Limit the width of the dropdown menu */
+/* Tabs Container */
+.tabs {
+    max-width: 1000px;
+    margin: 0 auto;
 }
 
-/* Dropdown Item */
-.dropdown-item {
-    position: relative; /* Parent element must be relative */
-    margin-bottom: 15px; /* Add spacing between dropdown items */
-    border: 1px solid var(--asu-gold); /* ASU Gold border */
-    border-radius: 5px; /* Rounded corners */
-    background: rgba(255, 255, 255, 0.2); /* Semi-transparent background */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
+/* Tab Buttons */
+.tab-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 20px;
 }
 
-.dropdown-item:hover {
-    transform: translateY(-5px); /* Slight lift on hover */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Enhanced shadow */
+.tab-button {
+    padding: 10px 20px;
+    margin: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: var(--asu-gold);
+    background: none;
+    border: 2px solid var(--asu-gold);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Dropdown Toggle */
-.dropdown-toggle {
+.tab-button.active {
+    background-color: var(--asu-gold);
+    color: var(--asu-maroon);
+}
+
+/* Tab Content */
+.tab-content {
+    display: none;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid var(--asu-gold);
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* Tab Content Items */
+.tab-content h3 {
+    font-size: 1.8rem; /* Adjusted font size */
+    color: var(--asu-maroon); /* ASU Maroon for headings */
+    margin-bottom: 15px; /* Add spacing below headings */
+    text-transform: uppercase; /* Consistent uppercase style */
+    font-weight: bold; /* Make the heading bold */
+}
+
+.tab-content p {
+    font-size: 1.2rem; /* Adjusted font size for readability */
+    color: var(--dark-gray); /* Neutral text color */
+    margin-bottom: 15px; /* Add spacing between paragraphs */
+    line-height: 1.8; /* Improve readability */
+}
+
+.tab-content ul {
+    list-style: none; /* Remove default bullets */
+    padding: 0; /* Remove padding */
+    margin: 0; /* Remove margin */
+}
+
+.tab-content ul li {
+    font-size: 1.1rem; /* Adjusted font size */
+    color: var(--dark-gray); /* Neutral text color */
+    margin-bottom: 10px; /* Add spacing between list items */
     display: flex; /* Align icon and text horizontally */
     align-items: center; /* Vertically align icon and text */
     gap: 10px; /* Space between icon and text */
-    padding: 15px 20px; /* Add padding for better spacing */
-    font-size: 1.5rem; /* Adjust font size */
-    font-weight: bold; /* Make the text bold */
-    color: var(--asu-gold); /* ASU Gold */
-    background: none; /* Transparent background */
-    border: none; /* Remove border */
-    text-align: left; /* Align text to the left */
-    cursor: pointer; /* Pointer cursor for interactivity */
-    transition: color 0.3s ease, background-color 0.3s ease; /* Smooth hover effect */
 }
 
-/* Dropdown Content */
-.dropdown-content {
-    display: none; /* Hidden by default */
-    position: absolute; /* Position relative to parent */
-    top: 100%; /* Position below the toggle button */
-    left: 0; /* Align with the left edge of the parent */
-    z-index: 1000; /* Ensure it appears above other elements */
-    padding: 15px; /* Add padding for spacing */
-    background: rgba(255, 255, 255, 0.9); /* Semi-transparent white */
-    color: #333; /* Dark gray text */
-    border-top: 1px solid var(--asu-gold); /* ASU Gold border */
-    font-size: 1.2rem; /* Adjust font size */
-    line-height: 1.8; /* Improve readability */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
-    border-radius: 5px; /* Rounded corners */
-}
-
-/* Dropdown Content - Visible When Open */
-.dropdown-content.open {
-    display: block !important; /* Force visibility */
+.tab-content ul li i {
+    font-size: 1.5rem; /* Icon size */
+    color: var(--asu-gold); /* ASU Gold for icons */
+    margin-right: 10px; /* Add spacing between icon and text */
 }
 
 /* Responsive Styles */
 @media (max-width: 768px) {
-    .dropdown-content {
-        position: static; /* Adjust for smaller screens */
-        display: none; /* Ensure it remains hidden by default */
+    .tab-buttons {
+        flex-direction: column; /* Stack buttons vertically */
+        align-items: center;
     }
 
-    .dropdown-content.open {
-        display: block; /* Ensure visibility when open */
+    .tab-content {
+        padding: 15px; /* Reduce padding for smaller screens */
+    }
+
+    .tab-content h3 {
+        font-size: 1.6rem; /* Adjust heading size */
+    }
+
+    .tab-content p {
+        font-size: 1.1rem; /* Adjust paragraph size */
+    }
+
+    .tab-content ul li {
+        font-size: 1rem; /* Adjust list item size */
     }
 }
+
+@media (max-width: 480px) {
+    .tab-buttons {
+        gap: 10px; /* Reduce spacing between buttons */
+    }
+
+    .tab-content {
+        padding: 10px; /* Further reduce padding for very small screens */
+    }
+
+    .tab-content h3 {
+        font-size: 1.4rem; /* Adjust heading size */
+    }
+
+    .tab-content p {
+        font-size: 1rem; /* Adjust paragraph size */
+    }
+}
+
 /* Section Divider */
 .section-divider {
     width: 100%; /* Full width */
@@ -745,6 +731,7 @@ header nav ul li a:hover {
 
 #education p {
     font-size: 1.5rem; /* Larger font size */
+    color: #FFFFFF; /* White text */
     margin-bottom: 20px; /* Spacing below the paragraph */
     line-height: 1.8; /* Improve readability */
 }
@@ -823,74 +810,6 @@ header nav ul li a:hover {
     line-height: 1.8; /* Improve readability */
 }
 
-/* Education Item */
-.education-item {
-    background: rgba(255, 255, 255, 0.6); /* Semi-transparent white background */
-    padding: 25px;
-    margin-bottom: 25px;
-    border-left: 6px solid #FFC627; /* Gold accent */
-    border-radius: 5px; /* Rounded corners */
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-}
-
-/* Education Section Headers */
-#education h2, 
-.certification-list h3, 
-.award-list h3 {
-    font-size: 3rem; /* Match the size of h1 */
-    color: #FFC627; /* Match the gold color of h1 */
-    text-transform: uppercase;
-    letter-spacing: 2px; /* Add spacing for clarity */
-    font-weight: bold;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add subtle shadow for better contrast */
-    margin-bottom: 20px;
-    text-align: center;
-}
-/* Lightbox Styles */
-.lightbox {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.8);
-    z-index: 1000;
-    justify-content: center;
-    align-items: center;
-}
-
-.lightbox-content {
-    background: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    max-width: 600px;
-    text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.lightbox-content p {
-    font-size: 1rem;
-    color: #333; /* Darker Gray for better readability */
-    margin-bottom: 20px;
-    line-height: 1.6;
-}
-
-.close-lightbox {
-    margin-top: 20px;
-    padding: 10px 20px;
-    background: #FFC627
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.close-lightbox:hover {
-    background: #8C1D40; /* ASU Maroon */
-}
-
 /* Modal Styles */
 .modal {
     display: none; /* Hidden by default */
@@ -943,6 +862,35 @@ header nav ul li a:hover {
     line-height: 1.6;
 }
 
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .education-grid {
+        flex-direction: column; /* Stack items vertically on smaller screens */
+        gap: 20px; /* Reduce spacing between items */
+    }
+
+    .education-card img {
+        width: 50%; /* Increase image size for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .education-card {
+        padding: 20px; /* Reduce padding for smaller screens */
+    }
+
+    .education-card img {
+        width: 60%; /* Further increase image size for very small screens */
+    }
+
+    .education-card h3 {
+        font-size: 1.8rem; /* Adjust heading size */
+    }
+
+    .education-card p {
+        font-size: 1.2rem; /* Adjust paragraph size */
+    }
+}
 /* Certifications & Awards Section */
 #certifications-awards {
     padding: 80px 20px; /* Add spacing around the section */
@@ -1111,99 +1059,6 @@ header nav ul li a:hover {
     transform: scale(1.2); /* Slight zoom effect */
 }
 
-.certification-list, .award-list {
-    list-style: none; /* Remove bullets */
-    padding: 25px; /* Unified padding */
-    margin: 20px 0 25px; /* Unified margin */
-    max-width: 1200px; /* Center and limit width */
-    text-align: center; /* Center-align content */
-    background: rgba(255, 255, 255, 0.4); /* Semi-transparent white background */
-    border: 2px solid #FFC627; /* ASU Gold border */
-    border-left: 6px solid #FFC627; /* ASU Gold accent */
-    border-radius: 10px; /* Rounded corners */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.certification-list li, .award-list li {
-    font-size: 1.2rem;
-    color: #FFC627; /* ASU Gold */
-    margin-bottom: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center; /* Center-align content */
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Subtle shadow for better readability */
-}
-}
-
-.certification-list li i, .award-list li i {
-    color: #8C1D40; /* ASU Maroon for icons */
-    margin-right: 10px;
-    font-size: 1.5rem; /* Larger icon size */
-    transition: transform 0.3s ease, color 0.3s ease;
-.certification-list:hover, .award-list:hover {
-    transform: translateY(-5px); /* Slight lift on hover */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Enhanced shadow */
-    background: rgba(255, 255, 255, 0.6); /* Slightly brighter background on hover */
-}
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Enhanced shadow */
-}
-
-.education-item, .certification-list, .award-list {
-    background: rgba(255, 255, 255, 0.6); /* Semi-transparent white background */
-    padding: 25px;
-    margin-bottom: 25px;
-    border-left: 6px solid #FFC627; /* Gold accent */
-    border-radius: 5px; /* Rounded corners */
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-}
-
-.education-card, .certification-list, .award-list {
-    background: rgba(255, 255, 255, 0.4); /* Increase transparency */
-    padding: 25px;
-    margin-bottom: 25px;
-    border-left: 6px solid #FFC627; /* Gold accent */
-    border-radius: 5px; /* Rounded corners */
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-}
-
-.education-card h3, .certification-list h3, .award-list h3 {
-    font-size: 2rem; /* Larger font size for headers */
-    font-weight: bold;
-    color: #8C1D40; /* ASU Maroon for headers */
-    margin-bottom: 15px;
-    text-transform: uppercase;
-    text-align: center;
-}
-
-.certification-list, .award-list {
-    list-style: none; /* Remove bullets */
-    margin: 20px 0 25px; /* Unified margin */
-    padding: 20px; /* Unified padding */
-    background: rgba(255, 255, 255, 0.2); /* Transparent white background */
-    border: 2px solid #FFC627; /* ASU Gold border */
-    border-left: 6px solid #FFC627; /* ASU Gold accent */
-    border-radius: 10px; /* Rounded corners */
-    text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    grid-column: span 2; /* Make the boxes span across two columns */
-}
-
-.certification-list:hover, .award-list:hover {
-    transform: translateY(-5px); /* Slight lift on hover */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Enhanced shadow */
-}
-
-.certification-list li, .award-list li {
-    font-size: 1.2rem;
-    color: #FFC627; /* ASU Gold */
-    margin-bottom: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center; /* Center-align content */
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Subtle shadow for better readability */
-}
-
 .certification-list li i, .award-list li i {
     background-color: #FFC627; /* ASU Gold background */
     color: #8C1D40; /* ASU Maroon for icon color */
@@ -1219,17 +1074,6 @@ header nav ul li a:hover {
     color: #FFC627; /* ASU Gold for icon color on hover */
     transform: scale(1.2); /* Slight zoom effect */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add subtle shadow */
-}
-
-.certification-list h3, .award-list h3 {
-    font-size: 2.2rem; /* Larger font size for subheadings */
-    color: #FFC627; /* ASU Gold */
-    text-transform: uppercase;
-    letter-spacing: 1.5px; /* Add spacing for clarity */
-    font-weight: bold;
-    margin-bottom: 20px;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Subtle shadow for better contrast */
-    text-align: center;
 }
 /* Carousel */
 .carousel {
@@ -1300,83 +1144,14 @@ header nav ul li a:hover {
     transform: scale(1.2);
 }
 
-.carousel {
-    position: relative;
-    overflow: hidden;
-    margin-top: 40px;
-}
-
-.carousel-track {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-}
-
-.carousel-item {
-    min-width: 300px;
-    margin: 0 15px; /* Add spacing between items */
-    background: rgba(255, 255, 255, 0.2); /* Semi-transparent background */
-    border: 2px solid #FFC627; /* ASU Gold border */
-    border-radius: 10px;
-    padding: 25px; /* Add padding for better spacing */
-    text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.carousel-item:hover {
-    transform: translateY(-5px); /* Slight lift on hover */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Enhanced shadow */
-}
-
-.carousel-item i {
-    font-size: 2rem; /* Larger icon size */
-    color: var(--asu-maroon); /* ASU Maroon */
-    background-color: var(--asu-gold); /* ASU Gold background */
-    border-radius: 50%; /* Circular background */
-    padding: 15px; /* Add padding for spacing */
-    transition: transform 0.3s ease, background-color 0.3s ease;
-}
-
-.carousel-item i:hover {
-    background-color: var(--asu-maroon); /* ASU Maroon on hover */
-    color: var(--asu-gold); /* ASU Gold on hover */
-    transform: scale(1.2); /* Slight zoom effect */
-}
-
-.carousel-item p {
-    font-size: 1.2rem;
-    color: #FFC627; /* ASU Gold */
-    margin-top: 10px; /* Add spacing above the text */
-}
-
-.carousel-nav {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px; /* Add spacing above the navigation buttons */
-}
-
-.carousel-btn {
-    background: none;
-    border: none;
-    color: #FFC627; /* ASU Gold */
-    font-size: 2rem;
-    cursor: pointer;
-    transition: transform 0.3s ease, color 0.3s ease;
-}
-
-.carousel-btn:hover {
-    color: #8C1D40; /* ASU Maroon */
-    transform: scale(1.2); /* Slight zoom effect */
-}
+/* Removed duplicate styles */
 
 /* Testimonial Section */
 #testimonials {
-    background: url('images/business-suit.jpg') no-repeat center center; /* Background image */
-    background-size: cover; /* Ensure the image covers the entire section */
+    background: url('images/business-suit.jpg') no-repeat center/cover; /* Background image */
     background-attachment: fixed; /* Parallax effect */
-    background-position: center; /* Center the image */
     color: #fff; /* White text for readability */
-    padding: 80px 20px; /* Add padding for spacing */
+    padding: 80px 20px; /* Add spacing */
     text-align: center;
     position: relative;
 }
@@ -1384,10 +1159,7 @@ header nav ul li a:hover {
 #testimonials::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    inset: 0; /* Full overlay */
     background: rgba(0, 0, 0, 0.6); /* Dark overlay for better text readability */
     z-index: 1;
 }
@@ -1407,12 +1179,25 @@ header nav ul li a:hover {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); /* Subtle shadow for better contrast */
 }
 
+/* Testimonial Tabs */
 .testimonial-tabs {
     max-width: 900px;
     margin: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.tab-label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #FFC627; /* ASU Gold */
+    cursor: pointer;
+    margin: 15px 0;
+    transition: color 0.3s ease, transform 0.3s ease;
 }
 
 .tab-label i {
@@ -1425,12 +1210,18 @@ header nav ul li a:hover {
     transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
+.tab-label:hover {
+    color: #8C1D40; /* ASU Maroon on hover */
+    transform: scale(1.05); /* Slight zoom effect */
+}
+
 .tab-label i:hover {
     background-color: #8C1D40; /* ASU Maroon on hover */
     color: #FFC627; /* ASU Gold on hover */
     transform: scale(1.2); /* Slight zoom effect */
 }
 
+/* Testimonial Content */
 .testimonial-content {
     display: none; /* Hidden by default */
     text-align: center;
@@ -1446,7 +1237,14 @@ header nav ul li a:hover {
     display: block; /* Show the active content */
 }
 
-.author {
+.testimonial-content p {
+    font-size: 1rem; /* Standard font size for testimonials */
+    color: #555; /* Neutral text color */
+    margin-bottom: 10px;
+    line-height: 1.6; /* Improve readability */
+}
+
+.testimonial-content .author {
     font-size: 1rem; /* Standard font size for author names */
     font-family: 'Roboto', sans-serif; /* Clean and modern font */
     color: #8C1D40; /* ASU Maroon for author names */
@@ -1454,44 +1252,7 @@ header nav ul li a:hover {
     margin-top: 10px;
 }
 
-.tab-label {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.3rem;
-    font-weight: bold;
-    color: #FFC627; /* ASU Gold */
-    cursor: pointer;
-    margin: 15px 0;
-    transition: color 0.3s ease, transform 0.3s ease;
-}
-
-.tab-label:hover {
-    color: #8C1D40; /* ASU Maroon on hover */
-    transform: scale(1.05); /* Slight zoom effect */
-}
-.testimonial {
-    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white */
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 15px;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.testimonial:hover {
-    transform: translateY(-5px); /* Slight lift on hover */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Enhanced shadow */
-    background: #ffffff; /* White background on hover */
-}
-
-.testimonial p {
-    font-size: 0.9rem; /* Slightly smaller font size for compact layout */
-    color: #555;
-    margin-bottom: 10px;
-}
-
+/* Stars */
 .stars {
     color: #FFC627; /* ASU Gold for stars */
     margin: 15px 0; /* Unified margin */
@@ -1510,28 +1271,29 @@ header nav ul li a:hover {
     transform: scale(1.2); /* Slight zoom effect */
 }
 
-.testimonial-icon {
-    font-size: 2rem; /* Larger icon size */
-    color: #FFC627; /* ASU Gold */
-    margin-bottom: 10px;
-    transition: transform 0.3s ease, color 0.3s ease;
-}
-
-.testimonial-icon i {
-    display: inline-block;
-}
-
-.testimonial-icon:hover {
-    color: #FFC627; /* ASU Gold */
-    transform: scale(1.2); /* Slight zoom effect */
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .testimonial-tabs {
+        flex-direction: column;
     }
-    to {
-        opacity: 1;
+
+    .testimonial-content {
+        margin-top: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .testimonial-content {
+        padding: 15px;
+    }
+
+    .tab-label {
+        font-size: 1.1rem;
+    }
+
+    .tab-label i {
+        font-size: 1.8rem;
+        padding: 8px 15px;
     }
 }
 
@@ -1715,7 +1477,7 @@ footer .contact-links a:hover {
         text-align: center;
     }
 
-        .testimonial-grid {
+    .testimonial-grid {
         grid-template-columns: repeat(2, 1fr); /* Two testimonials per row on smaller screens */
     }
 }
@@ -1725,22 +1487,3 @@ footer .contact-links a:hover {
         grid-template-columns: 1fr; /* One testimonial per row on very small screens */
     }
 }
-
-.text-center {
-    text-align: center;
-}
-
-.mb-30 {
-    margin-bottom: 30px;
-}
-
-.progress {
-    height: 100%;
-    border-radius: 5px;
-}
-
-
-
-
-
-
