@@ -1,4 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
+    console.log('DOM fully loaded and parsed'); // Debugging log
+
     // ============================
     // Smooth Scrolling
     // ============================
@@ -123,34 +125,32 @@ document.addEventListener('DOMContentLoaded', () => {
     awardsCarousel();
 
     // ============================
-    // Testimonials Carousel
+    // Testimonials Functionality
     // ============================
     const testimonialsCarousel = () => {
         const testimonials = document.querySelectorAll('.testimonial-content');
-        const prevButton = document.querySelector('.testimonial-tabs .prev');
-        const nextButton = document.querySelector('.testimonial-tabs .next');
-        let currentIndex = 0;
+        const labels = document.querySelectorAll('.tab-label');
+        const inputs = document.querySelectorAll('input[name="testimonial"]');
 
-        const updateCarousel = () => {
-            testimonials.forEach((testimonial, index) => {
-                testimonial.style.display = index === currentIndex ? 'block' : 'none';
+        // Function to update the active testimonial
+        const updateActiveTestimonial = (index) => {
+            testimonials.forEach((testimonial, i) => {
+                testimonial.style.display = i === index ? 'block' : 'none';
             });
         };
 
-        if (prevButton && nextButton) {
-            prevButton.addEventListener('click', () => {
-                currentIndex = (currentIndex - 1 + testimonials.length) % testimonials.length;
-                updateCarousel();
+        // Add event listeners to labels
+        labels.forEach((label, index) => {
+            label.addEventListener('click', () => {
+                inputs[index].checked = true; // Check the corresponding input
+                updateActiveTestimonial(index); // Show the corresponding testimonial
             });
+        });
 
-            nextButton.addEventListener('click', () => {
-                currentIndex = (currentIndex + 1) % testimonials.length;
-                updateCarousel();
-            });
-        }
-
-        updateCarousel(); // Initialize the carousel
+        // Initialize the first testimonial as active
+        updateActiveTestimonial(0);
     };
+
     testimonialsCarousel();
 
     // ============================
@@ -196,69 +196,56 @@ document.addEventListener('DOMContentLoaded', () => {
     // ============================
     // Dropdown Functionality
     // ============================
-    const dropdowns = () => {
-        document.querySelectorAll('.dropdown-toggle').forEach(button => {
-            button.addEventListener('click', () => {
-                const content = button.nextElementSibling;
+    console.log('Dropdown functionality initialized'); // Debugging log
 
-                // Toggle the visibility of the dropdown content
-                if (content.style.display === 'block') {
-                    content.style.display = 'none';
-                } else {
-                    // Close all dropdowns within the same parent container
-                    const parent = button.closest('.dropdown-menu');
-                    if (parent) {
-                        parent.querySelectorAll('.dropdown-content').forEach(item => {
-                            item.style.display = 'none';
-                        });
-                    }
+    // Select all dropdown toggle buttons
+    const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
+    console.log('Dropdown toggles found:', dropdownToggles.length); // Debugging log
 
-                    // Open the clicked dropdown
-                    content.style.display = 'block';
-                }
-            });
-        });
-    };
-    dropdowns();
+    // Attach click event listeners to each toggle button
+    dropdownToggles.forEach(button => {
+        console.log('Attaching event listener to:', button); // Debugging log
 
-    // ============================
-    // Accordion Functionality
-    // ============================
-    const accordions = () => {
-        document.querySelectorAll('.accordion-header').forEach(header => {
-            header.addEventListener('click', () => {
-                const content = header.nextElementSibling;
-                const isOpen = content.classList.contains('open');
+        button.addEventListener('click', (event) => {
+            event.stopPropagation(); // Prevent click from propagating to the document
+            console.log('Dropdown clicked:', button); // Debugging log
 
-                // Close all accordion items
-                document.querySelectorAll('.accordion-content').forEach(item => {
-                    item.classList.remove('open');
-                    item.style.display = 'none';
+            const content = button.nextElementSibling; // Get the dropdown content
+            console.log('Dropdown content:', content); // Debugging log
+
+            // Ensure the content exists
+            if (!content || !content.classList.contains('dropdown-content')) {
+                console.error('Dropdown content not found for:', button);
+                return;
+            }
+
+            // Check if the clicked dropdown is already open
+            const isVisible = content.classList.contains('open');
+            console.log('Is dropdown visible?', isVisible); // Debugging log
+
+            // Close all dropdowns within the same parent container
+            const parent = button.closest('.dropdown-menu');
+            if (parent) {
+                parent.querySelectorAll('.dropdown-content').forEach(item => {
+                    item.classList.remove('open'); // Remove the 'open' class
                 });
+            }
 
-                // Toggle the clicked item
-                if (!isOpen) {
-                    content.classList.add('open');
-                    content.style.display = 'block';
-                }
-            });
+            // Open the clicked dropdown if it was not already visible
+            if (!isVisible) {
+                content.classList.add('open'); // Add the 'open' class
+            }
         });
-    };
-    accordions();
+    });
 
-    // ============================
-    // Hover Effects for Skill Icons
-    // ============================
-    const skillIcons = () => {
-        document.querySelectorAll('.skill-icon').forEach(icon => {
-            icon.addEventListener('mouseenter', () => {
-                icon.classList.add('hovered');
+    // Close dropdowns when clicking outside
+    document.addEventListener('click', (event) => {
+        const isDropdown = event.target.closest('.dropdown-item');
+        if (!isDropdown) {
+            console.log('Clicked outside dropdown, closing all dropdowns'); // Debugging log
+            document.querySelectorAll('.dropdown-content.open').forEach(content => {
+                content.classList.remove('open'); // Close all open dropdowns
             });
-
-            icon.addEventListener('mouseleave', () => {
-                icon.classList.remove('hovered');
-            });
-        });
-    };
-    skillIcons();
+        }
+    });
 });
