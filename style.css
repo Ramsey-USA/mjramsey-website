@@ -251,10 +251,11 @@ header nav ul li a:hover {
 }
 
 .section-divider {
-    width: var(--asu-gold); /* ASU Gold color */
-    height: 4px;            /* thickness of the divider */
-    background: var(--asu-gold); /* ASU Gold, or any color you want */
-    margin: 0px auto;      /* spacing above/below and centering */
+    width: 100px; /* or any desired length */
+    height: 4px;
+    background: var(--asu-gold);
+    margin: 40px auto; /* spacing above/below and centering */
+    border-radius: 2px; /* optional: rounded edges */
 }
 /* Hero Section */
 #hero {
