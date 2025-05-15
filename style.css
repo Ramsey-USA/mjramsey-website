@@ -251,10 +251,10 @@ header nav ul li a:hover {
 }
 
 .section-divider {
-    width: 100px; /* or any desired length */
+    width: 1200 pixels; /* This sets the full width for larger screens */
     height: 4px;
     background: var(--asu-gold);
-    margin: 40px auto; /* spacing above/below and centering */
+    margin: 0px auto; /* spacing above/below and centering */
     border-radius: 2px; /* optional: rounded edges */
 }
 /* Hero Section */
@@ -1396,24 +1396,57 @@ header nav ul li a:hover {
     .testimonial-tabs {
         flex-direction: column;
     }
-
     .testimonial-content {
         margin-top: 20px;
     }
-}
-
-@media (max-width: 480px) {
-    .testimonial-content {
+    .testimonial-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .tab-buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+    .tab-content {
         padding: 15px;
     }
-
+    .tab-content h3 {
+        font-size: 1.6rem;
+    }
+    .tab-content p {
+        font-size: 1.1rem;
+    }
+    .tab-content ul li {
+        font-size: 1rem;
+    }
     .tab-label {
         font-size: 1.1rem;
     }
-
     .tab-label i {
         font-size: 1.8rem;
         padding: 8px 15px;
+    }
+}
+
+/* Extra Small Devices */
+@media (max-width: 480px) {
+    .testimonial-grid {
+        grid-template-columns: 1fr;
+    }
+    .tab-buttons {
+        gap: 10px;
+    }
+    .tab-content {
+        padding: 10px;
+    }
+    .tab-content h3 {
+        font-size: 1.4rem;
+    }
+    .tab-content p {
+        font-size: 1rem;
+    }
+    .testimonial-content {
+        padding: 15px;
     }
 }
 
