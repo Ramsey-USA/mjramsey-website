@@ -22,11 +22,6 @@ body {
     color: #333; /* Darker text for better contrast */
     margin: 0;
     padding: 0;
-    background-image: url('images/website-background.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
 }
 
 /* Parallax backgrounds for desktop */
@@ -255,6 +250,12 @@ header nav ul li a:hover {
     border-radius: 2px; /* Rounded edges for a polished look */
 }
 
+.section-divider {
+    width: var(--asu-gold); /* ASU Gold color */
+    height: 4px;            /* thickness of the divider */
+    background: var(--asu-gold); /* ASU Gold, or any color you want */
+    margin: 0px auto;      /* spacing above/below and centering */
+}
 /* Hero Section */
 #hero {
     position: relative;
@@ -287,7 +288,7 @@ header nav ul li a:hover {
 #hero .tagline {
     font-size: 1.6rem; /* Larger font size for tagline */
     margin-bottom: 40px; /* Add spacing below tagline */
-    color: var(--white); /* White text for readability */
+    color: var (--white); /* White text for readability */
     line-height: 1.8; /* Improve readability */
 }
 
@@ -342,30 +343,43 @@ header nav ul li a:hover {
 
 /* About Section */
 #about {
-    background: url('images/aircraft-carrier.jpg') no-repeat center/cover; /* Background image */
+    position: relative;
+    overflow: hidden;
+    background: none; /* Remove static background image */
     color: var(--white); /* White text for readability */
-    padding: 60px 20px; /* Spacing around the section */
-    text-align: center; /* Center-align text */
-    position: relative; /* For overlay or additional elements */
+    padding: 60px 20px;
+    text-align: center;
+}
+
+#about-bg-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+    opacity: 0.45; /* Adjust for readability */
+    pointer-events: none;
 }
 
 #about::before {
     content: '';
     position: absolute;
-    inset: 0; /* Shorthand for top, right, bottom, left */
+    inset: 0;
     background: var(--dark-overlay); /* Dark overlay for better text readability */
     z-index: 1;
 }
 
 #about .container {
     position: relative;
-    z-index: 2; /* Ensure content is above the overlay */
-    background: rgba(255, 255, 255, 0.3); /* Semi-transparent white background */
-    padding: 30px; /* Spacing inside the container */
-    border-radius: 10px; /* Rounded corners */
-    box-shadow: 0 4px 10px var(--medium-overlay); /* Subtle shadow for depth */
-    max-width: 800px; /* Limit the width of the container */
-    margin: auto; /* Center the container */
+    z-index: 2; /* Ensure content is above the video and overlay */
+    background: rgba(255, 255, 255, 0.3);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px var(--medium-overlay);
+    max-width: 800px;
+    margin: auto;
 }
 
 #about h2 {
@@ -440,11 +454,30 @@ header nav ul li a:hover {
 
 /* Skills Section */
 #skills {
-    background: url('images/website-background.jpg') no-repeat center/cover; /* Background image only */
-    color: var(--asu-gold); /* ASU Gold */
-    padding: 80px 20px; /* Add padding for spacing */
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
+                url('images/skills.jpg') no-repeat center/cover;
+    color: var(--asu-gold);
+    padding: 80px 20px;
     text-align: center;
-    position: relative; /* For overlay or additional elements */
+}
+
+#skills-bg-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+    opacity: 0.45; /* Adjust for readability */
+    pointer-events: none;
+}
+
+#skills .container {
+    position: relative;
+    z-index: 2; /* Ensure content is above the video */
 }
 
 .skills-grid {
@@ -531,62 +564,87 @@ header nav ul li a:hover {
 .skill-icon:hover::after {
     opacity: 1; /* Make the percentage visible */
 }
-/* Experience Section */
+/* --- Experience Section: Optimized & Enhanced --- */
 #experience {
-    background: url('images/dumbbells.jpg') no-repeat center/cover; /* Background image */
-    color: var(--asu-gold); /* ASU Gold for text */
-    padding: 80px 20px; /* Add spacing around the section */
-    text-align: center; /* Center-align text */
-    position: relative; /* For overlay or additional elements */
+    position: relative;
+    font-family: 'Roboto', 'Arial', sans-serif;
+    color: var(--dark-gray);
+    padding: 80px 0 60px 0;
+    background: none;
+    overflow: hidden;
+}
+
+#experience-bg-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+    opacity: 0.45;
+    pointer-events: none;
 }
 
 #experience::before {
     content: '';
     position: absolute;
-    inset: 0; /* Full overlay */
-    z-index: 1; /* Ensure it stays behind the content */
+    inset: 0;
+    background: var(--dark-overlay);
+    z-index: 1;
 }
 
-#experience .container {
+#experience .container,
+#experience .tabs {
     position: relative;
-    z-index: 2; /* Ensure content is above the overlay */
+    z-index: 2;
+    max-width: 1100px;
+    margin: 0 auto;
 }
 
 #experience h2 {
-    font-size: 3rem; /* Larger font size for the heading */
-    color: var(--asu-gold); /* ASU Gold */
-    text-transform: uppercase; /* Consistent uppercase style */
-    letter-spacing: 2px; /* Add spacing for clarity */
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); /* Subtle shadow for better contrast */
-    margin-bottom: 40px; /* Add spacing below the heading */
+    font-size: 3rem;
+    color: var(--asu-gold);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+    margin-bottom: 40px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 800;
+    line-height: 1.1;
+    text-align: center;
 }
 
-/* Tabs Container */
-.tabs {
-    max-width: 1000px;
-    margin: 0 auto;
-    position: relative;
-    z-index: 2; /* Ensure tabs are above other elements */
+.tab-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 18px;
+    margin-bottom: 32px;
 }
 
-/* Experience Tab Buttons - ASU Color Scheme */
 .tab-button {
-    padding: 10px 20px;
-    margin: 5px;
-    font-size: 1rem;
+    padding: 12px 28px;
+    margin: 5px 0;
+    font-size: 1.15rem;
     font-weight: bold;
     color: var(--asu-gold);
     background: transparent;
     border: 2px solid var(--asu-gold);
-    border-radius: 5px;
+    border-radius: 6px;
     cursor: pointer;
-    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+    letter-spacing: 1px;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s, transform 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 .tab-button.active {
     background-color: var(--asu-gold);
     color: var(--asu-maroon);
     border-color: var(--asu-gold);
+    transform: scale(1.05);
 }
 
 .tab-button:hover,
@@ -595,14 +653,12 @@ header nav ul li a:hover {
     color: var(--asu-gold);
     border-color: var(--asu-maroon);
     outline: none;
+    transform: scale(1.08);
 }
 
-/* Experience Tab Button Icons */
 .tab-button i {
-    margin-right: 10px;
     font-size: 1.3em;
     color: var(--asu-maroon);
-    vertical-align: middle;
     transition: color 0.3s;
 }
 .tab-button.active i,
@@ -611,29 +667,25 @@ header nav ul li a:hover {
     color: var(--asu-gold);
 }
 
-/* Enhanced Tab Content Typography */
+/* Tab Content */
 .tab-content {
     font-family: 'Roboto', 'Arial', sans-serif;
-    font-size: 1.15rem;
+    font-size: 1.18rem;
     color: var(--dark-gray);
-    line-height: 1.9;
-    letter-spacing: 0.02em;
+    line-height: 1.85;
+    letter-spacing: 0.01em;
     background: rgba(255,255,255,0.97);
-    border-radius: 8px;
+    border-radius: 12px;
     box-shadow: 0 6px 18px rgba(0,0,0,0.10);
-    padding: 28px 28px 22px 28px;
+    padding: 36px 36px 28px 36px;
+    margin-bottom: 32px;
+    border: 1px solid var(--asu-gold);
     animation: fadeInTab 0.6s;
     display: none;
-    border: 1px solid var(--asu-gold);
-    padding: 32px 32px 28px 32px;
-    margin-bottom: 32px;
-    border-radius: 10px;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.10);
-    background: rgba(255,255,255,0.97);
 }
 
 .tab-content.active {
-    display: block !important; /* Force visibility */
+    display: block !important;
 }
 
 @keyframes fadeInTab {
@@ -642,17 +694,16 @@ header nav ul li a:hover {
 }
 
 .tab-content h3 {
-    position: relative;
-    font-size: 1.8rem; /* Adjusted font size */
-    color: var(--asu-maroon); /* ASU Maroon for headings */
-    font-weight: bold; /* Make the heading bold */
-    margin-bottom: 15px; /* Add spacing below headings */
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    margin-top: 0;
+    font-size: 2.1rem;
+    color: var(--asu-maroon);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
     margin-bottom: 18px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    line-height: 1.2;
+    position: relative;
 }
-
 .tab-content h3::after {
     content: '';
     display: block;
@@ -664,61 +715,18 @@ header nav ul li a:hover {
 }
 
 .tab-content p {
-    font-size: 1.2rem; /* Adjusted font size for readability */
-    color: var(--dark-gray); /* Neutral text color */
-    margin-bottom: 15px; /* Add spacing between paragraphs */
-    line-height: 1.8; /* Improve readability */
-    margin: 0 0 12px 0;
-    font-size: 1.08rem;
-    line-height: 1.7;
-}
-
-.tab-content ul,
-.tab-content ol {
-    margin-left: 1.2em;
-    margin-bottom: 1em;
-}
-
-.tab-content ul {
-    list-style: none; /* Remove default bullets */
-    padding: 0; /* Remove padding */
-    margin: 0; /* Remove margin */
-}
-
-.tab-content li,
-.tab-content ul li {
-    font-size: 1.1rem;
-    margin-bottom: 10px;
-    line-height: 1.7;
-    position: relative;
-    padding-left: 1.2em;
-    color: var(--dark-gray);
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.tab-content li::before {
-    content: "•";
-    color: var(--asu-gold);
-    position: absolute;
-    left: 0;
-    font-size: 1.2em;
-    line-height: 1;
-}
-
-.tab-content ul li i {
-    font-size: 1.5rem; /* Icon size */
-    color: var(--asu-gold); /* ASU Gold for icons */
-    margin-right: 10px; /* Add spacing between icon and text */
+    font-size: 1.15rem;
+    color: var(--medium-gray);
+    margin-bottom: 16px;
+    line-height: 1.8;
 }
 
 .tab-content .date {
-    margin-bottom: 18px;
+    font-size: 1.05rem;
     color: var(--asu-maroon);
     font-weight: bold;
-    font-size: 1rem;
     letter-spacing: 1px;
+    margin-bottom: 20px;
 }
 
 .experience-list {
@@ -729,89 +737,87 @@ header nav ul li a:hover {
 .experience-list li {
     display: flex;
     align-items: flex-start;
-    gap: 16px; /* Space between icon and text */
+    gap: 16px;
     font-size: 1.08rem;
-    margin-bottom: 14px;
+    margin-bottom: 16px;
     line-height: 1.7;
     color: var(--dark-gray);
-    padding-left: 0; /* Remove extra padding */
+    padding-left: 0;
     position: relative;
 }
+.experience-list li:last-child {
+    margin-bottom: 0;
+}
 .experience-list li i {
-    position: static; /* Remove absolute positioning */
-    font-size: 1.2em;
-    color: var(--asu-gold);
+    font-size: 1.25em;
     background: var(--asu-maroon);
+    color: var(--asu-gold);
     border-radius: 50%;
-    padding: 0.25em 0.35em;
+    padding: 0.3em 0.45em;
     min-width: 2em;
     text-align: center;
-    margin-right: 0; /* gap handles spacing */
     transition: background 0.3s, color 0.3s;
 }
 .experience-list li:hover i {
     background: var(--asu-gold);
     color: var(--asu-maroon);
 }
-.experience-list li:last-child {
-    margin-bottom: 0;
+
+.tab-content .highlight {
+    color: var(--asu-maroon);
+    background: var(--asu-gold);
+    padding: 2px 7px;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 1.05em;
 }
 
-/* Remove default bullet for experience-list items */
-.experience-list li::before {
-    content: none;
+/* Responsive Enhancements */
+@media (max-width: 1024px) {
+    #experience {
+        padding: 60px 0 40px 0;
+    }
+    .tab-content {
+        padding: 20px 10px;
+    }
+    .tab-buttons {
+        gap: 10px;
+    }
 }
 
-/* Responsive Styles */
 @media (max-width: 768px) {
     .tab-buttons {
         flex-direction: column;
         align-items: center;
         gap: 15px;
     }
-
     .tab-content {
         padding: 15px;
     }
-
     .tab-content h3 {
-        font-size: 1.6rem; /* Adjust heading size */
+        font-size: 1.6rem;
     }
-
     .tab-content p {
-        font-size: 1.1rem; /* Adjust paragraph size */
+        font-size: 1.1rem;
     }
-
-    .tab-content ul li {
-        font-size: 1rem; /* Adjust list item size */
+    .experience-list li {
+        font-size: 1rem;
     }
 }
 
 @media (max-width: 480px) {
-    .tab-buttons {
-        gap: 10px; /* Reduce spacing between buttons */
-    }
-
     .tab-content {
-        padding: 10px; /* Further reduce padding for very small screens */
+        padding: 10px;
     }
-
     .tab-content h3 {
-        font-size: 1.4rem; /* Adjust heading size */
+        font-size: 1.4rem;
     }
-
     .tab-content p {
-        font-size: 1rem; /* Adjust paragraph size */
+        font-size: 1rem;
     }
-}
-
-/* Section Divider */
-.section-divider {
-    width: 100%; /* Full width */
-    height: 4px; /* Thickness of the line */
-    background-color: #FFC627; /* ASU Gold */
-    margin: 0px 0; /* Spacing above and below the line */
-    border-radius: 2px; /* Optional: Rounded edges for a polished look */
+    .tab-buttons {
+        gap: 8px;
+    }
 }
 
 /* Education Section */
@@ -1754,77 +1760,3 @@ footer .contact-links a:hover {
         padding: 15px;
     }
 }
-
-/* 1. Gold Divider Under Tab Headings */
-.tab-content h3 {
-    position: relative;
-    font-size: 2rem;
-    color: var(--asu-maroon);
-    font-weight: 700;
-    margin-bottom: 18px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-}
-.tab-content h3::after {
-    content: '';
-    display: block;
-    width: 60px;
-    height: 3px;
-    background: var(--asu-gold);
-    margin: 12px auto 18px auto;
-    border-radius: 2px;
-}
-
-/* 2. Icon Bullets for Experience Lists */
-.experience-list {
-    list-style: none;
-    padding: 0;
-    margin: 0 0 1em 0;
-}
-.experience-list li {
-    display: flex;
-    align-items: flex-start;
-    gap: 16px; /* Space between icon and text */
-    font-size: 1.08rem;
-    margin-bottom: 14px;
-    line-height: 1.7;
-    color: var(--dark-gray);
-    padding-left: 0; /* Remove extra padding */
-    position: relative;
-}
-.experience-list li i {
-    position: static; /* Remove absolute positioning */
-    font-size: 1.2em;
-    color: var(--asu-gold);
-    background: var(--asu-maroon);
-    border-radius: 50%;
-    padding: 0.25em 0.35em;
-    min-width: 2em;
-    text-align: center;
-    margin-right: 0; /* gap handles spacing */
-    transition: background 0.3s, color 0.3s;
-}
-.experience-list li:hover i {
-    background: var(--asu-gold);
-    color: var(--asu-maroon);
-}
-
-/* 3. Fade-in Animation for Tab Content */
-.tab-content {
-    animation: fadeInTab 0.6s;
-}
-@keyframes fadeInTab {
-    from { opacity: 0; transform: translateY(20px);}
-    to { opacity: 1; transform: none;}
-}
-
-/* 4. Highlighted Keywords/Phrases */
-.tab-content .highlight {
-    color: var(--asu-maroon);
-    background: var(--asu-gold);
-    padding: 2px 6px;
-    border-radius: 4px;
-    font-weight: bold;
-}
-
-
