@@ -93,6 +93,10 @@ body::before {
     z-index: -1;
 }
 
+body {
+    cursor: url('images/icons8-trident-64.png') 0 0, pointer;
+}
+
 .container {
     width: 90%;
     max-width: 1200px;
@@ -295,12 +299,15 @@ header nav ul li a:hover {
 }
 
 .section-divider {
-    width: 100%;
-    max-width: var(--max-width, 1200px);
+    width: auto;
     height: 4px;
     background: var(--asu-gold);
-    margin: 0 auto;
+    margin: 0;
     border-radius: 2px;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    transform: translateX(-50%);
 }
 /* Hero Section */
 #hero {
@@ -360,7 +367,7 @@ header nav ul li a:hover {
 
 .cta-button.secondary {
     background-color: var(--white);
-    color: var(--asu-maroon);
+    color: var (--asu-maroon);
 }
 
 .cta-button:hover {
@@ -845,11 +852,10 @@ header nav ul li a:hover {
 
 /* Education Grid */
 .education-grid {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: var(--spacing-gap-large);
-    justify-content: center;
-    margin-bottom: var(--spacing-gap-large);
+    justify-items: center;
 }
 
 /* Education Card */
@@ -888,7 +894,7 @@ header nav ul li a:hover {
 
 /* Education Card Images */
 .education-card img {
-    width: 25%;
+    width: 50%;
     height: auto;
     border-radius: var(--radius);
     margin-bottom: var(--spacing-gap-small);
@@ -1023,7 +1029,7 @@ header nav ul li a:hover {
 .certification-list h3,
 .award-list h3 {
     font-size: 2rem;
-    color: var(--asu-gold);
+    color: var (--asu-gold);
     text-transform: uppercase;
     letter-spacing: 1.5px;
     font-weight: bold;
