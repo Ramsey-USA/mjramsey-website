@@ -1255,11 +1255,13 @@ input[type="submit"],
 .tab-label:hover {
     color: var(--asu-maroon);
     transform: scale(1.05);
+    cursor: url('images/trident-cursor.png'), pointer;
 }
 .tab-label i:hover {
     background: var(--asu-maroon);
     color: var(--asu-gold);
     transform: scale(1.2);
+    cursor: url('images/trident-cursor.png'), pointer;
 }
 
 /* Testimonial Content */
@@ -1301,6 +1303,7 @@ input[type="submit"],
 .stars i {
     font-size: var(--font-size-icon);
     transition: transform var(--transition-normal), color var(--transition-normal);
+    cursor: pointer;
 }
 .stars i:hover {
     color: var(--gold-hover);
@@ -1349,6 +1352,7 @@ input[type="submit"],
     border-radius: var(--radius-small);
     box-shadow: var(--shadow-light);
     transition: background var(--transition-normal), transform var(--transition-normal), color var(--transition-normal);
+    cursor: url('images/trident-cursor.png'), pointer;
 }
 
 .contact-link i {
@@ -1363,6 +1367,7 @@ input[type="submit"],
     color: var(--asu-gold);
     transform: scale(1.08);
     box-shadow: var(--shadow-hover);
+    cursor: url('images/trident-cursor.png'), pointer;
 }
 
 .contact-link:hover i {
@@ -1400,10 +1405,10 @@ footer .contact-links a {
     color: var(--asu-gold);
     text-decoration: none;
     transition: color var(--transition-normal), transform var(--transition-normal);
+    cursor: url('images/trident-cursor.png'), pointer;
 }
 
 footer .contact-links a:hover {
     color: var(--white);
     transform: scale(1.08);
-    cursor: url('images/trident-cursor.png'), pointer;
 }
