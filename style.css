@@ -227,6 +227,54 @@ header nav ul li a:hover {
     .menu-toggle {
         display: block; /* Show toggle button */
     }
+
+    .container { width: 95%; }
+
+    header li { margin: 8px 0; width: 100%; text-align: center; }
+    header li a { display: block; padding: 5px 0; }
+
+    #hero h1 { font-size: 2.8em; }
+    #hero p { font-size: 1.3em; }
+    #hero .tagline { font-size: 1.1em; }
+
+    section h2 { font-size: 2.1em; margin-bottom: 35px; }
+
+    #skills .skills-grid { grid-template-columns: 1fr; }
+    #skills li { font-size: 1em; padding: 8px 15px; }
+
+    .job, .project, .education-item, .certification-list, .award-list { padding: 20px; }
+
+    .timeline-item:nth-child(odd),
+    .timeline-item:nth-child(even) { left: 0; text-align: center; }
+
+    .testimonial-tabs { flex-direction: column; }
+    .testimonial-content { margin-top: 20px; padding: 15px; }
+    .testimonial-grid { grid-template-columns: repeat(2, 1fr); }
+
+    .tab-buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+    .tab-content { padding: 15px; }
+    .tab-content h3 { font-size: 1.6rem; }
+    .tab-content p { font-size: 1.1rem; }
+    .tab-content ul li { font-size: 1rem; }
+    .tab-label { font-size: 1.1rem; }
+    .tab-label i { font-size: 1.8rem; padding: 8px 15px; }
+}
+
+/* Devices up to 480px */
+@media (max-width: 480px) {
+    .container { width: 98%; }
+    .testimonial-grid { grid-template-columns: 1fr; }
+    .tab-buttons { gap: 10px; }
+    .tab-content { padding: 10px; }
+    .tab-content h3 { font-size: 1.4rem; }
+    .tab-content p { font-size: 1rem; }
+    .tab-label { font-size: 1.1rem; }
+    .tab-label i { font-size: 1.8rem; padding: 8px 15px; }
+    .testimonial-content { padding: 15px; }
 }
 
 /* Section Headings */
@@ -771,54 +819,6 @@ header nav ul li a:hover {
     border-radius: 4px;
     font-weight: 600;
     font-size: 1.05em;
-}
-
-/* Responsive Enhancements */
-@media (max-width: 1024px) {
-    #experience {
-        padding: 60px 0 40px 0;
-    }
-    .tab-content {
-        padding: 20px 10px;
-    }
-    .tab-buttons {
-        gap: 10px;
-    }
-}
-
-@media (max-width: 768px) {
-    .tab-buttons {
-        flex-direction: column;
-        align-items: center;
-        gap: 15px;
-    }
-    .tab-content {
-        padding: 15px;
-    }
-    .tab-content h3 {
-        font-size: 1.6rem;
-    }
-    .tab-content p {
-        font-size: 1.1rem;
-    }
-    .experience-list li {
-        font-size: 1rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .tab-content {
-        padding: 10px;
-    }
-    .tab-content h3 {
-        font-size: 1.4rem;
-    }
-    .tab-content p {
-        font-size: 1rem;
-    }
-    .tab-buttons {
-        gap: 8px;
-    }
 }
 
 /* Education Section */
@@ -1391,65 +1391,6 @@ header nav ul li a:hover {
     transform: scale(1.2); /* Slight zoom effect */
 }
 
-/* Responsive Styles */
-@media (max-width: 768px) {
-    .testimonial-tabs {
-        flex-direction: column;
-    }
-    .testimonial-content {
-        margin-top: 20px;
-    }
-    .testimonial-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    .tab-buttons {
-        flex-direction: column;
-        align-items: center;
-        gap: 15px;
-    }
-    .tab-content {
-        padding: 15px;
-    }
-    .tab-content h3 {
-        font-size: 1.6rem;
-    }
-    .tab-content p {
-        font-size: 1.1rem;
-    }
-    .tab-content ul li {
-        font-size: 1rem;
-    }
-    .tab-label {
-        font-size: 1.1rem;
-    }
-    .tab-label i {
-        font-size: 1.8rem;
-        padding: 8px 15px;
-    }
-}
-
-/* Extra Small Devices */
-@media (max-width: 480px) {
-    .testimonial-grid {
-        grid-template-columns: 1fr;
-    }
-    .tab-buttons {
-        gap: 10px;
-    }
-    .tab-content {
-        padding: 10px;
-    }
-    .tab-content h3 {
-        font-size: 1.4rem;
-    }
-    .tab-content p {
-        font-size: 1rem;
-    }
-    .testimonial-content {
-        padding: 15px;
-    }
-}
-
 /* Contact Section */
 #contact {
     background: linear-gradient(135deg, #8C1D40, #FFC627); /* ASU Maroon to Gold gradient */
@@ -1543,373 +1484,4 @@ footer .contact-links a {
 footer .contact-links a:hover {
     color: #FFFFFF; /* White on hover */
     transform: scale(1.1); /* Slight zoom effect */
-}
-
-/* Basic Responsive */
-@media(max-width: 768px) {
-    header nav {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    header .logo {
-        margin-bottom: 15px;
-    }
-
-    header ul {
-        flex-direction: column;
-        align-items: center;
-        width: 100%;
-    }
-
-    header li {
-        margin: 8px 0;
-        width: 100%;
-        text-align: center;
-    }
-    header li a {
-        display: block;
-        padding: 5px 0;
-    }
-
-    #hero h1 {
-        font-size: 2.8em;
-    }
-
-    #hero p {
-        font-size: 1.3em;
-    }
-    #hero .tagline {
-        font-size: 1.1em;
-    }
-
-    section h2 {
-        font-size: 2.1em;
-        margin-bottom: 35px;
-    }
-
-    .container {
-        width: 95%;
-    }
-
-    #skills li {
-        font-size: 1em;
-        padding: 8px 15px;
-    }
-
-    .job, .project, .education-item, .certification-list, .award-list {
-        padding: 20px;
-    }
-
-    header nav, header ul {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    header ul {
-        width: 100%;
-    }
-
-    .menu-toggle {
-        display: block;
-    }
-
-    nav ul {
-        display: none;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    nav ul.active {
-        display: flex;
-    }
-
-    .timeline-item:nth-child(odd),
-    .timeline-item:nth-child(even) {
-        left: 0;
-        text-align: center;
-    }
-
-    .testimonial-grid {
-        grid-template-columns: repeat(2, 1fr); /* Two testimonials per row on smaller screens */
-    }
-}
-
-@media (max-width: 480px) {
-    .testimonial-grid {
-        grid-template-columns: 1fr; /* One testimonial per row on very small screens */
-    }
-}
-
-/* ===========================
-   Responsive Styles (Combined)
-   =========================== */
-@media (max-width: 768px) {
-    /* Header & Navigation */
-    header nav,
-    header nav ul,
-    header ul {
-        flex-direction: column;
-        align-items: center;
-        width: 100%;
-    }
-
-    header .logo {
-        margin-bottom: 15px;
-    }
-
-    header nav ul,
-    nav ul {
-        display: none;
-        flex-direction: column;
-        align-items: center;
-        background-color: rgba(140, 29, 64, 0.95);
-        width: 100%;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        padding: 10px 0;
-        box-shadow: 0 4px 8px var(--medium-overlay);
-    }
-
-    header nav ul.active,
-    nav ul.active {
-        display: flex;
-    }
-
-    header li {
-        margin: 8px 0;
-        width: 100%;
-        text-align: center;
-    }
-
-    header li a {
-        display: block;
-        padding: 5px 0;
-    }
-
-    .menu-toggle {
-        display: block;
-    }
-
-    /* Hero Section */
-    #hero h1 {
-        font-size: 2.8em;
-    }
-    #hero p {
-        font-size: 1.3em;
-    }
-    #hero .tagline {
-        font-size: 1.1em;
-    }
-
-    /* Section Headings */
-    section h2 {
-        font-size: 2.1em;
-        margin-bottom: 35px;
-    }
-
-    /* Containers */
-    .container {
-        width: 95%;
-    }
-
-    /* Skills Section */
-    #skills li {
-        font-size: 1em;
-        padding: 8px 15px;
-    }
-
-    /* Cards & Lists */
-    .job, .project, .education-item, .certification-list, .award-list {
-        padding: 20px;
-    }
-
-    /* Timeline */
-    .timeline-item:nth-child(odd),
-    .timeline-item:nth-child(even) {
-        left: 0;
-        text-align: center;
-    }
-
-    /* Testimonial Tabs & Content */
-    .testimonial-tabs {
-        flex-direction: column;
-    }
-    .testimonial-content {
-        margin-top: 20px;
-    }
-    .testimonial-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    /* Tab Buttons & Content */
-    .tab-buttons {
-        flex-direction: column;
-        align-items: center;
-        gap: 15px;
-    }
-    .tab-content {
-        padding: 15px;
-    }
-    .tab-content h3 {
-        font-size: 1.6rem;
-    }
-    .tab-content p {
-        font-size: 1.1rem;
-    }
-    .tab-content ul li {
-        font-size: 1rem;
-    }
-}
-
-/* Extra Small Devices */
-@media (max-width: 480px) {
-    /* Testimonial Grid */
-    .testimonial-grid {
-        grid-template-columns: 1fr;
-    }
-
-    /* Tab Buttons & Content */
-    .tab-buttons {
-        gap: 10px;
-    }
-    .tab-content {
-        padding: 10px;
-    }
-    .tab-content h3 {
-        font-size: 1.4rem;
-    }
-    .tab-content p {
-        font-size: 1rem;
-    }
-    .tab-label {
-        font-size: 1.1rem;
-    }
-    .tab-label i {
-        font-size: 1.8rem;
-        padding: 8px 15px;
-    }
-    .testimonial-content {
-        padding: 15px;
-    }
-}
-
-/* ===========================
-   Responsive Styles
-   =========================== */
-
-/* Devices up to 768px */
-@media (max-width: 768px) {
-    /* Header & Navigation */
-    header nav,
-    header nav ul,
-    header ul {
-        flex-direction: column;
-        align-items: center;
-        width: 100%;
-    }
-    header .logo {
-        margin-bottom: 15px;
-    }
-    header nav ul,
-    nav ul {
-        display: none;
-        flex-direction: column;
-        align-items: center;
-        background-color: rgba(140, 29, 64, 0.95);
-        width: 100%;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        padding: 10px 0;
-        box-shadow: 0 4px 8px var(--medium-overlay);
-    }
-    header nav ul.active,
-    nav ul.active {
-        display: flex;
-    }
-    header li {
-        margin: 8px 0;
-        width: 100%;
-        text-align: center;
-    }
-    header li a {
-        display: block;
-        padding: 5px 0;
-    }
-    .menu-toggle {
-        display: block;
-    }
-
-    /* Hero Section */
-    #hero h1 { font-size: 2.8em; }
-    #hero p { font-size: 1.3em; }
-    #hero .tagline { font-size: 1.1em; }
-
-    /* Section Headings */
-    section h2 {
-        font-size: 2.1em;
-        margin-bottom: 35px;
-    }
-
-    /* Containers */
-    .container { width: 95%; }
-
-    /* Skills Section */
-    #skills li {
-        font-size: 1em;
-        padding: 8px 15px;
-    }
-
-    /* Cards & Lists */
-    .job, .project, .education-item, .certification-list, .award-list {
-        padding: 20px;
-    }
-
-    /* Timeline */
-    .timeline-item:nth-child(odd),
-    .timeline-item:nth-child(even) {
-        left: 0;
-        text-align: center;
-    }
-
-    /* Testimonial Tabs & Content */
-    .testimonial-tabs { flex-direction: column; }
-    .testimonial-content { margin-top: 20px; padding: 15px; }
-    .testimonial-grid { grid-template-columns: repeat(2, 1fr); }
-
-    /* Tab Buttons & Content */
-    .tab-buttons {
-        flex-direction: column;
-        align-items: center;
-        gap: 15px;
-    }
-    .tab-content {
-        padding: 15px;
-    }
-    .tab-content h3 { font-size: 1.6rem; }
-    .tab-content p { font-size: 1.1rem; }
-    .tab-content ul li { font-size: 1rem; }
-    .tab-label { font-size: 1.1rem; }
-    .tab-label i {
-        font-size: 1.8rem;
-        padding: 8px 15px;
-    }
-}
-
-/* Devices up to 480px */
-@media (max-width: 480px) {
-    .container { width: 98%; }
-    .testimonial-grid { grid-template-columns: 1fr; }
-    .tab-buttons { gap: 10px; }
-    .tab-content { padding: 10px; }
-    .tab-content h3 { font-size: 1.4rem; }
-    .tab-content p { font-size: 1rem; }
-    .tab-label { font-size: 1.1rem; }
-    .tab-label i {
-        font-size: 1.8rem;
-        padding: 8px 15px;
-    }
-    .testimonial-content { padding: 15px; }
 }
