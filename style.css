@@ -29,6 +29,33 @@ body {
     background-attachment: fixed;
 }
 
+/* Parallax backgrounds for desktop */
+#hero,
+#about,
+#skills,
+#experience,
+#education,
+#certifications-awards,
+#testimonials {
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Parallax fallback for mobile devices */
+@media (max-width: 1024px) {
+    #hero,
+    #about,
+    #skills,
+    #experience,
+    #education,
+    #certifications-awards,
+    #testimonials {
+        background-attachment: scroll;
+    }
+}
+
 body::before {
     content: '';
     position: fixed;
@@ -94,17 +121,6 @@ section h2::after {
     background-color: var(--asu-maroon); /* ASU Maroon underline */
     margin: 10px auto 0; /* Centered underline */
     border-radius: 2px; /* Rounded edges for a polished look */
-}
-
-/* Exclude Hero, Main, and Contact Sections */
-#hero, #main, #contact {
-    background-color: rgba(52, 73, 94, 0.8); /* Keep their original styles */
-    color: #fff; /* Ensure text color remains readable */
-}
-
-/* Main Content Sections */
-main {
-    padding-top: 0;
 }
 
 /* Consolidated Heading Styles */
@@ -181,8 +197,9 @@ header nav ul li a {
 
 header nav ul li a:hover {
     color: var(--asu-gold); /* Change to ASU Gold on hover */
-    background-color: rgba(var(--white), 0.1); /* Add a subtle background highlight */
+    background-color: rgba(255, 255, 255, 0.12); /* Subtle white highlight */
     border-radius: 5px; /* Rounded corners for hover effect */
+    transition: background-color 0.3s, color 0.3s;
 }
 
 /* Mobile Menu Toggle */
@@ -488,6 +505,8 @@ header nav ul li a:hover {
 
 /* Hover Effect: Hide Icon and Show Percentage */
 .skill-icon:hover {
+    transform: translateY(-8px) scale(1.03) rotateZ(-5deg);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.18);
     color: transparent; /* Hide the icon text */
 }
 /* Percentage Display on Hover */
@@ -525,7 +544,6 @@ header nav ul li a:hover {
     content: '';
     position: absolute;
     inset: 0; /* Full overlay */
-    background: rgba(0, 0, 0, 0.6); /* Dark overlay for better text readability */
     z-index: 1; /* Ensure it stays behind the content */
 }
 
@@ -551,59 +569,98 @@ header nav ul li a:hover {
     z-index: 2; /* Ensure tabs are above other elements */
 }
 
-/* Tab Buttons */
-.tab-buttons {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-    margin-bottom: 20px;
-}
-
+/* Experience Tab Buttons - ASU Color Scheme */
 .tab-button {
     padding: 10px 20px;
     margin: 5px;
     font-size: 1rem;
     font-weight: bold;
     color: var(--asu-gold);
-    background: none;
+    background: transparent;
     border: 2px solid var(--asu-gold);
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
 }
 
 .tab-button.active {
     background-color: var(--asu-gold);
     color: var(--asu-maroon);
+    border-color: var(--asu-gold);
 }
 
-.tab-button:hover {
+.tab-button:hover,
+.tab-button:focus {
     background-color: var(--asu-maroon);
+    color: var(--asu-gold);
+    border-color: var(--asu-maroon);
+    outline: none;
+}
+
+/* Experience Tab Button Icons */
+.tab-button i {
+    margin-right: 10px;
+    font-size: 1.3em;
+    color: var(--asu-maroon);
+    vertical-align: middle;
+    transition: color 0.3s;
+}
+.tab-button.active i,
+.tab-button:hover i,
+.tab-button:focus i {
     color: var(--asu-gold);
 }
 
-/* Tab Content */
+/* Enhanced Tab Content Typography */
 .tab-content {
+    font-family: 'Roboto', 'Arial', sans-serif;
+    font-size: 1.15rem;
+    color: var(--dark-gray);
+    line-height: 1.9;
+    letter-spacing: 0.02em;
+    background: rgba(255,255,255,0.97);
+    border-radius: 8px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.10);
+    padding: 28px 28px 22px 28px;
+    animation: fadeInTab 0.6s;
     display: none;
-    padding: 20px;
-    background: rgba(255, 255, 255, 0.9);
     border: 1px solid var(--asu-gold);
-    border-radius: 5px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 32px 32px 28px 32px;
+    margin-bottom: 32px;
+    border-radius: 10px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.10);
+    background: rgba(255,255,255,0.97);
 }
 
 .tab-content.active {
     display: block !important; /* Force visibility */
 }
 
-/* Tab Content Items */
+@keyframes fadeInTab {
+    from { opacity: 0; transform: translateY(20px);}
+    to { opacity: 1; transform: none;}
+}
+
 .tab-content h3 {
+    position: relative;
     font-size: 1.8rem; /* Adjusted font size */
     color: var(--asu-maroon); /* ASU Maroon for headings */
-    margin-bottom: 15px; /* Add spacing below headings */
-    text-transform: uppercase; /* Consistent uppercase style */
     font-weight: bold; /* Make the heading bold */
+    margin-bottom: 15px; /* Add spacing below headings */
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-top: 0;
+    margin-bottom: 18px;
+}
+
+.tab-content h3::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: var(--asu-gold);
+    margin: 12px auto 18px auto;
+    border-radius: 2px;
 }
 
 .tab-content p {
@@ -611,6 +668,15 @@ header nav ul li a:hover {
     color: var(--dark-gray); /* Neutral text color */
     margin-bottom: 15px; /* Add spacing between paragraphs */
     line-height: 1.8; /* Improve readability */
+    margin: 0 0 12px 0;
+    font-size: 1.08rem;
+    line-height: 1.7;
+}
+
+.tab-content ul,
+.tab-content ol {
+    margin-left: 1.2em;
+    margin-bottom: 1em;
 }
 
 .tab-content ul {
@@ -619,19 +685,81 @@ header nav ul li a:hover {
     margin: 0; /* Remove margin */
 }
 
+.tab-content li,
 .tab-content ul li {
-    font-size: 1.1rem; /* Adjusted font size */
-    color: var (--dark-gray); /* Neutral text color */
-    margin-bottom: 10px; /* Add spacing between list items */
-    display: flex; /* Align icon and text horizontally */
-    align-items: center; /* Vertically align icon and text */
-    gap: 10px; /* Space between icon and text */
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    line-height: 1.7;
+    position: relative;
+    padding-left: 1.2em;
+    color: var(--dark-gray);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.tab-content li::before {
+    content: "•";
+    color: var(--asu-gold);
+    position: absolute;
+    left: 0;
+    font-size: 1.2em;
+    line-height: 1;
 }
 
 .tab-content ul li i {
     font-size: 1.5rem; /* Icon size */
     color: var(--asu-gold); /* ASU Gold for icons */
     margin-right: 10px; /* Add spacing between icon and text */
+}
+
+.tab-content .date {
+    margin-bottom: 18px;
+    color: var(--asu-maroon);
+    font-weight: bold;
+    font-size: 1rem;
+    letter-spacing: 1px;
+}
+
+.experience-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1em 0;
+}
+.experience-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px; /* Space between icon and text */
+    font-size: 1.08rem;
+    margin-bottom: 14px;
+    line-height: 1.7;
+    color: var(--dark-gray);
+    padding-left: 0; /* Remove extra padding */
+    position: relative;
+}
+.experience-list li i {
+    position: static; /* Remove absolute positioning */
+    font-size: 1.2em;
+    color: var(--asu-gold);
+    background: var(--asu-maroon);
+    border-radius: 50%;
+    padding: 0.25em 0.35em;
+    min-width: 2em;
+    text-align: center;
+    margin-right: 0; /* gap handles spacing */
+    transition: background 0.3s, color 0.3s;
+}
+.experience-list li:hover i {
+    background: var(--asu-gold);
+    color: var(--asu-maroon);
+}
+.experience-list li:last-child {
+    margin-bottom: 0;
+}
+
+/* Remove default bullet for experience-list items */
+.experience-list li::before {
+    content: none;
 }
 
 /* Responsive Styles */
@@ -833,7 +961,7 @@ header nav ul li a:hover {
 
 .modal-content p {
     font-size: 1.2rem; /* Standard font size for readability */
-    color: var(--dark-gray); /* Neutral text color */
+    color: var (--dark-gray); /* Neutral text color */
     margin-bottom: 15px; /* Add spacing between paragraphs */
     line-height: 1.8; /* Improve readability */
 }
@@ -1471,6 +1599,232 @@ footer .contact-links a:hover {
     .testimonial-grid {
         grid-template-columns: 1fr; /* One testimonial per row on very small screens */
     }
+}
+
+/* ===========================
+   Responsive Styles (Combined)
+   =========================== */
+@media (max-width: 768px) {
+    /* Header & Navigation */
+    header nav,
+    header nav ul,
+    header ul {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    header .logo {
+        margin-bottom: 15px;
+    }
+
+    header nav ul,
+    nav ul {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        background-color: rgba(140, 29, 64, 0.95);
+        width: 100%;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        padding: 10px 0;
+        box-shadow: 0 4px 8px var(--medium-overlay);
+    }
+
+    header nav ul.active,
+    nav ul.active {
+        display: flex;
+    }
+
+    header li {
+        margin: 8px 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    header li a {
+        display: block;
+        padding: 5px 0;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    /* Hero Section */
+    #hero h1 {
+        font-size: 2.8em;
+    }
+    #hero p {
+        font-size: 1.3em;
+    }
+    #hero .tagline {
+        font-size: 1.1em;
+    }
+
+    /* Section Headings */
+    section h2 {
+        font-size: 2.1em;
+        margin-bottom: 35px;
+    }
+
+    /* Containers */
+    .container {
+        width: 95%;
+    }
+
+    /* Skills Section */
+    #skills li {
+        font-size: 1em;
+        padding: 8px 15px;
+    }
+
+    /* Cards & Lists */
+    .job, .project, .education-item, .certification-list, .award-list {
+        padding: 20px;
+    }
+
+    /* Timeline */
+    .timeline-item:nth-child(odd),
+    .timeline-item:nth-child(even) {
+        left: 0;
+        text-align: center;
+    }
+
+    /* Testimonial Tabs & Content */
+    .testimonial-tabs {
+        flex-direction: column;
+    }
+    .testimonial-content {
+        margin-top: 20px;
+    }
+    .testimonial-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Tab Buttons & Content */
+    .tab-buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+    .tab-content {
+        padding: 15px;
+    }
+    .tab-content h3 {
+        font-size: 1.6rem;
+    }
+    .tab-content p {
+        font-size: 1.1rem;
+    }
+    .tab-content ul li {
+        font-size: 1rem;
+    }
+}
+
+/* Extra Small Devices */
+@media (max-width: 480px) {
+    /* Testimonial Grid */
+    .testimonial-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Tab Buttons & Content */
+    .tab-buttons {
+        gap: 10px;
+    }
+    .tab-content {
+        padding: 10px;
+    }
+    .tab-content h3 {
+        font-size: 1.4rem;
+    }
+    .tab-content p {
+        font-size: 1rem;
+    }
+    .tab-label {
+        font-size: 1.1rem;
+    }
+    .tab-label i {
+        font-size: 1.8rem;
+        padding: 8px 15px;
+    }
+    .testimonial-content {
+        padding: 15px;
+    }
+}
+
+/* 1. Gold Divider Under Tab Headings */
+.tab-content h3 {
+    position: relative;
+    font-size: 2rem;
+    color: var(--asu-maroon);
+    font-weight: 700;
+    margin-bottom: 18px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+.tab-content h3::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: var(--asu-gold);
+    margin: 12px auto 18px auto;
+    border-radius: 2px;
+}
+
+/* 2. Icon Bullets for Experience Lists */
+.experience-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1em 0;
+}
+.experience-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px; /* Space between icon and text */
+    font-size: 1.08rem;
+    margin-bottom: 14px;
+    line-height: 1.7;
+    color: var(--dark-gray);
+    padding-left: 0; /* Remove extra padding */
+    position: relative;
+}
+.experience-list li i {
+    position: static; /* Remove absolute positioning */
+    font-size: 1.2em;
+    color: var(--asu-gold);
+    background: var(--asu-maroon);
+    border-radius: 50%;
+    padding: 0.25em 0.35em;
+    min-width: 2em;
+    text-align: center;
+    margin-right: 0; /* gap handles spacing */
+    transition: background 0.3s, color 0.3s;
+}
+.experience-list li:hover i {
+    background: var(--asu-gold);
+    color: var(--asu-maroon);
+}
+
+/* 3. Fade-in Animation for Tab Content */
+.tab-content {
+    animation: fadeInTab 0.6s;
+}
+@keyframes fadeInTab {
+    from { opacity: 0; transform: translateY(20px);}
+    to { opacity: 1; transform: none;}
+}
+
+/* 4. Highlighted Keywords/Phrases */
+.tab-content .highlight {
+    color: var(--asu-maroon);
+    background: var(--asu-gold);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-weight: bold;
 }
 
 
